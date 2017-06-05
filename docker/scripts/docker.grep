@@ -1,0 +1,7 @@
+FROM debug/grep
+ENV SUBJECT grep
+RUN sudo apt-get install -y gdb valgrind
+ADD scripts/prepareVM.sh .
+RUN ./prepareVM.sh $SUBJECT
+RUN rm -rf /root/corerepo && rm /*.m4 && rm prepareVM.sh
+WORKDIR /root/Desktop

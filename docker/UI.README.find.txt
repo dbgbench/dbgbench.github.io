@@ -1,0 +1,46 @@
+Make sure to set up the infrastructure and your favorite debuggers ahead of the study!
+* First, follow instructions on 'installation and setup'
+* Check whether your debugging tool or IDE works with our source code!
+* Check whether the links to the questionnaires work (/root/Desktop/find*/readme.txt).
+
+_________________________
+HOW TO ACCESS THE DESKTOP
+* Install VNC Viewer: https://www.realvnc.com/download/viewer/
+** Execute './run.sh find'
+** Note down the VNC Viewer address.
+** Install editors: 'apt-get update; apt-get install -y gedit; wget --no-check-certificate https://raw.githubusercontent.com/TCattd/sublime-text-linux-installer/master/st3install && chmod +x st3install && ./st3install'
+** Start VNC Viewer from your Desktop 
+** Use the VNC Viewer address from './run.sh find' 
+** Password: corebench
+_______________
+TROUBLESHOOTING
+* If you cannot connect to VNCViewer, run on host: 'docker inspect debugstudy0 | grep IPAddress', add port 5900
+* If you get "Error response from daemon: Conflict" run 'docker restart debugstudy0'
+* If you installed Docker on an Ubuntu Host and cannot set breakpoints,
+** Copy sources and binaries to the HOST machine:
+mkdir source
+for i in $(seq 1 14); do docker cp debugstudy0:/root/Desktop/find$i source; done
+* If you have other images running when switching between subjects, execute "docker images" to
+obtain the ids of all images, find which "debugstudy" or "debug/grep" images that may need 
+to be removed.
+_________________________
+HOW TO INSTALL ECLIPSE IDE
+* Install Java: apt-get update; apt-get install -y default-jre
+* Download Eclipse: https://eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/mars/1/eclipse-cpp-mars-1-linux-gtk-x86_64.tar.gz
+* Unzip Eclipse: tar -zxvf eclipse-cpp-mars-1-linux-gtk-x86_64.tar.gz
+* Open Eclipse and choose 'Import from Makefile' for any one error.
+* Check out: http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.cdt.doc.user%2Ftasks%2Fcdt_t_debug_exes.htm
+
+_________
+DEBUGGING
+* Find buggy binary in /root/Desktop/find*/find/find/find
+* Find buggy source in /root/Desktop/find*/find/find/*.c
+* Find link to questionaire and instructions in /root/Desktop/find*/readme.txt
+* EACH ERROR HAS ITS OWN LINK!
+* Solve at least 11 of 14 bugs in total 8 hours.
+
+* Write down the time, you spend debugging each error! 
+* If you can't figure it out, you can pause for this error, go to another one, and resume later.
+* We suggest to use the debugger to step through the buggy execution and understand the source code.
+* We suggest to fix the 4 segmentation faults first
+* Most bugs can be localized in parser.c, ftsfind.c, pred.c, find.c, and exec.c
