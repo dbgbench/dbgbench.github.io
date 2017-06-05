@@ -8,7 +8,7 @@ How do professional software engineers debug computer programs? In an experiment
 <a href="#cite">Cite DBGBench</a><br/>
 <a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/abstract.pdf"><img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/abstract.png" alt="DBGBench Abstract" style="width: 300px;"/></a></p>
 
-<p align="center"><img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/mainobjective.png" alt="Main Objectives" width="90%" /></p>
+<p align="center"><img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/mainobjective.png" alt="Main Objectives" width="100%" /></p>
 
 ## DBGBench
 In the following we provide the complete list of errors and their average debugging time, difficulty, and patch correctness, with human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time. For each error, we also provide the commit introducing the error, the simplified and original bug report, the fault locations, and the submitted and original patches.
