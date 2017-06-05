@@ -25,6 +25,7 @@ In the following we provide the complete list of errors and their average debugg
 * Download the <a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/questionaire.pdf" target="_blank">example questionnaire</a>.
 * Download the <a href="https://github.com/dbgbench/dbgbench.github.io/tree/master/docker" target="_blank">Docker virtual infrastructure</a>.
 * Download the <a href="https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U" target="_blank">tutorial material</a>, including slides, videos, and readme files.
+* Read out [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH.
 * Read our extended <a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/abstract.pdf" target="_blank">abstract</a> or <a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
 
 
