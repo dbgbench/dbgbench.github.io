@@ -1,0 +1,9 @@
+If find is set to search a directory containing a symbolic link that references an ancistor directory and if find is set to follow symlinks (-follow),
+then it runs indefinitely. The global variable dir_ids tracks the directories that have already been visited. The function process_path would
+correctly exit with a loop warning (find.c:1428-1434) if the current directory (in stat buf) has already been visited. However, after the
+current directory is correctly added to those that have already been visited (find.c:1442), the same entry is overriden with uninitialized
+values (find.c:1621) such that the current directory is never marked as already visited. Examples of Correct Fixes: 1) Remember
+whether stat() has been called. If not done, call stat() before overriding dir_ids[dir_curr] at find/find.c:1621. 2) Always stat() before overriding
+dir_ids[dir_curr] at find/find.c:1621 such that statbuf is initialized. 3) Only overwrite dir_ids[dir_curr] if statbuf is initialized. Examples of
+Incorrect Fixes: 1) Never override dir_ids[dir_curr] (Regression because it isn’t overridden when it should be). 2) Follow links to a maximum
+depth of 1 (Regression because symlinks might need to be followed to an arbitrary depth).

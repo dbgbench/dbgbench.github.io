@@ -1,0 +1,13 @@
+There are two errors: 1) If find is set to search for files that were changed in the last n days but n is not a number (-ctime x), then find
+complains about a ”missing” argument instead of reporting the ”incorrect” argument. Function parse_time calls collect_args to assign the current
+argument argv[*arg_ptr] to timearg and increment the argument pointer arg_ptr (parser.c:3102). When timearg is failed to be parsed as a
+number, parse_time returns without decrementing arg_ptr (parser.c:3127-3128). When the error is reported (tree.c:1248-1271),
+the argument pointer points to NULL directly after the incorrect argument (tree.c:1250), such that the error is reported as missing
+argument instead of invalid argument. 2) If find is set to search for files belonging to a certain group but the group-id is not specified or not a
+number (-gid x), then find crashes with a segmentation fault. When the argument following the -gid option is being parsed (parser.c:913),
+insert num returns NULL because argv[*arg_ptr] is NULL or not a number (parser.c:3235-3259). This nullpointer remains unchecked
+and is dereferenced leading to a segmentation fault (parser.c:914). When nullpointer dereference is fixed the same symptom is observed
+for -gid as for -ctime because the argument pointer is also forgot to be decremented. Examples of Correct Fixes: For first error, 1)
+decrement/restore arg_ptr when parsing of second argument of an option fails or 2) use copy of old argument during error-reporting. For
+second error, add null pointer check. Example of Incorrect Fix: For first error, decrement argument pointer before even calling parse_time
+(Regression because even correct arguments are reported as incorrect ones).

@@ -1,0 +1,8 @@
+If find is set to search a directory containing a symbolic link, to not follow any symbolic links (except for those specified on the command
+line; -H), and to print only symbolic links (-type l), then find does not print the link. The root cause is that state.cur depth is used before
+it is set. When digest mode checks whether to follow symlinks (util.c:629), state.curdepth is still 0 (util.c:607), so that mode are
+incorrectly set to follow symlinks (util.c:630-636). Only later state.curdepth is set (ftsfind.c:230). Because of the incorrect value
+of mode, it is incorrectly decided not to print the file (pred.c:1749). Example of Correct Fix: Move state.curdepth assignment to shortly
+before digest mode is called. Examples of Incorrect Fixes: 1) Change check to match incorrect value (0) of state.curdepth (Treating the
+Symptom). 2) Force stat() to be called such that stat information is available (Incorrect Workaround because stat() is not supposed to be called
+on symlink loops).

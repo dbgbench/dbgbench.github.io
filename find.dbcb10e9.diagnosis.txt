@@ -1,0 +1,6 @@
+If find is set to print all files that are exactly 2 days old (-mtime 2), it crashes with a segmentation fault. Variable **pend is defined as pointer
+pointer (parser.c:2739) and expected to be allocated when xstrtoumax is called (parser.c:2759). However, it is still NULL after the
+call such that the null pointer check for pend* is itself a null pointer dereference (parser.c:2762). Examples of Correct Fixes: 1) Add
+null pointer check for pend. 2) Change definition of **pend to *pend and update references. 3) Allocate memory for **pend. Examples
+of Incorrect Fixes: 1) Remove code containing null pointer dereference (Treating the Symptom). 2) Change the check involving **pend
+(Treating the Symptom because the nullpointer is still dereferenced, only the program does not crash).

@@ -1,0 +1,6 @@
+If find is set to search for files (-type f) while following symbolic links (-L) and a symbolic link loop exists, then it still prints the looping
+links while an error message is expected. If a symbolic link loop exists, no stat information is available and the flag FTS_NS is set
+(ftsfind.c:586). The flag is not properly handled (ftsfind.c:431-446) so that the links are printed (pred.c:1459). Example of
+Correct Fix: Handle FTS_NS as error IF symlink loop. Examples of Incorrect Fixes: 1) Handle FTS_NS as error independent of whether
+it is a symlink loop (Regression because FTS_NS alone does not indicate an error). 2) Handle all flags as error (Regression because not all
+flags indicate errors).

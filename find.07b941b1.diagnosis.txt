@@ -1,0 +1,5 @@
+If find is set to search for file matching a regular expression (-regex ’.*’), the argument pointer arg_ptr is incremented (parser.c:1644)
+before it is used (parser.c:1645) which results in a nullpointer dereference (parser.c:926). Examples of Correct Fixes: 1) Increment
+arg_ptr *after* argv[*arg_ptr] is read. 2) Save the previous value of argv[*arg_ptr] in a temporary variable and use this one. Examples of
+Incorrect Fixes: 1) Do not increment arg_ptr at all (Regression because other arguments may not be parsed at all). 2) Add null-pointer check
+(Incomplete Fix because estimate pattern match is still called with a nullpointer).
