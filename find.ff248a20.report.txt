@@ -1,0 +1,11 @@
+infinite loop with -follow.
+
+$ mkdir testingfindagain 
+$ ln -s . testingfindagain/symlink 
+$ ./find testingfindagain -follow 
+will generate an endless loop. (For testing I suggest piping into head -c 200, otherwise you might trigger OOM) 
+
+The expected output is
+./find: Symbolic link `testingfindagain/symlink' is part of a loop in the directory hierarchy; we have already visited the directory to which it points. 
+testingfindagain 
+testingfindagain/symlink 

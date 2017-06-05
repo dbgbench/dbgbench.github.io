@@ -1,0 +1,6 @@
+-mtime produces segmentation fault
+
+find -mtime allows to search for files according to their age, less than n (-n), exactly n (n), or more than n (+n) days old. However, this version aborts and shows "segmentation fault".
+
+$ ./find -mtime 2
+Segmentation fault

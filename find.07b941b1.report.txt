@@ -1,0 +1,9 @@
+find segfaults when using -regex
+
+For instance, finding every file/directory using -regex
+$ ./find -regex '.*'
+Segmentation Fault
+
+For instance, find every file/directory that contains an 'a'
+$ ./find -regex '.a'
+Segmentation Fault

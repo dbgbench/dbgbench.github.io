@@ -1,0 +1,18 @@
+-L breaks -execdir
+
+Lets say, we create a file 'b' in a directory 'a'.
+$ mkdir a
+$ touch a/b
+
+If we execute the following, we what I would expect
+$ ./find a -name b -execdir ls {} \;
+./b
+
+However, if I also ask find to follow symlinks, it breaks:
+$ ./find -L a -name b -execdir ls {} \;
+./a/b
+
+Of course, I would expect the same behavior as without symlinks.
+$ ./find -L a -name b -execdir ls {} \;
+./b
+

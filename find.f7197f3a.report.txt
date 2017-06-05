@@ -1,0 +1,9 @@
+%AX format causes a crash in some locales (including en_HK)
+
+LC_ALL="en_HK" find . -maxdepth 0 -printf '%AX [%p] \n'
+
+It may also crash for 
+ja_JP.UTF-8, 
+ru_RU.koi8r,
+ja_JP.sjis, and
+zh_CN

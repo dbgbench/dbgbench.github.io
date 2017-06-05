@@ -1,0 +1,24 @@
+segfault: -neweraa without a following argument
+
+$ ./find -neweraa 
+Segmentation fault (core dumped) 
+
+Instead it should print
+$ ./find -neweraa 
+./find: The `-neweraa' test needs an argument
+
+The same problem is observed for
+$ ./find -newercc
+Segmentation fault (core dumped) 
+$ ./find -newermm 
+Segmentation fault (core dumped) 
+
+
+Here's an excerpt of the manual
+-newerXY reference
+Succeeds if timestamp X of the file being considered is newer than timestamp Y of the file reference. The letters X and Y can be any of the following letters:
+a   The access time of the file reference
+B   The birth time of the file reference
+c   The inode status change time of reference
+m   The modification time of the file reference
+t   reference is interpreted directly as a time

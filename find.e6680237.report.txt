@@ -1,0 +1,16 @@
+find -execdir does not change working directory
+
+Lets say, we create the following directory structure:
+$ mkdir -p /tmp/{foo,bar,baz}/bug
+
+If I search for all directories in /tmp containing a folder called bug and execute pwd, I get the following output:
+$ ./find /tmp -name bug -execdir pwd \;
+/tmp/bar
+/tmp/bar
+/tmp/bar
+
+Instead, I would expect in some order the names of all three folders containing the bug-folder
+$ ./find /tmp -name bug -execdir pwd \;
+/tmp/bar
+/tmp/foo
+/tmp/baz

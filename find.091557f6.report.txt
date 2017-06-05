@@ -1,0 +1,16 @@
+assertion failure on symbolic link loop
+
+Let's say we accidentally create a symlink loop
+$ mkdir tmp; cd tmp
+$ ln -s a b
+$ ln -s b a
+
+and use find to find files and follow symlinks inside the tmp-folder.
+$ ../find -L -type f
+assertion "state.type != 0" failed: file "../../findutils/find/pred.c", line 1582, function "pred_type" 
+Abort trap (core dumped) 
+
+Find without '-type f' and/or '-L' does not abort printing:
+.
+./b
+./a

@@ -1,0 +1,15 @@
+'find' leaks a file descriptor for the working directory specified by the -execdir option.
+
+Lets limit the maximum number of open file descriptors to 30.
+$ ulimit -n 30
+
+and create a tmp directory with >100 files:
+$ mkdir tmp; cd tmp
+$ mkdir one two
+$ for i in $(seq 1 100); do touch $i one/$i two/$i; done
+
+If I execute find with execdir option, it aborts complaining about too many files:
+$ ../find . -execdir ls '{}' \; > /dev/null
+../find: Failed to save working directory in order to run a command on '89': Too many open files
+
+Apparently, find uses up *a lot* of file descriptors.

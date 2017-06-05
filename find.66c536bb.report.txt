@@ -1,0 +1,22 @@
+find -mtime [+-n]" is broken  (behaves as "-mtime n")
+
+find -mtime allows to find file according to their age. However, this version interprets -mtime -n and +n in the same way. But it should interpret find -mtime -n as finding files that are *strictly less* than n days old and find -mtime +n as finding files that are *strictly more* than n days old.
+
+Lets say we created one file each day in the last 3 days in directory tmp:
+$ mkdir tmp
+$ touch tmp/a -t $(date --date="today" +"%y%m%d%H%M")
+$ touch tmp/b -t $(date --date="yesterday" +"%y%m%d%H%M")
+$ touch tmp/c -t $(date --date="2 days ago" +"%y%m%d%H%M")
+$ touch tmp/d -t $(date --date="3 days ago" +"%y%m%d%H%M")
+
+If we run the following, we would expect this output
+$ ./find tmp -mtime -2
+tmp
+tmp/a
+tmp/b
+
+However, I actually get this output
+$ ./find tmp -mtime -2
+tmp/c
+
+Results are the same if I replace -n with +n, or just n (in which case the results are correct).

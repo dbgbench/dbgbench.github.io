@@ -1,0 +1,24 @@
+find -H/-L symlink_to_dir reports "Too many levels of symbolic links"
+
+Lets say we have the following directory structure
+$ mkdir dir 
+$ ln -s dir link 
+$ touch dir/file 
+
+Executing find on the linked directory not follow symbolic links (-H)
+$ ./find -H link 
+link 
+./find: link: Too many levels of symbolic links 
+
+This happens also if find is asked to follow symbolic links (-L)
+$ ./find -L link 
+link 
+./find: link: Too many levels of symbolic links 
+
+However, it should actually show:
+$ ./find -H link 
+link 
+link/file 
+$ ./find -L link 
+link 
+link/file 

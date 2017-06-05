@@ -1,0 +1,14 @@
+find -H seems to incorrectly follow symbolic links in some cases
+
+$ mkdir tempdir
+$ ln -s / tempdir/symlink
+
+If we specify to not *follow* symlinks but only show symlinks, it won't show the symlink.
+$ ./find -H tempdir -type l
+(prints nothing)
+
+However, it should print:
+$ ./find -H tempdir -type l
+/tmp/tempdir/symlink
+
+It works correctly if only '-H' or only '-type l' is specified.

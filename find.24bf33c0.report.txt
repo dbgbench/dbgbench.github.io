@@ -1,0 +1,12 @@
+find does not report symlink loop when trying to follow symlinks
+
+$ ln -s a b 
+$ ln -s b a 
+$ ./find -L a/foo 
+a/foo 
+
+I would expect something like:
+$ ./find -L a/foo 
+./find: `a/foo': Too many levels of symbolic links
+
+Here find is reporting that a file called a/foo exists, which is obviously not the case. 

@@ -1,0 +1,21 @@
+find -printf '%H %P' misbehaves with multiple paths
+
+When asking find to show the starting-point under which file was found (%H) followed by the file's name with the name of the starting-point under which it was found removed (%P), it computes the "starting-point" for the second directory incorrectly.
+
+Example: 
+$ mkdir dir1 
+$ mkdir directory2 
+$ touch dir1/foo 
+$ touch directory2/bar 
+$ ./find dir1 directory2 -printf '%H %P\n' 
+dir1 
+dir1 foo 
+dire 
+dire ctory2/bar 
+
+The expected output is: 
+$ ./find dir1 directory2 -printf '%H %P\n' 
+dir1 
+dir1 foo 
+directory2 
+directory2 bar 

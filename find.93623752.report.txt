@@ -1,0 +1,23 @@
+Invalid parameters are flagged as missing parameters, and sometimes it segmentation faults.
+
+-ctime n requires that the file's status was last changed n*24 hours ago.
+-gid n requires that the file's numeric group ID is n.
+
+$ ./find -ctime x
+./find: missing argument to `-ctime'
+(This should complain about an invalid argument for -ctime.)
+
+$ ./find -ctime x -gid x
+./find: invalid argument `-gid' to `-ctime'
+This should complain about an invalid argument for -ctime.
+
+$ ./find -gid x -ctime 2
+Segmentation fault
+This should complain about an invalid argument for -gid.
+
+$ ./find -gid -ctime 2
+Segmentation fault
+This should complain about an missing argument for -gid.
+
+
+
