@@ -8,13 +8,18 @@ How do professional software engineers debug computer programs? In an experiment
 
 <p align="center"><img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/mainobjective2.png" alt="Main Objectives" width="90%" /></p>
 
-   | Regression | Bug    | Fault     | Bug       |       |
-ID | Commit     | Report | Locations | Diagnosis | Patch |
-----------------------------------------------------------
-1  | abcdefg    | Simple | Locations | Diagnosis | Practitioners' |
-   |            | Original|          |           | Developers'    |
----
-2  | abcdefg    | Simple | Locations | Diagnosis | Practitioners' |
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+
+
+| <br/>**ID** | **Regression** | **Bug<br/>Report** | **Fault<br/>Locations<br/>** | **Bug<br/>Diagnosis** | <br/>**Patch** |
+| -- | -- | -- | -- | -- | -- |
+| find.24e2271e | Commit | Simple<br/>Original | Locations | Diagnosis | Practitioners'<br/>Developers' |
+
 
 ## <a name="use"></a>How to Use?
 
