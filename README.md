@@ -1,17 +1,19 @@
 ## Summary
 How do professional software engineers debug computer programs? In an experiment with 27 real bugs that existed in several widely used programs, we invited 12 professional software engineers, who together spent one month on localizing, explaining, and fixing these bugs. This did not only allow us to study the various tools and strategies used to debug the same set of errors. We could also determine exactly which statements a developer would localize as faults, how a developer would diagnose and explain an error, and how a developer would fix an error – all of which software engineering researchers seek to automate. Until now, it has been difficult to evaluate the effectiveness and utility of automated debugging techniques without a user study. We publish the collected data, called DBGBENCH, to facilitate the effective evaluation of automated fault localization, diagnosis, and repair techniques w.r.t. the judgement of human experts.
 
-<p style="position:fixed; left: 50%; top: 255px; transform: translate(-635px, 0%); width: 300px; padding: 0px">
+<p style="position:fixed; left: 50%; top: 200px; transform: translate(-635px, 0%); width: 300px; padding: 0px">
+<a href="#find">DBGBench (find)</a><br/>
+<a href="#grep">DBGBench (grep)</a><br/>
 <a href="#use">Use DBGBench</a><br/>
 <a href="#cite">Cite DBGBench</a><br/>
 <a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/abstract.pdf"><img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/abstract.png" alt="DBGBench Abstract" style="width: 300px;"/></a></p>
 
 <p align="center"><img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/mainobjective.png" alt="Main Objectives" width="90%" /></p>
 
-# DBGBench
+## DBGBench
 In the following we provide the complete list of errors and their average debugging time, difficulty, and patch correctness, with human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time. For each error, we also provide the commit introducing the error, the simplified and original bug report, the fault locations, and the submitted and original patches.
 
-## GNU Findutils
+### <a name="find"></a>GNU Findutils
 GNU [findutils](https://www.gnu.org/software/findutils/) offers basic file searching utilities to search the systems directories of GNU and Unix-based computers. 
 
 | Descriptive Statistics &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Benchmark Details  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
@@ -31,7 +33,7 @@ GNU [findutils](https://www.gnu.org/software/findutils/) offers basic file searc
 | **<a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/benchmark.pdf" target="_blank">[find.e6680237]</a>**<br/>*Error Type*: Functional Bug<br/>*Avg. Time*: 76.4 min<br/>*Explanation*: Moderately difficult<br/>*Patching*: Moderately difficult<br/>*Correctness*: 27%| *Regression*: <a href="http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=7dc70069a3095a42eadb22b24cb9260c243aff8f" target="_blank">Developer</a><br/>*Bug Report*: <a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/find.e6680237.report.txt" target="_blank">Simple</a>, [Original](http://savannah.gnu.org/bugs/?29949)<br/>*Fault Locations*: Participants<br/>*Bug Diagnosis*: <a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/find.e6680237.diagnosis.txt" target="_blank">Participants</a><br/>*Patches*: Participants <a href="http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=e66802375963941b3b54a0e038d18eccde449e14" target="_blank">Developer</a><br/>*Tests*: Researcher |
 | **<a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/benchmark.pdf" target="_blank">[find.e1d0a991]</a>**<br/>*Error Type*: Functional Bug<br/>*Avg. Time*: 88.2 min<br/>*Explanation*: Very difficult<br/>*Patching*: Very difficult<br/>*Correctness*: 17%| *Regression*: <a href="http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=f0759ab8db9cab16699fba45fa6117ef06620194" target="_blank">Developer</a><br/>*Bug Report*: <a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/find.e1d0a991.report.txt" target="_blank">Simple</a>, [Original](http://savannah.gnu.org/bugs/?27563)<br/>*Fault Locations*: Participants<br/>*Bug Diagnosis*: <a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/find.e1d0a991.diagnosis.txt" target="_blank">Participants</a><br/>*Patches*: Participants <a href="http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=e1d0a991e96ee164d74579efc027b09336e50c79" target="_blank">Developer</a><br/>*Tests*: Researcher |
 
-## GNU Grep
+### <a name="grep"></a> GNU Grep
 GNU [grep](https://www.gnu.org/software/grep/manual/grep.html) is a command-line utility for searching plain-text data sets for lines that match a regular expression.
 
 | Descriptive Statistics &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Benchmark Details  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
