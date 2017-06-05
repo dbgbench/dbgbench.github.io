@@ -4,4 +4,4 @@ How do professional software engineers debug computer programs? In an experiment
 
 <a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/abstract.pdf"><img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/abstract.png" alt="DBGBench Abstract" style="width: 300px;"/></a></p>
 
-![Main Objectives](https://github.com/dbgbench/dbgbench.github.io/raw/master/mainobjective.png)
+<img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/mainobjective.png" width=80% />
