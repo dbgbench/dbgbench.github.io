@@ -8,10 +8,13 @@ How do professional software engineers debug computer programs? In an experiment
 
 <p align="center"><img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/mainobjective.png" alt="Main Objectives" width="90%" /></p>
 
-| <br/>**ID** | **Regression** | **Bug<br/>Report** | **Fault<br/>Locations<br/>** | **Bug<br/>Diagnosis** | <br/>**Patch** |
-| -- | -- | -- | -- | -- | -- |
-| [find.24e2271e](https://github.com/dbgbench/dbgbench.github.io/raw/master/benchmark.pdf)<br/>Error Type: Functional Bug<br/>Avg. Time: 13.8 min<br/>Explanation: Slightly difficult<br/>Patching: Slightly difficult<br/>Correctness: 75%| <br/>[Commit](http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=f0759ab8db9cab16699fba45fa6117ef06620194) | Simple<br/>Original | <br/>Locations | <br/>Diagnosis | Pract.<br/>Devel. |
+| Descriptive Statistics | Benchmark Details |
+| -- | -- |
+| **[find.24e2271e](https://github.com/dbgbench/dbgbench.github.io/raw/master/benchmark.pdf)**<br/>*Error Type*: Functional Bug<br/>*Avg. Time*: 13.8 min<br/>*Explanation*: Slightly difficult<br/>*Patching*: Slightly difficult<br/>*Correctness*: 75% | *Regression*: [Commit](http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=f0759ab8db9cab16699fba45fa6117ef06620194)<br/>*Bug Report*: [Simple](https://github.com/dbgbench/dbgbench.github.io/raw/master/find.24e2271e.report.txt), [Original](http://savannah.gnu.org/bugs/?18222)<br/>*Fault Locations*: Here<br/>*Bug Diagnosis*: [Here](https://github.com/dbgbench/dbgbench.github.io/raw/master/find.24e2271e.diagnosis.txt)<br/>*Patches*: Participants [Developers](http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=24e2271ec05c9b5a5517a76d3756af417a637e95) |
 
+```
+| [find.24e2271e](https://github.com/dbgbench/dbgbench.github.io/raw/master/benchmark.pdf)<br/>*Error Type*: Functional Bug<br/>*Avg. Time*: 13.8 min<br/>*Explanation*: Slightly difficult<br/>*Patching*: Slightly difficult<br/>*Correctness*: 75% | *Regression*: [Commit](http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=f0759ab8db9cab16699fba45fa6117ef06620194)<br/>*Bug Report*: Simple, Original<br/>*Fault Locations*: Here<br/>*Bug Diagnosis*: Here<br/>*Patches*: Participants Developers |
+```
 
 ## <a name="use"></a>How to Use?
 
