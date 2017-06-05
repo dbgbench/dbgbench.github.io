@@ -1,1 +1,5 @@
-# DBGBench: First User-generated Benchmark for Automated Debugging and Repair Techniques
+---
+title: DBGBench
+layout: default
+---
+# From Practitioners for Researchers
