@@ -2,6 +2,7 @@
 How do professional software engineers debug computer programs? In an experiment with 27 real bugs that existed in several widely used programs, we invited 12 professional software engineers, who together spent one month on localizing, explaining, and fixing these bugs. This did not only allow us to study the various tools and strategies used to debug the same set of errors. We could also determine exactly which statements a developer would localize as faults, how a developer would diagnose and explain an error, and how a developer would fix an error – all of which software engineering researchers seek to automate. Until now, it has been difficult to evaluate the effectiveness and utility of automated debugging techniques without a user study. We publish the collected data, called DBGBENCH, to facilitate the effective evaluation of automated fault localization, diagnosis, and repair techniques w.r.t. the judgement of human experts.
 
 <p style="position:fixed; left: 50%; top: 200px; transform: translate(-635px, 0%); width: 300px; padding: 0px">
+<a href="#setup">Downloads</a><br/>
 <a href="#find">DBGBench (find)</a><br/>
 <a href="#grep">DBGBench (grep)</a><br/>
 <a href="#use">Use DBGBench</a><br/>
@@ -12,6 +13,20 @@ How do professional software engineers debug computer programs? In an experiment
 
 ## DBGBench
 In the following we provide the complete list of errors and their average debugging time, difficulty, and patch correctness, with human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time. For each error, we also provide the commit introducing the error, the simplified and original bug report, the fault locations, and the submitted and original patches.
+
+### <a name="setup"></a>Setup and Infrastructure
+* Download the [benchmark summary](https://github.com/dbgbench/dbgbench.github.io/raw/master/benchmar.pdf) containing the complete list of errors, their average debugging time, difficulty, and patch correctness, human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time.
+* Download the complete data containing for each debugging session (error, participant) the following data:
+  * BUG ID & Participant ID
+  * Provided Fault Locations, Bug diagnosis/Explanations & Patches
+  * Patch Plausibility, Correctness and Category
+  * Reasons for (In)correctness
+  * Simplified Bug Report
+* Download an [example questionnaire](https://github.com/dbgbench/dbgbench.github.io/raw/master/questionaire.pdf).
+* Download the [Docker virtual infrastructure](https://drive.google.com/open?id=0Bx6dkN27OssKTmlmRk5Jd2lLMEE).
+* Download the [tutorial material](https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U), including slides, videos, and readme files.
+* Read our extended [abstract](https://github.com/dbgbench/dbgbench.github.io/raw/master/abstract.pdf) or [poster](https://github.com/dbgbench/dbgbench.github.io/raw/master/poster.pdf) (@ICSE'17) to find out more about DBGBENCH.
+
 
 ### <a name="find"></a>GNU Findutils
 GNU [findutils](https://www.gnu.org/software/findutils/) offers basic file searching utilities to search the systems directories of GNU and Unix-based computers. 
