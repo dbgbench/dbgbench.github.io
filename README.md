@@ -16,7 +16,7 @@ In the following we provide the complete list of errors and their average debugg
 
 ### <a name="setup"></a>Setup and Infrastructure
 * Download the [benchmark summary](https://github.com/dbgbench/dbgbench.github.io/raw/master/benchmar.pdf) containing the complete list of errors, their average debugging time, difficulty, and patch correctness, human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time.
-* Download the complete data containing for each debugging session (error, participant) the following data:
+* Download the [complete data](https://docs.google.com/spreadsheets/d/12dYERCbuVCX6Ks4QgAF-XEEsLIxD9zsm2XAHE1bhyK0/edit?usp=sharing) containing for each debugging session (error, participant) the following data:
   * BUG ID & Participant ID
   * Provided Fault Locations, Bug diagnosis/Explanations & Patches
   * Patch Plausibility, Correctness and Category
