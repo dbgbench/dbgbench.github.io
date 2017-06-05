@@ -6,11 +6,11 @@ How do professional software engineers debug computer programs? In an experiment
 <a href="#cite">Cite DBGBench</a><br/>
 <a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/abstract.pdf"><img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/abstract.png" alt="DBGBench Abstract" style="width: 300px;"/></a></p>
 
-<p align="center"><img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/mainobjective2.png" alt="Main Objectives" width="90%" /></p>
+<p align="center"><img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/mainobjective.png" alt="Main Objectives" width="90%" /></p>
 
 | <br/>**ID** | **Regression** | **Bug<br/>Report** | **Fault<br/>Locations<br/>** | **Bug<br/>Diagnosis** | <br/>**Patch** |
 | -- | -- | -- | -- | -- | -- |
-| find.24e2271e | Commit | Simple<br/>Original | Locations | Diagnosis | Practitioners'<br/>Developers' |
+| [find.24e2271e](https://github.com/dbgbench/dbgbench.github.io/raw/master/benchmark.pdf)<br/>Error Type: Functional Bug<br/>Avg. Time: 13.8 min<br/>Explanation: Slightly difficult<br/>Patching: Slightly difficult<br/>Correctness: 75%| <br/>[Commit](http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=f0759ab8db9cab16699fba45fa6117ef06620194) | Simple<br/>Original | <br/>Locations | <br/>Diagnosis | Pract.<br/>Devel. |
 
 
 ## <a name="use"></a>How to Use?
