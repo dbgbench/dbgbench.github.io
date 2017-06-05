@@ -1,5 +1,1 @@
----
-title: DBGBench
-layout: default
----
-# From Practitioners for Researchers
+# DBGBench: From Practitioners for Researchers
