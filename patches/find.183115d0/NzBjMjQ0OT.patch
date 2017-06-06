@@ -1,0 +1,12 @@
+diff --git a/find/pred.c b/find/pred.c
+index 3acfe9f..e6da63d 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -666,6 +666,8 @@
+       assert (local);
+       free (target);
+     }
++
++  close(execp->wd_for_exec->desc);
+   return result;
+ }

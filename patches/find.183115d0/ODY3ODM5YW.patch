@@ -1,0 +1,13 @@
+diff --git a/find/pred.c b/find/pred.c
+index 3acfe9f..aeb26c3 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -517,6 +517,8 @@ initialise_wd_for_exec (struct exec_val *execp, int cwd_fd, const char *dir)
+ {
+   execp->wd_for_exec = xmalloc (sizeof (*execp->wd_for_exec));
+   execp->wd_for_exec->name = NULL;
++  if (execp->wd_for_exec->desc >= 0)
++    close(execp->wd_for_exec->desc);
+   execp->wd_for_exec->desc = openat (cwd_fd, dir, O_RDONLY);
+   if (execp->wd_for_exec->desc < 0)
+     return false;

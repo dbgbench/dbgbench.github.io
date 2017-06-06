@@ -1,0 +1,15 @@
+diff --git a/find/pred.c b/find/pred.c
+index 3acfe9f..6905f2c 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -656,6 +656,10 @@ impl_pred_exec (const char *pathname,
+         {
+           result = false;
+         }
++      if (local)
++      {
++         free_cwd(execp->wd_for_exec);
++      }
+     }
+   if (target != pathname)
+     {

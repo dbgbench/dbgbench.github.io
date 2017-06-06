@@ -1,0 +1,12 @@
+diff --git a/find/pred.c b/find/pred.c
+index 3acfe9f..7078422 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -661,6 +661,7 @@ impl_pred_exec (const char *pathname,
+     {
+       assert (local);
+       free (target);
++      close(execp->wd_for_exec->desc); /* MEOLIC: FIXING BUG */
+     }
+   return result;
+ }

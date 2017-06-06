@@ -1,0 +1,17 @@
+diff --git a/find/pred.c b/find/pred.c
+index 3acfe9f..91130f7 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -645,6 +645,12 @@ impl_pred_exec (const char *pathname,
+ 
+       /* Actually invoke the command. */
+       bc_do_exec (&execp->ctl, &execp->state);
++      if (execp->wd_for_exec && execp->wd_for_exec != initial_wd)
++        {
++          close (execp->wd_for_exec->desc);
++          free (execp->wd_for_exec);
++          execp->wd_for_exec = NULL;
++        }
+       if (WIFEXITED(execp->last_child_status))
+         {
+           if (0 == WEXITSTATUS(execp->last_child_status))

@@ -1,0 +1,15 @@
+diff --git a/find/pred.c b/find/pred.c
+index 3acfe9f..4b2cea6 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -2127,6 +2127,10 @@ launch (struct buildcmd_control *ctl, void *usercontext, int argc, char **argv)
+        }
+     }
+ 
++  close(execp->wd_for_exec->desc);
++  free(execp->wd_for_exec);
++  execp->wd_for_exec = NULL;
++
+   if (WIFSIGNALED (execp->last_child_status))
+     {
+       error (0, 0, _("%s terminated by signal %d"),
