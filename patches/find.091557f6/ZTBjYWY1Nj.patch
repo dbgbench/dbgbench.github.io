@@ -1,0 +1,13 @@
+diff --git a/find/pred.c b/find/pred.c
+index 205dd94..a86be3b 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -1575,7 +1575,8 @@ pred_type (char *pathname, struct stat *stat_buf, struct predicate *pred_ptr)
+   mode_t type = pred_ptr->args.type;
+ 
+   assert(state.have_type);
+-  assert(state.type != 0);
++  if (state.type == 0)  
++    error (0, errno, "`%s'", pathname);
+   
+   (void) pathname;

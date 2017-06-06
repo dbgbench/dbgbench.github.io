@@ -1,0 +1,20 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 3e94da1..8454a37 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -444,6 +444,15 @@ consider_visiting(FTS *p, FTSENT *ent)
+           return;
+         }
+     }
++  else if(ent->fts_info == FTS_NS)
++  {
++      if(symlink_loop(ent->fts_accpath))
++      {
++          error(0, ELOOP, ent->fts_path);
++          error_severity(1);
++          return;
++      }
++  }
+   
+   /* Not an error, cope with the usual cases. */
+   if (ent->fts_info == FTS_NSOK)

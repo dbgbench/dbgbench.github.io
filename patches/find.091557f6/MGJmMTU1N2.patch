@@ -1,0 +1,13 @@
+diff --git a/find/util.c b/find/util.c
+index 46e6455..33def97 100644
+--- a/find/util.c
++++ b/find/util.c
+@@ -227,7 +227,7 @@ get_info (const char *pathname,
+    */
+   if (pred_ptr->need_stat)
+     todo = true;
+-  else if ((pred_ptr->need_type && (0 == state.have_type)))
++  else if ((pred_ptr->need_type && ( (0 == state.have_type) || (p->st_mode==0)  ) ))
+     todo = true;
+
+   if (todo)

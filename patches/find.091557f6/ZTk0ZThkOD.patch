@@ -1,0 +1,12 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 3e94da1..c1b0b84 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -237,6 +237,7 @@ visit(FTS *p, FTSENT *ent, struct stat *pstat)
+
+   /* Apply the predicates to this path. */
+   eval_tree = get_eval_tree();
++  eval_tree->need_stat = following_links();
+   (*(eval_tree)->pred_func)(ent->fts_path, pstat, eval_tree);
+
+   /* Deal with any side effects of applying the predicates. */

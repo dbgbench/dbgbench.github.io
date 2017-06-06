@@ -1,0 +1,13 @@
+diff --git a/gnulib/lib/fts.c b/gnulib/lib/fts.c
+index 1b5384b..a22072f 100644
+--- a/gnulib/lib/fts.c
++++ b/gnulib/lib/fts.c
+@@ -1384,7 +1384,7 @@ fts_stat(FTS *sp, register FTSENT *p, bool follow)
+        if (ISSET(FTS_LOGICAL) || follow) {
+                if (stat(p->fts_accpath, sbp)) {
+                        saved_errno = errno;
+-                       if (errno == ENOENT
++                       if (errno == ELOOP
+                            && lstat(p->fts_accpath, sbp) == 0) {
+                                __set_errno (0);
+                                return (FTS_SLNONE);

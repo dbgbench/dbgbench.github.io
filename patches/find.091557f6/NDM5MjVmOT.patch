@@ -1,0 +1,12 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 3e94da1..773531b 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -416,6 +416,7 @@ consider_visiting(FTS *p, FTSENT *ent)
+   
+   /* Cope with various error conditions. */
+   if (ent->fts_info == FTS_ERR
++      || FTS_NS == ent->fts_info
+       || ent->fts_info == FTS_DNR)
+     {
+       error(0, ent->fts_errno, ent->fts_path);

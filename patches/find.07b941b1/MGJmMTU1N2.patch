@@ -1,0 +1,17 @@
+diff --git a/find/parser.c b/find/parser.c
+index a087bec..c1b5131 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -1640,8 +1640,12 @@ insert_regex (char **argv, int *arg_ptr, const struct parser_table *entry, int r
+   error_message = re_compile_pattern (argv[*arg_ptr], strlen (argv[*arg_ptr]),
+                                      re);
+   if (error_message)
++  {
+     error (1, 0, "%s", error_message);
++    return false;
++  }
+   (*arg_ptr)++;
++  if(argv[*arg_ptr])
+   our_pred->est_success_rate = estimate_pattern_match_rate(argv[*arg_ptr], 1);
+   return true;
+ }

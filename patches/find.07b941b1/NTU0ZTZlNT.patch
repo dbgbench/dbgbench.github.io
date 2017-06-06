@@ -1,0 +1,109 @@
+diff --git a/find/parser.c b/find/parser.c
+index a087bec..59013b0 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -489,6 +489,31 @@ estimate_timestamp_success_rate(time_t when)
+   return estimate_file_age_success_rate(num_days);
+ }
+ 
++static bool
++collect_arg_nonconst (char **argv, int *arg_ptr, char **collected_arg)
++{
++  if ((argv == NULL) || (argv[*arg_ptr] == NULL))
++    {
++      *collected_arg = NULL;
++      return false;
++    }
++  else
++    {
++      *collected_arg = argv[*arg_ptr];
++      (*arg_ptr)++;
++      return true;
++    }
++}
++
++static bool
++collect_arg (char **argv, int *arg_ptr, const char **collected_arg)
++{
++  char *arg;
++  const bool result = collect_arg_nonconst (argv, arg_ptr, &arg);
++  *collected_arg = arg;
++  return result;
++}
++
+ ^L
+ /* The parsers are responsible to continue scanning ARGV for
+    their arguments.  Each parser knows what is and isn't
+@@ -1618,32 +1643,35 @@ parse_regex (const struct parser_table* entry, char **argv, int *arg_ptr)
+ static boolean
+ insert_regex (char **argv, int *arg_ptr, const struct parser_table *entry, int regex_options)
+ {
+-  struct predicate *our_pred;
+-  struct re_pattern_buffer *re;
+-  const char *error_message;
+-
+-  if ((argv == NULL) || (argv[*arg_ptr] == NULL))
+-    return false;
+-  our_pred = insert_primary_withpred (entry, pred_regex);
+-  our_pred->need_stat = our_pred->need_type = false;
+-  re = (struct re_pattern_buffer *)
+-    xmalloc (sizeof (struct re_pattern_buffer));
+-  our_pred->args.regex = re;
+-  re->allocated = 100;
+-  re->buffer = (unsigned char *) xmalloc (re->allocated);
+-  re->fastmap = NULL;
+-
+-  re_set_syntax(regex_options);
+-  re->syntax = regex_options;
+-  re->translate = NULL;
+-  
+-  error_message = re_compile_pattern (argv[*arg_ptr], strlen (argv[*arg_ptr]),
+-                                     re);
+-  if (error_message)
+-    error (1, 0, "%s", error_message);
+-  (*arg_ptr)++;
+-  our_pred->est_success_rate = estimate_pattern_match_rate(argv[*arg_ptr], 1);
+-  return true;
++  const char *rx;
++  if (collect_arg (argv, arg_ptr, &rx))
++  {
++    struct predicate *our_pred;
++    struct re_pattern_buffer *re;
++    const char *error_message;
++
++    our_pred = insert_primary_withpred (entry, pred_regex);
++    our_pred->need_stat = our_pred->need_type = false;
++    re = (struct re_pattern_buffer *)
++      xmalloc (sizeof (struct re_pattern_buffer));
++    our_pred->args.regex = re;
++    re->allocated = 100;
++    re->buffer = (unsigned char *) xmalloc (re->allocated);
++    re->fastmap = NULL;
++
++    re_set_syntax(regex_options);
++    re->syntax = regex_options;
++    re->translate = NULL;
++    
++    error_message = re_compile_pattern (rx, strlen (rx),
++                re);
++    if (error_message)
++      error (1, 0, "%s", error_message);
++    //(*arg_ptr)++;
++    our_pred->est_success_rate = estimate_pattern_match_rate(rx, 1);
++    return true;
++  }
++  return false;
+ }
+ 
+ static boolean
+diff --git a/find/tree.c b/find/tree.c
+index 6b46962..dc48217 100644
+--- a/find/tree.c
++++ b/find/tree.c
+@@ -1493,6 +1493,7 @@ get_new_pred (const struct parser_table *entry)
+   last_pred22->literal_control_chars = options.literal_control_chars;
+   last_pred22->artificial = false;
+   last_pred22->est_success_rate = 1.0;
++  last_pred22->p_cost = NeedsUnknown;
+   return last_pred22;
+ }

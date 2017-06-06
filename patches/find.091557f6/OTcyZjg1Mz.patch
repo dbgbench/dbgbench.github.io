@@ -1,0 +1,36 @@
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -412,7 +412,6 @@ consider_visiting(FTS *p, FTSENT *ent)
+     }
+   inside_dir(p->fts_cwd_fd);
+   prev_depth = ent->fts_level;
+-
+   
+   /* Cope with various error conditions. */
+   if (ent->fts_info == FTS_ERR
+@@ -428,7 +427,7 @@ consider_visiting(FTS *p, FTSENT *ent)
+       error_severity(1);
+       return;
+     }
+-  else if (ent->fts_info == FTS_SLNONE)
++  else if (ent->fts_info == FTS_SLNONE) 
+     {
+       /* fts_read() claims that ent->fts_accpath is a broken symbolic
+        * link.  That would be fine, but if this is part of a symbolic
+@@ -443,6 +442,18 @@ consider_visiting(FTS *p, FTSENT *ent)
+          error_severity(1);
+          return;
+        }
++
++    }
++    else if (ent->fts_info == FTS_NS)
++    {
++      state.type = mode = 0;
++
++      if (symlink_loop(ent->fts_accpath))
++      {
++        error(0, ELOOP, ent->fts_path);
++        error_severity(1);
++        return;
++      }
+     }

@@ -1,0 +1,14 @@
+diff --git a/find/parser.c b/find/parser.c
+index a087bec..2d4e64e 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -1641,8 +1641,8 @@ insert_regex (char **argv, int *arg_ptr, const struct parser_table *entry, int r
+                                       re);
+   if (error_message)
+     error (1, 0, ""%s"", error_message);
+-  (*arg_ptr)++;
+   our_pred->est_success_rate = estimate_pattern_match_rate(argv[*arg_ptr], 1);
++  (*arg_ptr)++; /* MEOLIC: BUGX FIXING */
+   return true;
+ }
+ 

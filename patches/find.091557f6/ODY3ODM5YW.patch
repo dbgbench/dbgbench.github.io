@@ -1,0 +1,14 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 3e94da1..cbe8266 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -444,6 +444,9 @@ consider_visiting(FTS *p, FTSENT *ent)
+          return;
+        }
+     }
++  else if (ent->fts_info == FTS_NS) {
++    return;
++  }
+   
+   /* Not an error, cope with the usual cases. */
+   if (ent->fts_info == FTS_NSOK)

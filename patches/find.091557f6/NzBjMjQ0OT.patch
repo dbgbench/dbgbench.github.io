@@ -1,0 +1,16 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 3e94da1..8454a37 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -1575,8 +1575,9 @@
+   mode_t type = pred_ptr->args.type;
+
+   assert(state.have_type);
+-  assert(state.type != 0);
+-
++  if (0 == state.type)
++      return false;
++  
+   (void) pathname;
+
+   if (state.have_stat)
