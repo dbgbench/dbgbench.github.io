@@ -16,8 +16,8 @@ How do professional software engineers debug computer programs? In an experiment
 * <a href="#use">How can I evaluate my **automated fault localization** technique?</a>
 * <a href="#use">How can I evaluate my **automated bug diagnosis** technique?</a>
 * <a href="#use">How can I evaluate my **automated repair** technique?</a>
-* <a href="#use">What **distinguishes** DBGBench from other error benchmarks?</a>
 * <a href="#setup">Where do I get **more test cases** for DBGBench?</a>
+* <a href="#use">What **distinguishes** DBGBench from other error benchmarks?</a>
 * <a href="#cite">How do I **cite** DBGBench?</a>
 
 ## DBGBench
