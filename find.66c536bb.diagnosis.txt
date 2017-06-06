@@ -1,7 +1,23 @@
-If find is set to print files that are strictly younger than 2 days (-mtime -2), it will instead print files that are exactly 2 days old. The
-function get_comp_type actually increments the argument pointer timearg (parser.c:3175). So, when the function is called the first time
-(parser.c:3109), timearg still points to ’-’. However, when it is called the second time (parser.c:3038), timearg already points to ’2’
-such that it is incorrectly classified as COMP_EQ (parser.c:3178). Examples of Correct Fixes: 1) Save timearg in auxiliary variable
-and restore after first call to get_comp_type. 2) Pass a copy of timearg into the first call of get_comp_type. 3) Pass a copy of timearg into
-get relative timestamp (which calls get_comp_type the second time). 4) Decrement timearg after the first call to get_comp_type. Example
-of Incorrect Fix: Restore timearg only if classified as COMP_LT (Incomplete Fix because it does not solve the problem for -mtime +2).
+If find is set to print files that are strictly younger than 2 days (-mtime
+-2), it will instead print files that are exactly 2 days old. The function
+get_comp_type actually increments the argument pointer timearg (parser.c:3175).
+So, when the function is called the first time (parser.c:3109), timearg still
+points to ’-’. However, when it is called the second time (parser.c:3038),
+timearg already points to ’2’ such that it is incorrectly classified as COMP_EQ
+(parser.c:3178).
+
+Examples of Correct Fixes: 
+
+1) Save timearg in auxiliary variable and restore after first call to
+get_comp_type.
+
+2) Pass a copy of timearg into the first call of get_comp_type. 
+
+3) Pass a copy of timearg into get relative timestamp (which calls
+get_comp_type the second time). 
+
+4) Decrement timearg after the first call to get_comp_type. 
+
+Example of Incorrect Fix:
+Restore timearg only if classified as COMP_LT (Incomplete Fix because it does
+not solve the problem for -mtime +2).

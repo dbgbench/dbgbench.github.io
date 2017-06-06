@@ -1,5 +1,15 @@
-If find is set to print files that are newer than a reference file and this reference file is not specified (-newerXY), find crashes with a segmentation
-fault. This is caused by incrementing the argument pointer arg_ptr without a bounds check (parser.c:1315) resulting in a null pointer
-dereference (lib/quotearg.c:249). Examples of Correct Fixes: Check for nullpointer directly after increment of arg ptr. Examples
-of Incorrect Fixes: 1) Check for nullpointer only before or in fatal_file_error (Incomplete Fix because null pointer might still propagate via
-parser.c:1342 or parser.c:1347). 2) Do not increment the pointer at all (Regression because some arguments may not be parsed, at all).
+If find is set to print files that are newer than a reference file and this
+reference file is not specified (-newerXY), find crashes with a segmentation
+fault. This is caused by incrementing the argument pointer arg_ptr without a
+bounds check (parser.c:1315) resulting in a null pointer dereference
+(lib/quotearg.c:249).
+
+Examples of Correct Fixes:
+Check for nullpointer directly after increment of arg ptr. 
+
+Examples of Incorrect Fixes: 
+1) Check for nullpointer only before or in fatal_file_error (Incomplete Fix
+because null pointer might still propagate via parser.c:1342 or parser.c:1347). 
+
+2) Do not increment the pointer at all (Regression because some arguments may
+not be parsed, at all).

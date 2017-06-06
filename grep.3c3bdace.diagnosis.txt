@@ -1,0 +1,14 @@
+If grep searches for a certain extended regular expression (-E ’(ˆ| )*( | $)’),
+then it crashes with a coredump. When dfaanalyze allocates memory for
+merged.elems (dfa.c:1728), it allocates insufficient memory because
+merged.elems can grow to twice the original size (dfa.c:1455).  Then memory is
+corrupted when the array is accessed out of bounds (dfa.c:1453). Only later the
+program crashes because of the corrupted memory (dfa.c:1917). 
+
+Examples of Correct Fixes: 
+1) Allocate twice or 3x as much for merged.elems. 
+2) Reallocate as needed. 
+
+Example of Incorrect Fix: 
+Always reset the number of elements (nelem) to 0 (Regression because we always
+override the first element).

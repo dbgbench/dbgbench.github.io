@@ -1,0 +1,24 @@
+If grep is set to search for fixed strings (-F), the empty string is given
+(””), and the locale is UTF8, then grep runs undefinitely. When FExecute
+searches for a match of the empty string, variable len contains the size of the
+match; here, len=0 (kwsearch.c:106).  Because len=0, the check is_mb_middle
+(searchutils.c:117-146) whether the match occurs within a multibyte character
+returns true (kwsearch.c:108). However, the size of the supposed multibyte
+character is computed as mb_len=1 (kwsearch.c:115). When mb_len-1 is added to
+beg (kwsearch.c:118) to advance behind the supposed multibyte character, beg’s
+value remains unchanged. The loop is continue’d (kwsearch.c:121). Since beg has
+the same value every time the loop exit condition is checked (kwsearch.c:101),
+the loop exit condition never holds, resulting in an infinite loop. 
+
+Examples of Correct Fixes: 
+1) Function is_mb_middle returns false for len=0. 
+2) Only call is_mb_middle if len is set. 
+3) Jump to success if mb_len==1. 
+
+Examples of Incorrect Fixes: 
+1) Remove continue (Treating the Symptom). 
+2) Don’t reset beg (Regression because it breaks multibyte character handling). 
+3) Remove part of the check which causes is_mb_middle to return true
+   (Regression because it breaks multibyte character handling). 
+4) Do not compute match_size but teturn complete buffer until end of line
+   (Regression because only match should be returned).

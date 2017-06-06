@@ -1,0 +1,15 @@
+If grep conducts a case-insensitive search (-i) for the empty line (’ˆ$’) and
+an UTF-8 locale is set, then grep reports matches even for non-empty lines. For
+case-sensitive searches or 8-bit locales, execute is called with the complete
+buffer and correctly returns no match (grep.c:1045-1046). Otherwise, execute is
+called for each line (grep.c:1048-1063). However, execute does not handle the
+case when no match is found (search.c:388), which is why the non-match is
+printed (grep.c:1091). 
+
+Examples of Correct Fixes: 
+1) Handle case where no match was found by breaking loop if next_beg == buflim. 
+2) Skip printing if match is empty and we are not in inversion mode (-v). 
+
+Example of Incorrect Fix: 
+Skip printing if match is empty even if in inversion mode (Regression because
+it breaks inversion mode).

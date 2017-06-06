@@ -1,0 +1,24 @@
+If grep conducts a case-insensitive search (-i) on an input that contains
+multibyte characters and the locale is UTF8, then grep prints a match of
+incorrect length. When conducting the case-insensitive search, EXECUTE_FCT
+first computes a lower-case of the input (search.c:388).  The length of the
+match is computed for the match in the lower-case input (search.c:555).
+However, the lower-case of a multibyte character can take 1 byte less. So, the
+length of the normal-case and lower-case input differ. The computed value of
+match_size could be half the expected value (grep.c:1081-1085). Hence, the
+match in the normal-case input is printed with incorrect length (grep.c:1091).
+
+Example of Correct Fix: 
+Add a mapping between normal-case and lower-case string to compute the length
+of the match in the normal-case string from the length of the match in the
+lower-case string. 
+
+Examples of Incorrect Fixes: 
+1) Do not lower the case (Regression because a case-insensitive search is
+case-sensitive). 
+
+2) If matched string contains a multibyte char, double the match_size
+(Incomplete Fix because it works only of all are multibyte characters). 
+
+3) Print complete line if there is a match (Regression because only match
+should be returned).

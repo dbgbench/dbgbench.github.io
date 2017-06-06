@@ -1,6 +1,17 @@
-If find is set to search a directory containing three other directories which contain the folder ”bug” and to execute pwd in every folder containing
-the folder ”bug” (-name bug -execdir pwd \;), then find prints the first directory three times. The reason is that the working directory specified
-in execp->wd_for_exec is set only once (pred.c:513-527) and never updated. Examples of Correct Fixes: 1) Correct buggy if-condition
-by substituting excep->wd_for_exec by execp->todo. 2) If is exec_in_local_dir, then always reallocate execp->wd_for_exec and remove
-the assertion. Example of Incorrect Fix: Remove if-condition such that it always redefines execp->wd_for_exec and keep assertion that
-execp->todo is false (Regression because execp->todo might be true such that assertion may fail).
+If find is set to search a directory containing three other directories which
+contain the folder ”bug” and to execute pwd in every folder containing the
+folder ”bug” (-name bug -execdir pwd \;), then find prints the first directory
+three times. The reason is that the working directory specified in
+execp->wd_for_exec is set only once (pred.c:513-527) and never updated. 
+
+Examples of Correct Fixes: 
+1) Correct buggy if-condition by substituting excep->wd_for_exec by
+execp->todo. 
+
+2) If is exec_in_local_dir, then always reallocate execp->wd_for_exec and
+remove the assertion. 
+
+Example of Incorrect Fix: 
+Remove if-condition such that it always redefines execp->wd_for_exec and keep
+assertion that execp->todo is false (Regression because execp->todo might be
+true such that assertion may fail).

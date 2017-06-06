@@ -1,0 +1,15 @@
+If grep is set to silently skip devices, FIFOs, and sockets (-D skip), then
+grep does not search on standard input when no file is provided. When the skip
+option is enabled, variables devices is set to SKIP_DEVICES (main.c:1852-1859).
+If no file is provided, variable file is NULL and variable desc is set to
+STDIN_FILENO (main.c:1217-1218). The code which handles SKIP_DEVICES
+(main.c:1246-1255) decides to skip STDIN (which is a special device) even
+though it should not (desc == STDIN_FILENO). 
+
+Examples of Correct Fixes: 
+1) Do not skip if desc is set to STDIN_FILENO. 
+2) Do not skip if file is not set (and thus desc is set to STDIN_FILENO). 
+
+Example of Incorrect Fix: 
+Negate the skip condition (Regression because it skips everything that should
+not be skipped while indeed not skipping STDIN).

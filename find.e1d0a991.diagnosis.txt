@@ -1,6 +1,14 @@
-If find is set to a directory containing a file, to follow symbolic links (-L), and to execute ls for every subdirectory (-execdir ls ’{}’ \;),
-then find incorrectly also prints the base directory. If find is set to follow symlinks, the flag FTS_LOGICAL is set (ftsfind.c:349)
-before the directory search is initiated (ftsfind.c:364). When a directory is searched (ftsfind.c:373), the working directory
-is not changed because FTS_LOGICAL is set. Hence, the *full* pathname is passed as argument to execdir (pred.c:484-490 and
-pred.c:467-471). Example of Correct Fix: Correctly compute pathname and prefix in new_impl_pred_exec. Example of Incorrect
-Fix: Remove FTS_LOGICAL flag (Incorrect Workaround because FTS_LOGICAL is supposed to be set).
+If find is set to a directory containing a file, to follow symbolic links (-L),
+and to execute ls for every subdirectory (-execdir ls ’{}’ \;), then find
+incorrectly also prints the base directory. If find is set to follow symlinks,
+the flag FTS_LOGICAL is set (ftsfind.c:349) before the directory search is
+initiated (ftsfind.c:364). When a directory is searched (ftsfind.c:373), the
+working directory is not changed because FTS_LOGICAL is set. Hence, the *full*
+pathname is passed as argument to execdir (pred.c:484-490 and pred.c:467-471). 
+
+Example of Correct Fix: 
+Correctly compute pathname and prefix in new_impl_pred_exec. 
+
+Example of Incorrect Fix: 
+Remove FTS_LOGICAL flag (Incorrect Workaround because FTS_LOGICAL is supposed
+to be set).

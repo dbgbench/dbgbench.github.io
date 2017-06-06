@@ -1,0 +1,19 @@
+If grep is set to search in all files under each directory recursively (-r) but
+to exclude certain directories (–exclude-dir=foo), then grep crashes with a
+segmentation fault. When grepdir computes the name_space (src/grep.c:1361), it
+calls function isdir1 via function savedir (lib/savedir.c:123). Now, the code
+in isdir1 that is supposed to remove the trailing slashes from the directory
+name uses the uninitialized variable path instead of variable dir
+(lib/savedir.c:51). The nullpointer dereference results in a segmentation
+fault.
+
+
+Example of Correct Fix: 
+Substitute path with dir. 
+
+Examples of Incorrect Fixes: 
+1) Return if path is not initialized (Regression because isdir1 returns false
+even if dir is a directory). 
+
+2) Only use path if initialized (Regression because isdir1 does not remove
+trailing slashes).

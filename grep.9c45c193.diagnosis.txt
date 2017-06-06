@@ -1,0 +1,21 @@
+If grep is set to search only specific files (–include=a.txt), then grep does
+not print a match even if there is one. First, main correctly adds the include
+pattern with EXCLUDE_INCLUDE flag set (grep.c:2136-2140). When the files are
+chosen for the search, files that are supposed to be included are actually
+excluded because the return value of exclude_file_name is unnecessarily negated
+(grep.c:2267-2269). The negation is unnecessary because the function
+exclude_file_name is incorrectly assumed to treat excludes and includes the
+same. However, the behavior changes if the EXCLUDE_INCLUDE flag is present
+(lib/exclude.c:410, lib/exclude.c:359). 
+
+Examples of Correct Fixes: 
+1) Remove negation such that included_patterns are not excluded during
+classification. 
+
+2) Do not set EXCLUDE_INCLUDE flag for included_patterns which effectively
+negates the faulty condition. 
+
+Example of Incorrect Fix: 
+Independent of whether a file matches the included_pattern, never exclude
+(Regression because it doesn’t skip files that are *not* in the
+included_patterns).

@@ -1,0 +1,18 @@
+If grep is set to search all TXT files (–include=”*.txt”) but excluding some
+files (–exclude=”foo.txt”), then grep also searches files that are not TXT
+ignoring the include option. Because included patterns is not initialized with
+EXCLUDE_WILDCARDS (src/grep.c:2137), the exclude pattern is not added in
+add_exclude (lib/exclude.c:449). Files are matched exactly (treating ”*.txt” as
+file name) instead of using wildcards (lib/exclude.c:417-427). These files are
+then incorrectly classified as included/excluded (src/grep.c:2261-2271).
+
+Examples of Correct Fixes: 
+1) Add EXCLUDE_WILDCARDS flag for includes. 
+2) Add EXCLUDE_INCLUDE flags for excludes if there are includes. 
+
+Examples of Incorrect Fixes: 
+1) Substitute EXCLUDE_INCLUDE with EXCLUDE_WILDCARDS for includes (Regression
+because EXCLUDE_INCLUDE flags must also be set for includes). 
+
+2) Negate condition that decides whether to exclude (Regression because files
+that are specified to be excluded are now included).

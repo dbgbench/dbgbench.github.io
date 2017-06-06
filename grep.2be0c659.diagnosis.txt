@@ -1,0 +1,25 @@
+If grep conducts a case-insensitive search (-i) in a file containing 8-bit
+characters and the current locale is Turkish UTF8, then grep prints the wrong
+output. When grep conducts a case-insensitive search, it lowers the case of the
+input string before matching (search.c:384-392).  The lower case of an
+upper-case 8-bit character might occupy one more or less bytes. The latter case
+is not handled. When the match_size is computed (grep.c:1081), the lower-case
+match is used (grep.c:1060-1062). When the match is printed, the incorrect
+lower-case match_size which is usually larger than the actual match_size is
+used (grep.c:1085-1091). 
+
+Examples of Correct Fixes:
+1) Update the map that maps lower-case character to the normal case characters
+to account for cases where the number of bytes it occupies *decreases* in the
+lower-case.
+
+2) To correct the match_size, lower-case as many characters in the normal-case
+match as result in match_size lower-case characters. 
+
+Examples of Incorrect Fixes: 
+1) Return complete line if match exists (Regression because only the match
+should be returned).
+
+2) Add the difference in length of lower-case and normal-case string to the
+match_size (Incomplete Fix because for files that have more multibyte
+characters than given in the match, grep reports longer matches than needed)

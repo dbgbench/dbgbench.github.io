@@ -1,0 +1,15 @@
+If grep is set to search for lines containing whole words that match a regular
+expression (-w), it prints only the match instead of the complete line. When
+execute searches for a match, it correctly sets variable len to the length of
+the match (search.c:388). When it is checked if the match aligns with word
+bounderies (search.c:408-414), the match length len still points to the end of
+the match. So, execute returns the length of the match instead of the end of
+the line (grep.c:997). 
+
+Examples of Correct Fixes: 
+1) Add statement: goto success (which updates len with end - beg). 
+2) Update len with end - beg. 
+
+Example of Incorrect Fix: 
+Always return complete line (Regression because in some settings grep should
+return only the match).

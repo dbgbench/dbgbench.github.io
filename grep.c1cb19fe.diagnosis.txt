@@ -1,0 +1,19 @@
+If grep searches for string specified in a bracket expression, then for some
+UTF8 locales (ru_RU.UTF-8) grep does not print a match. For some locales
+dfaparse sets the global flag hard_LC_COLLATE (dfa.c:1418) to denote that
+characters are ordered in a strange way (e.g. Russian cyrilic). If
+hard_LC_COLLATE is set, then lex prepares the info about the letters in the
+bracket expression and finally calls in_coll_range (dfa.c:1103-1116). Now,
+in_coll_range uses the correct function strcoll to compare the letters, but the
+condition is incorrect and the wrong character are selected to be in the range
+that is specified by the bracket expression. Hence, there is no match reported. 
+
+Example of Correct Fix: 
+Fix the simple operator fault. 
+
+Examples of Incorrect Fixes: 
+1) Fix locale, such that multibyte characters do not need to be handled
+(Regression because LC_ALL is supposed to be handled). 
+
+2) Implement in_coll_range as locale implemented match (Regression because
+match is supposed to be locale dependent).

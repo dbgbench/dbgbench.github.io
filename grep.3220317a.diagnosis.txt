@@ -1,0 +1,19 @@
+If grep searches for a bracket expression containing a multibyte character in a
+file that contains multibyte characters and the current locale is UTF8, then
+grep crashes with a segmentation fault. When parse_bracket_exp parses the next
+character, array index c is assigned EOF (-1) if the character is multibyte
+(dfa.c:498, dfa.c:363) while wc is assigned the correct index. However, when
+parse_bracket_exp calls setbit_case_fold (dfa.c:697) it uses c which overflows
+during the cast from int to unsigned. After setbit_case_fold has called setbit
+(dfa.c:274), the array is accessed at a too large index which causes a
+segmentation fault (dfa.c:168). 
+
+Example of Correct Fix: 
+Use wc instead of c (which equals c if the character is not multibyte). 
+
+Examples of Incorrect Fixes: 
+1) Check for overflow condition c=EOF (Treating the Symptom because multibyte
+characters are still handled incorrectly). 
+
+2) Use an arbitrary value instead of c (Treating the Symptom because while it
+does not crash, the bracket expression is not correctly handled)

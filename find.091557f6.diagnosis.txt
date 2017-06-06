@@ -1,6 +1,16 @@
-If find is set to search for files (-type f) while following symbolic links (-L) and a symbolic link loop exists, then it aborts with a coredump
-instead of listing the symbolic links and terminating gracefully. If a symbolic link loop exists, no stat information is available and the flag
-FTS_NS is set (ftsfind:584). The flag is not properly handled (ftsfind.c:425-446), such that state.type and mode are incorrectly
-set (ftsfind.c:460) and the assertion fails (pred.c:1578). Example of Correct Fix: Handle FTS_NS flag. Examples of Incorrect
-Fixes: 1) Remove violated assertion (Treating the Symptom). 2) Force stat() to be called such that stat information is available (Incorrect
-Workaround because stat() is not supposed to be called on symlink loops).
+If find is set to search for files (-type f) while following symbolic links
+(-L) and a symbolic link loop exists, then it aborts with a coredump instead of
+listing the symbolic links and terminating gracefully. If a symbolic link loop
+exists, no stat information is available and the flag FTS_NS is set
+(ftsfind:584). The flag is not properly handled (ftsfind.c:425-446), such that
+state.type and mode are incorrectly set (ftsfind.c:460) and the assertion fails
+(pred.c:1578). 
+
+Example of Correct Fix:
+1) Handle FTS_NS flag. 
+
+Examples of Incorrect Fixes: 
+1) Remove violated assertion (Treating the Symptom).
+2) Force stat() to be called such that stat information is available
+(Incorrect Workaround because stat() is not supposed to be called on 
+symlink loops).

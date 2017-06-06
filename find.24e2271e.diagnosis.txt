@@ -1,6 +1,15 @@
-If find is set to print the found file’s base directory followed by the found file’s name (-printf ’%H %P\n’) and there exist directories of
-different length, then find incorrectly splits base directory and file name during printing. Because the index state.starting_path is set only for the
-first working directory (ftsfind.c:278-279) the incorrect value of state.starting_path is used when printing base directory and file name
-(pred.c:709-718, pred.c:813). Examples of Correct Fixes: 1) Recompute state.starting_path length for each argv before calling find.
-2) Weaken condition that prevents state.starting_path_length to be reset. Example of Incorrect Fix: Always update state.starting_path_length
-even if ent->fts level != 0 (Regression because it then carries the incorrect ”starting_path_length”).
+If find is set to print the found file’s base directory followed by the found
+file’s name (-printf ’%H %P\n’) and there exist directories of different
+length, then find incorrectly splits base directory and file name during
+printing. Because the index state.starting_path is set only for the first
+working directory (ftsfind.c:278-279) the incorrect value of
+state.starting_path is used when printing base directory and file name
+(pred.c:709-718, pred.c:813). 
+
+Examples of Correct Fixes:
+1) Recompute state.starting_path length for each argv before calling find.
+2) Weaken condition that prevents state.starting_path_length to be reset. 
+
+Example of Incorrect Fix: 
+Always update state.starting_path_length even if ent->fts level != 0
+(Regression because it then carries the incorrect ”starting_path_length”).

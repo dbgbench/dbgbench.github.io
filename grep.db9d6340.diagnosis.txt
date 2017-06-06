@@ -1,0 +1,18 @@
+If grep conducts a fixed-strings search (-F) for a pattern that contains
+multibyte characters, then it runs indefinitely. When EXECUTE_FCT finds a match
+in the middle of a multibyte character, it is supposed to continue after the
+multibyte character (search.c:638-639).  However, the beginning of the next
+multibyte character is not found, and mb_start remains unchanged
+(search.c:228-256). After beg is assigned mb_start - 1, the loop is continue’d
+(search.c:640). The loop exit condition never holds (search.c:632) because beg
+never exceeds buf + size, resulting in an infinite loop. 
+
+Examples of Correct Fixes: 
+1) Raise an error, if is_mb_middle is unsuccessful in finding the beginning of
+   the multi-byte and adjusting mb_start. 
+2) Go to after the current match. 
+
+Examples of Incorrect Fixes: 
+1) Remove continue (Treating the Symptom). 
+2) Do not reset beg (Regression because it breaks multibyte character
+   handling).

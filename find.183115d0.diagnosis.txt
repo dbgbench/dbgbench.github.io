@@ -1,4 +1,12 @@
-If we ulimit the number file descriptors that can be open simulatanously and set find to execute ls for every subdirectory (-execdir ls ’{}’
-\;), it quickly runs out of file descriptors. File descriptors are always opened (pred.c:520) but never closed (pred.c:659-664) which
-raises an error when no more descriptors are available (pred.c:579). Example of Correct Fix: Close file descriptor as soon as it is not
-used anymore. Example of Incorrect Fix: Close random file descriptor (Incomplete Fix because still leaking file descriptors).
+If we ulimit the number file descriptors that can be open simulatanously and
+set find to execute ls for every subdirectory (-execdir ls ’{}’ \;), it quickly
+runs out of file descriptors. File descriptors are always opened (pred.c:520)
+but never closed (pred.c:659-664) which raises an error when no more
+descriptors are available (pred.c:579).
+
+Example of Correct Fix: 
+Close file descriptor as soon as it is not used anymore.
+
+Example of Incorrect Fix: 
+Close random file descriptor (Incomplete Fix because still leaking file
+descriptors).

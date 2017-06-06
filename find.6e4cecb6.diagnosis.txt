@@ -1,7 +1,17 @@
-If find is set to search a directory referenced by a symbolic link and containing a file, and find is set to follow symbolic links (-L) or to
-not follow symbolic links except for those set to be searched (-H), then find does not print the file in the referenced directory and instead
-reports ”Too many levels of symbolic links”. Because of a mixup in the condition of a ternary operator (find.c:1094), extraflags are set
-to O_NOFOLLOW when it should be 0 and to 0 when it should be O_NOFOLLOW. The flag controls whether symlinks are followed when
-a directory is opened (find.c:1097). Because of this fault, safely_chdir returns SafeChdirFailSymlink (find.c:1618) whence the error
-message is printed (find.c:1642). Example of Correct Fix: Fix ternary operator. Example of Incorrect Fix: Do not fail if safely_chdir
-returns SafeChdirFailSymlink (Treating the Symptom).
+If find is set to search a directory referenced by a symbolic link and
+containing a file, and find is set to follow symbolic links (-L) or to not
+follow symbolic links except for those set to be searched (-H), then find does
+not print the file in the referenced directory and instead reports ”Too many
+levels of symbolic links”. Because of a mixup in the condition of a ternary
+operator (find.c:1094), extraflags are set to O_NOFOLLOW when it should be 0
+and to 0 when it should be O_NOFOLLOW. The flag controls whether symlinks are
+followed when a directory is opened (find.c:1097). Because of this fault,
+safely_chdir returns SafeChdirFailSymlink (find.c:1618) whence the error
+message is printed (find.c:1642). 
+
+Example of Correct Fix: 
+Fix ternary operator. 
+
+Example of Incorrect Fix: 
+Do not fail if safely_chdir returns SafeChdirFailSymlink
+(Treating the Symptom).
