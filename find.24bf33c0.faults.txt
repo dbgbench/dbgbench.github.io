@@ -1,0 +1,2 @@
+find/ftsfind.c:431-446
+find/ftsfind.c:586

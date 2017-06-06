@@ -1,0 +1,5 @@
+src/kwsearch.c:101-121
+src/kwsearch.c:101
+src/kwsearch.c:106
+src/kwsearch.c:108
+src/searchutils.c:117-145

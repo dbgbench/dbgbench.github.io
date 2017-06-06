@@ -1,0 +1,3 @@
+find/ftsfind.c:278-279
+find/pred.c:709-718
+find/pred.c:813

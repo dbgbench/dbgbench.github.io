@@ -1,0 +1,3 @@
+src/grep.c:997
+src/search.c:388
+src/search.c:411-414

@@ -1,0 +1,3 @@
+src/dfa.c:168
+src/dfa.c:274
+src/dfa.c:697
