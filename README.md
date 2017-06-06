@@ -7,9 +7,9 @@ How do professional software engineers debug computer programs? In an experiment
 <a href="#grep">DBGBench (grep)</a><br/>
 <a href="#use">Use DBGBench</a><br/>
 <a href="#cite">Cite DBGBench</a><br/>
-<a href="https://github.com/dbgbench/dbgbench.github.io/raw/master/abstract.pdf"><img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/abstract.png" alt="DBGBench Abstract" style="width: 200px;"/></a></p>
+<a href="abstract.pdf"><img src="abstract.png" alt="DBGBench Abstract" style="width: 200px;"/></a></p>
 
-<p align="center"><img src="https://github.com/dbgbench/dbgbench.github.io/raw/master/mainobjective.png" alt="Main Objectives" width="100%" /></p>
+<p align="center"><img src="mainobjective.png" alt="Main Objectives" width="100%" /></p>
 <br/>
 
 ## FAQ
@@ -17,12 +17,13 @@ How do professional software engineers debug computer programs? In an experiment
 * <a href="#use">How can I evaluate my **automated bug diagnosis** technique?</a>
 * <a href="#use">How can I evaluate my **automated repair** technique?</a>
 * <a href="#use">What **distinguishes** DBGBench from other error benchmarks?</a>
+* <a href="#setup">Where do I get more test cases for DBGBench?</a>
 
 ## DBGBench
 In the following we provide the complete list of errors and their average debugging time, difficulty, and patch correctness, with human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time. For each error, we also provide the commit introducing the error, the simplified and original bug report, the fault locations, and the submitted and original patches.
 
 ### <a name="setup"></a>Setup and Infrastructure
-* Download the [benchmark summary](https://github.com/dbgbench/dbgbench.github.io/raw/master/benchmar.pdf) containing the complete list of errors, their average debugging time, difficulty, and patch correctness, human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time.
+* Download the <a href="benchmark.pdf" target="_blank">benchmark summary</a> containing the complete list of errors, their average debugging time, difficulty, and patch correctness, human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time.
 * Download the <a href="https://docs.google.com/spreadsheets/d/12dYERCbuVCX6Ks4QgAF-XEEsLIxD9zsm2XAHE1bhyK0/edit?usp=sharing" target="_blank">complete data</a> containing for each debugging session (error, participant) the following data:
   * BUG ID & Participant ID
   * Provided Fault Locations, Bug diagnosis/Explanations & Patches
@@ -32,6 +33,7 @@ In the following we provide the complete list of errors and their average debugg
 * Download the <a href="questionnaire.pdf" target="_blank">example questionnaire</a>.
 * Download the <a href="https://github.com/dbgbench/dbgbench.github.io/tree/master/docker" target="_blank">Docker virtual infrastructure</a>.
 * Download the <a href="https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U" target="_blank">tutorial material</a>, including slides, videos, and readme files.
+* Download <a href="https://github.com/thierry-tct/Tests_CPA_ICSE" target="_blank">more test cases</a> for DBGBench.<br/>Thanks, Titcheu Chekam Thierry, Mike Papadakis, Yves Le Traon, and Mark Harman! Read their <a href="https://sites.google.com/site/mikepapadakis/ICSE17.pdf?attredirects=0&d=1" target="_blank">ICSE'17 paper</a>.
 * Read out [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH.
 * Read our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
 
@@ -80,7 +82,7 @@ GNU [grep](https://www.gnu.org/software/grep/manual/grep.html) is a command-line
 ## <a name="cite"></a>How to Cite?
 ```
 @inproceedings{dbgbench, 
-  author = {B\"{o}hme, Marcel and Soremekun, Ezekiel Olamide and Chattophadyay, Sudipta and Ugherughe, Emamurho and Zeller, Andreas}, 
+  author = {B\"{o}hme, Marcel and Soremekun, Ezekiel Olamide and Chattopadhyay, Sudipta and Ugherughe, Emamurho and Zeller, Andreas}, 
   title = {Where is the Bug and How is it Fixed? An Experiment with Practitioners}, 
   booktitle = {Proceedings of the Joint meeting of the European Software Engineering Conference and the ACM SIGSOFT Symposium on the Foundations of Software Engineering (ESEC/FSE) 2017}, 
   series = {FSE 2017}, 
