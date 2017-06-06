@@ -1,0 +1,7 @@
+Core dump with pattern '(^| )*( |$)'
+
+$ ./grep -Eq '(^| )*( |$)' 
+Segmentation Fault
+
+$ ./grep -E '(^| )*(a|b)*(c|d)*( |$)'
+Segmentation Fault

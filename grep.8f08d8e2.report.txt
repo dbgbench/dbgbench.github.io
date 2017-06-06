@@ -1,0 +1,8 @@
+Bug when printing and -w is used and regex is needed for matching
+
+$ export LC_ALL=en_US.UTF-8
+$ echo "foo foo bar" |  ./grep -w '\(foo\) \1
+foo foo
+
+Instead, I expected that that grep prints 
+foo foo bar

@@ -1,0 +1,4 @@
+Segmentation Fault for --exclude-dir
+
+The following will produce a segfault.
+$ ./grep -rl --exclude-dir=foo NEEDLE $HOME

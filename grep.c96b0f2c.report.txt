@@ -1,0 +1,30 @@
+Options -i and -n will not work when applied to an empty line
+
+This is the correct output
+    $ export LC_ALL=C
+    $ printf 'a\n\nb\n' | ./grep -in '^$'
+    2:
+
+But if I run in a UTF-8 locale like this:
+    $ export LC_ALL=en_US.utf8
+    $ printf 'a\n\nb\n' | ./grep -in '^$'
+
+I am flabbergasted to see this erroneous output:
+
+    2:3:
+
+Worse still, the following command prints 0 when there is no match(!):
+
+    $ export LC_ALL=en_US.utf8
+    $ seq 2 | ./grep -i '^$'; echo $?
+    0
+
+With -n, and a larger input, the problem is a little clearer:
+    $ export LC_ALL=en_US.utf8
+    $ seq 9 | ./grep -in '^$'
+    2:4:6:8:10:12:14:16:
+
+The correct output would be nothing to be printed and
+    $ export LC_ALL=en_US.utf8
+    $ seq 9 | ./grep -i '^$'; echo $?
+    1

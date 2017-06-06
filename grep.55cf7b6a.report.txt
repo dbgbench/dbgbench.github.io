@@ -1,0 +1,17 @@
+grep does not match anything when reading from stdin
+
+$ echo foo | ./grep -D skip foo
+returns empty and grep is unsuccessful:
+
+$ echo foo | ./grep -D skip foo; echo $?
+1
+
+Instead it should successfully return foo
+$ echo foo | ./grep -D skip foo; echo $?
+foo
+0
+
+The -D option is documented as follows:
+-D action
+--devices=action
+If an input file is a device, FIFO, or socket, use action to process it. If action is ‘read’, all devices are read just as if they were ordinary files. If action is ‘skip’, devices, FIFOs, and sockets are silently skipped. By default, devices are read if they are on the command line or if the -R (--dereference-recursive) option is used, and are skipped if they are encountered recursively and the -r (--recursive) option is used. This option has no effect on a file that is read via standard input. 

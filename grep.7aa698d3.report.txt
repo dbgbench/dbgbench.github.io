@@ -1,0 +1,8 @@
+grep -i in UTF-8 - newline not printed after matching line if it contains I WITH DOT (U+0130)
+
+This shows how, with -i, grep is searching a different string (down-cased)
+and the width of the lower-case "i" is just one byte. The end-of-line offset is calculated using the all-lower-case string, yet that offset is not valid in the original, longer string, so grep fails to print the entire line:
+
+    i='\xC4\xB0'; printf "$i$i$i$i$i$i$i\n" |LC_ALL=en_US.UTF-8 ./grep -i ....
+    İİİİ
+

@@ -1,0 +1,13 @@
+Problem with non-utf8 handline
+
+Normally, grep will print the small case f.
+$ export LC_ALL=C
+$ echo f | ./grep '[a-z]'
+f
+
+However, with some locales it does not:
+$ export LC_ALL=ru_RU.UTF-8
+$ echo f | ./grep '[a-z]'
+(nothing printed)
+
+As you see, grep in ru_RU.KOI8-R locale doesn't grep.

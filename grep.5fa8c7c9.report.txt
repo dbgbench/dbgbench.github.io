@@ -1,0 +1,8 @@
+Hang in grep -F for empty string search
+
+Searching with grep -F for an empty string in a multibyte locals  would freeze grep.
+
+For example,
+$ export LC_ALL=en_US.UTF-8
+$ echo "abcd" | ./grep -F ""
+(runs forever)

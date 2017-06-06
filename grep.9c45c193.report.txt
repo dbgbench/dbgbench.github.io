@@ -1,0 +1,11 @@
+--include not working as expected
+
+The --include option seems completely broken to me. I've tried using various combinations of backslashes, single and double quotes on the --include parameter, but to no avail. 
+
+$ echo x > 1
+$ ./grep --include=1 x 1
+(nothing printed)
+
+Instead, what it should print is
+$ ./grep --include=1 x 1 
+x

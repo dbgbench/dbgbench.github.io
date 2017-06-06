@@ -1,0 +1,9 @@
+Segmentation fault on multibyte character classes
+
+Character classes could cause a segmentation fault if they included a multibyte character.
+
+$ export  LC_ALL=en_US.UTF-8
+$ printf 'á\nç\nÉ\n' | ./grep '[é]'
+Segmentation Fault
+
+This should actually print É.

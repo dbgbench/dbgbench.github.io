@@ -1,0 +1,18 @@
+grep version 2.12 --include --exclude is broken
+
+Given the following directory structure:
+echo abc > foo.e
+echo abc > bar.e
+echo abc > dog.e
+echo abc > thisnot.a
+
+The following used to show the every line containing abc in *.e files EXCEPT for foo.e.
+$ ./grep --include="*.e" --exclude="foo.e" abc *
+bar.e:abc
+dog.e:abc
+
+However, now it ignores the --include and also shows thisnot.a
+$ ./grep --include="*.e" --exclude="foo.e" abc *
+bar.e:abc
+dog.e:abc
+thisnot.a

@@ -1,0 +1,27 @@
+grep -i (case-insensitive) is broken with UTF8
+
+$ export LC_ALL=tr_TR.utf8
+$ printf "IIIIIII\n" > in
+$ ./grep -i .... in > out
+
+Here, in and out should have the same content, but they do not.
+$ diff in out
+Binary files in and out differ
+
+Here's why (difference in the encoding):
+$ cat in | od -c
+000000   I   I   I   I   I   I   I  \n
+$ cat out | od -c
+0000000   I   I   I   I   I   I   I  \n  \0  \0  \0  \0  \0  \0  \0
+__________
+MORE INFO:
+# Without -i switch everything works correctly
+$ echo -e 'AA UTF8 char \xC4\xB0 12345\nAA 12345' | ./grep 'AA'
+AA UTF8 char İ 12345
+AA 12345
+
+# With -i it breaks
+$ echo -e 'AA UTF8 char \xC4\xB0 12345\nAA 12345' | grep -i 'AA'
+> AA UTF8 char İ 12345AA 12345
+
+As you can see it somehow deletes the new line character in the line which has an UTF8 'İ' character. 

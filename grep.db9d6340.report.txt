@@ -1,0 +1,5 @@
+Infinite Loop for grep -F for locales with prefix of multibyte
+
+$ export LC_ALL=en_US.UTF-8
+$ printf '\357\274\241\n' | ./grep -F $'\274\241'
+(runs indefinitely)
