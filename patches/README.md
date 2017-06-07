@@ -6,7 +6,8 @@ $ patch -p1 -l -f < [Error ID]/[Participant ID].patch
 ```
 to apply the patch of participant [Participant ID] for error [Error ID].
 
-## Example: Dry-run Apply all patches
+## Example: Dry-run-apply All Patches
+
 ```
 git config --global http.sslVerify false
 git clone https://github.com/dbgbench/dbgbench.github.io.git
