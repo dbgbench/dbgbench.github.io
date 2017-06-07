@@ -1,0 +1,27 @@
+diff --git a/src/search.c b/src/search.c
+index 1c9272e..a91fcb5 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -377,6 +377,8 @@ EXECUTE_FCT(EGexecute)
+   int backref, start, len, best_len;
+   struct kwsmatch kwsm;
+   size_t i, ret_val;
++  size_t orig_size = size;
++
+ #ifdef MBS_SUPPORT
+   char *mb_properties = NULL;
+   if (MB_CUR_MAX > 1)
+@@ -558,8 +560,12 @@ EXECUTE_FCT(EGexecute)
+   ret_val = beg - buf;
+  out:
+ #ifdef MBS_SUPPORT
+-  if (MB_CUR_MAX > 1)
++  if (MB_CUR_MAX > 1) {
+     free (mb_properties);
++    if (len && match_icase) {
++       *match_size = orig_size;
++    }
++  }
+ #endif /* MBS_SUPPORT */
+   return ret_val;
+ }

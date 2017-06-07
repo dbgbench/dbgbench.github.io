@@ -1,3 +1,5 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 3e94da1..3e6b7b7 100644
 --- a/find/ftsfind.c
 +++ b/find/ftsfind.c
 @@ -428,7 +428,7 @@ consider_visiting(FTS *p, FTSENT *ent)

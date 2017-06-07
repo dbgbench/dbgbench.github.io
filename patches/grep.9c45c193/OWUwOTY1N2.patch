@@ -1,0 +1,7 @@
+in lib/exclude.c:359 replace line:
+
+  bool excluded = !! (options & EXCLUDE_INCLUDE);
+
+with:
+
+  bool excluded = 0;

@@ -1,0 +1,12 @@
+diff --git a/src/searchutils.c b/src/searchutils.c
+index 8c34e31..fdad165 100644
+--- a/src/searchutils.c
++++ b/src/searchutils.c
+@@ -142,6 +142,6 @@
+     }
+
+   *good = prev;
+-  return p > buf || match_len < mbrlen (p, end - p, &cur_state);
++  return p > buf;
+ }
+ #endif /* MBS_SUPPORT */

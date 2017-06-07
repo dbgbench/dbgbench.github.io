@@ -1,0 +1,20 @@
+diff --git a/src/dfa.c b/src/dfa.c
+index d1d7f25..cc617df 100644
+--- a/src/dfa.c
++++ b/src/dfa.c
+@@ -1883,7 +1883,6 @@ dfaanalyze (struct dfa *d, int searchflag)
+        putc('\n', stderr);
+ #endif
+        copy(&d->follows[i], &merged);
+-       epsclosure(&merged, d);
+        if (d->follows[i].nelem < merged.nelem)
+          REALLOC(d->follows[i].elems, position, merged.nelem);
+        copy(&merged, &d->follows[i]);
+@@ -1904,7 +1903,7 @@ dfaanalyze (struct dfa *d, int searchflag)
+
+   /* Build the initial state. */
+   d->salloc = 1;
+-  d->sindex = 0;
++  d->sindex = 2;
+   MALLOC(d->states, dfa_state, d->salloc);
+   state_index(d, &merged, wants_newline, 0);

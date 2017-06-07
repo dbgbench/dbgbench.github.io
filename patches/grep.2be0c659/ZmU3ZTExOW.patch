@@ -1,0 +1,13 @@
+diff --git a/src/search.c b/src/search.c
+index 1c9272e..b570616 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -116,7 +116,7 @@ mbtolower (const char *beg, size_t *n)
+           p = out + outlen;
+         }
+
+-      if (mbclen == (size_t) -1 || mbclen == (size_t) -2 || mbclen == 0)
++      if (mbclen == (size_t) -1 || mbclen <= (size_t) -2 || mbclen == 0)
+         {
+           /* An invalid sequence, or a truncated multi-octet character.
+              We treat it as a single-octet character.  */

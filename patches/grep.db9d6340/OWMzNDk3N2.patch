@@ -1,0 +1,19 @@
+diff --git a/src/search.c b/src/search.c
+index c986d48..03ac07a 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -637,11 +637,11 @@ EXECUTE_FCT(Fexecute)
+ #ifdef MBS_SUPPORT
+       if (MB_CUR_MAX > 1 && is_mb_middle (&mb_start, beg + offset, buf + size))
+         {
+-          beg = mb_start - 1;
+-          continue; /* It is a part of multibyte character.  */
++          beg = mb_start;
+         }
+-#endif /* MBS_SUPPORT */
++#else
+       beg += offset;
++#endif /* MBS_SUPPORT */
+       len = kwsmatch.size[0];
+       if (start_ptr && !match_words)
+         goto success_in_beg_and_len;

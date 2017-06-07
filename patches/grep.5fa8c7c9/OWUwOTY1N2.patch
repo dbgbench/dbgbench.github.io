@@ -1,0 +1,13 @@
+diff --git a/src/kwsearch.c b/src/kwsearch.c
+index 973eb60..33e19d8 100644
+--- a/src/kwsearch.c
++++ b/src/kwsearch.c
+@@ -105,7 +105,7 @@ Fexecute (char const *buf, size_t size, size_t *match_size,
+         goto failure;
+       len = kwsmatch.size[0];
+ #ifdef MBS_SUPPORT
+-      if (MB_CUR_MAX > 1 && is_mb_middle (&mb_start, beg + offset, buf + size,
++      if (len && MB_CUR_MAX > 1 && is_mb_middle (&mb_start, beg + offset, buf + size,
+                                           len))
+         {
+           /* The match was a part of multibyte character, advance at least

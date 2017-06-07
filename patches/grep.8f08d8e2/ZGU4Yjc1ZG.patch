@@ -1,0 +1,15 @@
+diff --git a/src/search.c b/src/search.c
+index 206260d..6ee74aa 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -411,7 +411,10 @@ EXECUTE_FCT(EGexecute)
+                     if ((match == buf || !WCHAR ((unsigned char) match[-1]))
+                         && (len == end - beg - 1
+                             || !WCHAR ((unsigned char) match[len])))
++                        {
++              len = end - beg; /* MEOLIC: BUG FIXING */
+                       goto assess_pattern_match;
++                    }
+                     if (len > 0)
+                       {
+                         /* Try a shorter length anchored at the same place. */

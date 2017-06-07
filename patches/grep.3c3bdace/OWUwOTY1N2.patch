@@ -1,0 +1,12 @@
+diff --git a/src/dfa.c b/src/dfa.c
+index d1d7f25..c523d46 100644
+--- a/src/dfa.c
++++ b/src/dfa.c
+@@ -1725,7 +1725,7 @@ dfaanalyze (struct dfa *d, int searchflag)
+   MALLOC(nalloc, int, d->tindex);
+   for (i = 0; i < d->tindex; ++i)
+     nalloc[i] = 0;
+-  MALLOC(merged.elems, position, d->nleaves);
++  MALLOC(merged.elems, position, d->nleaves * 2);
+ 
+   CALLOC(d->follows, position_set, d->tindex);

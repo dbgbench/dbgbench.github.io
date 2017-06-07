@@ -1,0 +1,43 @@
+diff --git a/src/dfa.c b/src/dfa.c
+index d1d7f25..7d97f30 100644
+--- a/src/dfa.c
++++ b/src/dfa.c
+@@ -1433,26 +1433,23 @@ copy (position_set const *src, position_set *dst)
+ static void
+ insert (position p, position_set *s)
+ {
+-  int count = s->nelem;
+-  int lo = 0, hi = count;
+-  while (lo < hi)
+-    {
+-      int mid = ((unsigned) lo + (unsigned) hi) >> 1;
+-      if (s->elems[mid].index < p.index)
+-        lo = mid + 1;
+-      else
+-        hi = mid;
+-    }
++  int i;
++  position t1, t2;
+ 
+-  if (lo < count && p.index == s->elems[lo].index)
+-    s->elems[lo].constraint |= p.constraint;
++  for (i = 0; i < s->nelem && p.index < s->elems[i].index; ++i)
++    continue;
++  if (i < s->nelem && p.index == s->elems[i].index)
++    s->elems[i].constraint |= p.constraint;
+   else
+     {
+-      int i;
+-      for (i = count; i > lo; i--)
+-        s->elems[i] = s->elems[i - 1];
+-      s->elems[lo] = p;
++      t1 = p;
+       ++s->nelem;
++      while (i < s->nelem)
++        {
++          t2 = s->elems[i];
++          s->elems[i++] = t1;
++          t1 = t2;
++        }
+     }
+ }

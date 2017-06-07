@@ -1,0 +1,13 @@
+diff --git a/src/dfa.c b/src/dfa.c
+index d1d7f25..d760d57 100644
+--- a/src/dfa.c
++++ b/src/dfa.c
+@@ -1618,6 +1618,9 @@ epsclosure (position_set *s, struct dfa const *d)
+          default:
+            break;
+          }
++  
++  s->nelem = 0;
++
+        for (j = 0; j < d->follows[old.index].nelem; ++j)
+          {

@@ -1,0 +1,44 @@
+diff --git a/src/search.c b/src/search.c
+index 1c9272e..a4cedf5 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -372,20 +372,22 @@ COMPILE_FCT(Ecompile)
+ 
+ EXECUTE_FCT(EGexecute)
+ {
+-  register char const *buflim, *beg, *end, *match, *best_match;
++  register char const *buflim, *beg, *end, *match, *best_match, *ptr;
+   char eol = eolbyte;
+   int backref, start, len, best_len;
+   struct kwsmatch kwsm;
+   size_t i, ret_val;
+ #ifdef MBS_SUPPORT
+-  char *mb_properties = NULL;
++  char *mb_properties = NULL, *orig_mb_properties = NULL;
+   if (MB_CUR_MAX > 1)
+     {
+       if (match_icase)
+         {
+           /* mbtolower adds a NUL byte at the end.  That will provide
+              space for the sentinel byte dfaexec may add.  */
+-          char *case_buf = mbtolower (buf, &size);
++          char *case_buf;
++          orig_mb_properties = check_multibyte_string(buf, size);
++          case_buf = mbtolower (buf, &size);
+           if (start_ptr)
+             start_ptr = case_buf + (start_ptr - buf);
+           buf = case_buf;
+@@ -553,6 +555,13 @@ EXECUTE_FCT(EGexecute)
+ 
+  success:
+   len = end - beg;
++  if (orig_mb_properties)
++  {
++    for (ptr = beg; ptr < end; ptr++)
++      len += orig_mb_properties[ptr-beg];
++    len--;  /* deal with zero terminator */
++  }
++
+  success_in_len:
+   *match_size = len;
+   ret_val = beg - buf;

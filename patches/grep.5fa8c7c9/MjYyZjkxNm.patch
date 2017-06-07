@@ -1,0 +1,16 @@
+diff --git a/src/kwsearch.c b/src/kwsearch.c
+index 973eb60..9cdae03 100644
+--- a/src/kwsearch.c
++++ b/src/kwsearch.c
+@@ -103,6 +103,11 @@ Fexecute (char const *buf, size_t size, size_t *match_size,
+       size_t offset = kwsexec (kwset, beg, buf + size - beg, &kwsmatch);
+       if (offset == (size_t) -1)
+        goto failure;
++      if (offset == 0)
++      {
++        len = size;
++        goto success;
++      }
+       len = kwsmatch.size[0];
+ #ifdef MBS_SUPPORT
+       if (MB_CUR_MAX > 1 && is_mb_middle (&mb_start, beg + offset, buf + size,

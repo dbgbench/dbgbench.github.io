@@ -1,0 +1,39 @@
+diff --git a/src/grep.c b/src/grep.c
+index 2dc3ee9..9735722 100644
+--- a/src/grep.c
++++ b/src/grep.c
+@@ -1083,6 +1083,34 @@ grepbuf (char const *beg, char const *lim)
+     {
+       char const *b = p + match_offset;
+       char const *endp = b + match_size;
++
++      /* MEOLIC: BUG FIXING */
++#ifdef MBS_SUPPORT
++      if (MB_CUR_MAX > 1)
++      {
++        if (match_icase) {
++          /* check a mapping between the original and the converted letters */
++          /* adjust endp if necessary */
++          char *p1 = p;
++          char p2[MB_CUR_MAX];
++          size_t length1,length2,length3;
++          wchar_t onechar;
++          mbstate_t mbs1,mbs2;
++          memset(&mbs1,0,sizeof(mbs1));
++          memset(&mbs2,0,sizeof(mbs2));
++          length3 = 0;
++          while (length3 != match_size) {
++            length1 = mbrtowc(&onechar,p1,lim-p1,&mbs1);
++            p1+=length1;
++            length2 = wcrtomb((char *)&p2,towlower((wint_t)onechar),&mbs2);
++            length3 += length2;
++            endp = endp + length1 - length2;
++          }
++        }
++      }
++      /* MEOLIC: END OF FIX */
++#endif /* MBS_SUPPORT */
++
+       /* Avoid matching the empty line at the end of the buffer. */
+       if (b == lim)
+         break;

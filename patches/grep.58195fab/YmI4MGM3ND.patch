@@ -1,0 +1,35 @@
+diff --git a/src/grep.c b/src/grep.c
+index fbeb089..46195c6 100644
+--- a/src/grep.c
++++ b/src/grep.c
+@@ -2136,7 +2136,7 @@ main (int argc, char **argv)
+       case INCLUDE_OPTION:
+        if (!included_patterns)
+          included_patterns = new_exclude ();
+-       add_exclude (included_patterns, optarg, EXCLUDE_INCLUDE);
++       add_exclude (included_patterns, optarg, EXCLUDE_INCLUDE | EXCLUDE_WILDCARDS);
+        break;
+
+
+@@ -2264,14 +2264,15 @@ There is NO WARRANTY, to the extent permitted by law.\n"),
+          if ((included_patterns || excluded_patterns)
+              && !isdir (file))
+            {
++                 if (excluded_patterns &&
++                                 excluded_file_name (excluded_patterns, file))
++                               continue;
+              if (included_patterns &&
+-                 ! excluded_file_name (included_patterns, file))
+-               continue;
+-             if (excluded_patterns &&
+-                 excluded_file_name (excluded_patterns, file))
+-               continue;
++                   excluded_file_name (included_patterns, file))
++                 status &= grepfile (file, &stats_base);
+            }
+-         status &= grepfile (strcmp (file, "-") == 0 ? (char *) NULL : file,
++         else
++                 status &= grepfile (strcmp (file, "-") == 0 ? (char *) NULL : file,
+                              &stats_base);
+        }
+        while ( ++optind < argc);

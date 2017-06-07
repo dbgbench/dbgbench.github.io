@@ -1,0 +1,31 @@
+diff --git a/src/search.c b/src/search.c
+index 1c9272e..7114e55 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -377,6 +377,7 @@ EXECUTE_FCT(EGexecute)
+   int backref, start, len, best_len;
+   struct kwsmatch kwsm;
+   size_t i, ret_val;
++  size_t diff_size = 0;
+ #ifdef MBS_SUPPORT
+   char *mb_properties = NULL;
+   if (MB_CUR_MAX > 1)
+@@ -385,7 +386,9 @@ EXECUTE_FCT(EGexecute)
+         {
+           /* mbtolower adds a NUL byte at the end.  That will provide
+              space for the sentinel byte dfaexec may add.  */
++          size_t old = size;
+           char *case_buf = mbtolower (buf, &size);
++          diff_size = old - size;
+           if (start_ptr)
+             start_ptr = case_buf + (start_ptr - buf);
+           buf = case_buf;
+@@ -554,7 +557,7 @@ EXECUTE_FCT(EGexecute)
+  success:
+   len = end - beg;
+  success_in_len:
+-  *match_size = len;
++  *match_size = len  + diff_size;
+   ret_val = beg - buf;
+  out:
+ #ifdef MBS_SUPPORT

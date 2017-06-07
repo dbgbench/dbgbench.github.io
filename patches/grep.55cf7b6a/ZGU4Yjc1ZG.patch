@@ -1,0 +1,15 @@
+diff --git a/src/main.c b/src/main.c
+index 3376fa4..ed3a413 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -1244,7 +1244,9 @@ grepfile (char const *file, struct stats *stats)
+     }
+ 
+   if ((directories == SKIP_DIRECTORIES && S_ISDIR (stats->stat.st_mode))
+-      || (devices == SKIP_DEVICES && (S_ISCHR (stats->stat.st_mode)
++      || (devices == SKIP_DEVICES &&
++             desc != STDIN_FILENO && /* MEOLIC: BUG FIXING */
++                                     (S_ISCHR (stats->stat.st_mode)
+                                       || S_ISBLK (stats->stat.st_mode)
+                                       || S_ISSOCK (stats->stat.st_mode)
+                                       || S_ISFIFO (stats->stat.st_mode))))

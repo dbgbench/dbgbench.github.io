@@ -1,0 +1,22 @@
+diff --git a/src/search.c b/src/search.c
+index c986d48..c35729a 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -611,7 +611,7 @@ COMPILE_FCT(Fcompile)
+ 
+ EXECUTE_FCT(Fexecute)
+ {
+-  char const *beg, *try, *end, *mb_start;
++  char const *beg, *try, *end, *mb_start, *pos;
+   size_t len;
+   char eol = eolbyte;
+   struct kwsmatch kwsmatch;
+@@ -629,7 +629,7 @@ EXECUTE_FCT(Fexecute)
+     }
+ #endif /* MBS_SUPPORT */
+ 
+-  for (mb_start = beg = start_ptr ? start_ptr : buf; beg <= buf + size; beg++)
++  for (pos = mb_start = beg = start_ptr ? start_ptr : buf; pos <= buf + size; pos++)
+     {
+       size_t offset = kwsexec (kwset, beg, buf + size - beg, &kwsmatch);
+       if (offset == (size_t) -1)

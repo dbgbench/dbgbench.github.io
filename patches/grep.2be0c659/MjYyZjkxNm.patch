@@ -1,0 +1,15 @@
+diff --git a/src/grep.c b/src/grep.c
+index 2dc3ee9..0223f99 100644
+--- a/src/grep.c
++++ b/src/grep.c
+@@ -1087,7 +1087,9 @@ grepbuf (char const *beg, char const *lim)
+       if (b == lim)
+        break;
+       if (!out_invert)
+-       {
++       { 
++    // use old limit not new one
++    endp = lim;
+          prtext (b, endp, (int *) 0);
+          nlines++;
+           outleft--;

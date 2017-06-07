@@ -1,0 +1,15 @@
+diff --git a/src/search.c b/src/search.c
+index 1c9272e..b570616 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -385,7 +385,9 @@
+         {
+           /* mbtolower adds a NUL byte at the end.  That will provide
+         space for the sentinel byte dfaexec may add.  */
+-          char *case_buf = mbtolower (buf, &size);
++          char *case_buf = xmalloc(size);
++          memcpy(case_buf, buf, size);
++
+      if (start_ptr)
+        start_ptr = case_buf + (start_ptr - buf);
+           buf = case_buf;

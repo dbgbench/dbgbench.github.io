@@ -1,0 +1,25 @@
+diff --git a/src/dfa.c b/src/dfa.c
+index 3b0d861..3cfc6b9 100644
+--- a/src/dfa.c
++++ b/src/dfa.c
+@@ -251,9 +251,9 @@ setbit_case_fold (unsigned b, charclass c)
+         {
+           wint_t b1 = iswupper(b) ? towlower(b) : b;
+           wint_t b2 = iswlower(b) ? towupper(b) : b;
+-          if (wctob ((unsigned char)b1) == b1)
++          if (wctob ((unsigned char)b1) == b1 && b != EOF)
+             setbit (b1, c);
+-          if (b2 != b1 && wctob ((unsigned char)b2) == b2)
++          if (b2 != b1 && wctob ((unsigned char)b2) == b2 && b != EOF)
+             setbit (b2, c);
+         }
+       else
+@@ -269,7 +269,7 @@ setbit_case_fold (unsigned b, charclass c)
+   else
+     {
+ #ifdef MBS_SUPPORT
+-      if (wctob ((unsigned char)b) == b)
++      if (wctob ((unsigned char)b) == b && b != EOF)
+ #endif
+         setbit (b, c);
+     }

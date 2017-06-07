@@ -1,0 +1,59 @@
+diff --git a/gnulib b/gnulib
+--- a/gnulib
++++ b/gnulib
+@@ -1 +1 @@
+-Subproject commit aadf332a5c5f209affd38c35b4e9faaa8a0adecb
++Subproject commit aadf332a5c5f209affd38c35b4e9faaa8a0adecb-dirty
+diff --git a/src/dfa.c b/src/dfa.c
+index 3b0d861..1e00de9 100644
+--- a/src/dfa.c
++++ b/src/dfa.c
+@@ -335,6 +335,39 @@ static unsigned char const *buf_begin;        /* reference to begin in dfaexec().  */
+ static unsigned char const *buf_end;        /* reference to end in dfaexec().  */
+ #endif /* MBS_SUPPORT  */
+ 
++union short_union
++{
++        short int short_int;
++        unsigned short int short_uint;
++        char bytes[2];
++};
++
++int
++wctoint (wint_t wc)
++{
++  char buf[64];
++  int count = wctomb (buf, wc);
++
++  if (!(MB_CUR_MAX <= sizeof (buf)))
++  {
++    abort ();
++  }
++  if (count == 1)
++  {
++    return (unsigned char) buf[0];
++  }
++  else if(count == 2)
++  {
++            union short_union temp;
++            temp.bytes[0] = buf[1];
++            temp.bytes[1] = buf[0];
++            return temp.short_uint;
++  }
++  else
++  {
++    return EOF;
++  }
++}
+ 
+ #ifdef MBS_SUPPORT
+ /* Note that characters become unsigned here. */
+@@ -360,7 +393,7 @@ static unsigned char const *buf_end;        /* reference to end in dfaexec().  */
+           {                                        \
+             lexptr += cur_mb_len;                \
+             lexleft -= cur_mb_len;                \
+-            (c) = wctob(wc);                        \
++            (c) = wctoint(wc);                        \
+           }                                        \
+       }                                                \
+   } while(0)

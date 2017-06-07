@@ -1,0 +1,15 @@
+diff --git a/src/main.c b/src/main.c
+index 3376fa4..aba1c34 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -1243,8 +1243,9 @@ grepfile (char const *file, struct stats *stats)
+       return 1;
+     }
+
++
+   if ((directories == SKIP_DIRECTORIES && S_ISDIR (stats->stat.st_mode))
+-      || (devices == SKIP_DEVICES && (S_ISCHR (stats->stat.st_mode)
++      || (desc != STDIN_FILENO && devices == SKIP_DEVICES && (S_ISCHR (stats->stat.st_mode)
+                                       || S_ISBLK (stats->stat.st_mode)
+                                       || S_ISSOCK (stats->stat.st_mode)
+                                       || S_ISFIFO (stats->stat.st_mode))))

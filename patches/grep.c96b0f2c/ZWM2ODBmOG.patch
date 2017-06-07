@@ -1,0 +1,16 @@
+diff --git a/src/grep.c b/src/grep.c
+index e289095..6c6feae 100644
+--- a/src/grep.c
++++ b/src/grep.c
+@@ -1086,6 +1086,11 @@ grepbuf (char const *beg, char const *lim)
+       /* Avoid matching the empty line at the end of the buffer. */
+       if (b == lim)
+         break;
++      if (!out_invert && !match_size)
++        {
++          p = endp;
++          continue;
++        }
+       if (!out_invert)
+         {
+           prtext (b, endp, (int *) 0);

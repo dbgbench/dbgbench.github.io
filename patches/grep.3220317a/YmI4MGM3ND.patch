@@ -1,0 +1,23 @@
+diff --git a/src/dfa.c b/src/dfa.c
+index 3b0d861..30f0757 100644
+--- a/src/dfa.c
++++ b/src/dfa.c
+@@ -269,7 +269,7 @@ setbit_case_fold (unsigned b, charclass c)
+   else
+     {
+ #ifdef MBS_SUPPORT
+-      if (wctob ((unsigned char)b) == b)
++      if (wctob ((unsigned char)b) == b && b != EOF)
+ #endif
+         setbit (b, c);
+     }
+@@ -693,8 +693,7 @@ parse_bracket_exp (void)
+           FETCH_WC(c1, wc1, _("unbalanced ["));
+          continue;
+        }
+-
+-      setbit_case_fold (c, ccl);
++       setbit_case_fold (c, ccl);
+ #ifdef MBS_SUPPORT
+       /* Build normal characters.  */
+       if (MB_CUR_MAX > 1)

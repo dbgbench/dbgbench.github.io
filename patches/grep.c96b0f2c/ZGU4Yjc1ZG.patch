@@ -1,0 +1,19 @@
+diff --git a/src/grep.c b/src/grep.c
+index e289095..434707f 100644
+--- a/src/grep.c
++++ b/src/grep.c
+@@ -1088,8 +1088,12 @@ grepbuf (char const *beg, char const *lim)
+         break;
+       if (!out_invert)
+         {
+-          prtext (b, endp, (int *) 0);
+-          nlines++;
++      /* MEOLIC: BUG FIXING */
++      if (match_size) {
++              prtext (b, endp, (int *) 0);
++            nlines++;
++          }
++      /* MEOLIC END OF FIX */
+           outleft--;
+           if (!outleft || done_on_match)
+             {

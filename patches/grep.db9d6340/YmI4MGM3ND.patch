@@ -1,0 +1,13 @@
+diff --git a/src/search.c b/src/search.c
+index c986d48..25fc526 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -251,7 +251,7 @@ is_mb_middle(const char **good, const char *buf, const char *end)
+       p += mbclen;
+     }
+
+-  *good = prev;
++  *good = p;
+   return p > buf;
+ }
+ #endif /* MBS_SUPPORT */

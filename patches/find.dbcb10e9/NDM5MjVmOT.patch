@@ -1,34 +1,34 @@
-diff --git a/find/parser.c b/find/parser.c                                                                                                 
-index 23a3374..41b4af3 100644                                                                                                                                                                                                                
---- a/find/parser.c                                                                                                                                                                                                                          
-+++ b/find/parser.c                                                                                                                                                                                                                          
-@@ -2736,7 +2736,7 @@ get_num (char *str,                                                                                                                                                                                                    
-         double *fractional_part,                                                                                                                                                                                                            
-         enum comparison_type *comp_type)                                                                                                                                                                                                    
- {                                                                                                                                                                                                                                           
--  char **pend;                                                                                                                                                                                                                              
-+  char *pend = NULL;                                                                                                                                                                                                                        
-   boolean ok;                                                                                                                                                                                                                               
-                                                                                                                                                                                                                                             
-   if (str == NULL)                                                                                                                                                                                                                          
-@@ -2756,16 +2756,16 @@ get_num (char *str,                                                                                                                                                                                                  
-       break;                                                                                                                                                                                                                                
-     }                                                                                                                                                                                                                                       
-                                                                                                                                                                                                                                             
--  ok = xstrtoumax (str, pend, 10, num, "") == LONGINT_OK;                                                                                                                                                                                   
-+  ok = xstrtoumax (str, &pend, 10, num, "") == LONGINT_OK;                                                                                                                                                                                  
-   if (ok && fractional_part)                                                                                                                                                                                                                
-     {                                                                                                                                                                                                                                       
--      if (*pend)                                                                                                                                                                                                                            
-+      if (pend)                                                                                                                                                                                                                             
-        {                                                                                                                                                                                                                                    
--         if ('.'== (**pend))                                                                                                                                                                                                                
-+         if ('.'== (*pend))                                                                                                                                                                                                                 
-            {                                                                                                                                                                                                                                
-              /* We have a fractional part. */                                                                                                                                                                                               
-              const char *p;                                                                                                                                                                                                                 
--             ok = xstrtod(*pend, &p, fractional_part, strtod);                                                                                                                                                                              
-+             ok = xstrtod(pend, &p, fractional_part, strtod);                                                                                                                                                                               
-              if (!ok)                                                                                                                                                                                                                       
-                {                                                                                                                                                                                                                            
+diff --git a/find/parser.c b/find/parser.c
+index 23a3374..41b4af3 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -2736,7 +2736,7 @@ get_num (char *str,
+         double *fractional_part,
+         enum comparison_type *comp_type)
+ {
+-  char **pend;
++  char *pend = NULL;
+   boolean ok;
+ 
+   if (str == NULL)
+@@ -2756,16 +2756,16 @@ get_num (char *str,
+       break;
+     }
+ 
+-  ok = xstrtoumax (str, pend, 10, num, "") == LONGINT_OK;
++  ok = xstrtoumax (str, &pend, 10, num, "") == LONGINT_OK;
+   if (ok && fractional_part)
+     {
+-      if (*pend)
++      if (pend)
+        {
+-         if ('.'== (**pend))
++         if ('.'== (*pend))
+            {
+              /* We have a fractional part. */
+              const char *p;
+-             ok = xstrtod(*pend, &p, fractional_part, strtod);
++             ok = xstrtod(pend, &p, fractional_part, strtod);
+              if (!ok)
+                {
                   *fractional_part = 0.0;

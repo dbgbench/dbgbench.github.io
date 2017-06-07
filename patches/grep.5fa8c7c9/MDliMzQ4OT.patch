@@ -1,0 +1,13 @@
+diff --git a/src/kwsearch.c b/src/kwsearch.c
+index 973eb60..2c239af 100644
+--- a/src/kwsearch.c
++++ b/src/kwsearch.c
+@@ -118,6 +118,8 @@ Fexecute (char const *buf, size_t size, size_t *match_size,
+           beg = mb_start;
+           if (mb_len != (size_t) -1)
+             beg += mb_len - 1;
++          if (mb_len == 1)
++            goto success;
+           continue;
+         }
+ #endif /* MBS_SUPPORT */

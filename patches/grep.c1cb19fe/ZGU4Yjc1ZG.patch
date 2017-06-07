@@ -1,0 +1,13 @@
+diff --git a/src/dfa.c b/src/dfa.c
+index 3122e22..b218c57 100644
+--- a/src/dfa.c
++++ b/src/dfa.c
+@@ -469,7 +469,7 @@ static int
+ in_coll_range (char ch, char from, char to)
+ {
+   char c[6] = { from, 0, ch, 0, to, 0 };
+-  return strcoll (&c[0], &c[2]) <= 0 && 0 <= strcoll (&c[2], &c[4]);
++  return strcoll (&c[0], &c[2]) <= 0 && strcoll (&c[2], &c[4]) <= 0; /* MEOLIC: BUG FIXING */
+ }
+ 
+ #ifdef MBS_SUPPORT

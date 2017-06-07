@@ -1,0 +1,13 @@
+diff --git a/src/search.c b/src/search.c
+index c986d48..4a2b839 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -242,7 +242,7 @@ is_mb_middle(const char **good, const char *buf, const char *end)
+       if (mbclen != (size_t) -2)
+         prev = p;
+
+-      if (mbclen == (size_t) -1 || mbclen == (size_t) -2 || mbclen == 0)
++      if (mbclen == (size_t) -1 || mbclen <= (size_t) -2 || mbclen == 0)
+        {
+          /* An invalid sequence, or a truncated multibyte character.
+             We treat it as a single byte character.  */

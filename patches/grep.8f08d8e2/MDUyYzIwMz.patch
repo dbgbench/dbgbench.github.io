@@ -1,0 +1,17 @@
+diff --git a/src/search.c b/src/search.c
+index 206260d..dbfff74 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -445,7 +445,11 @@ EXECUTE_FCT(EGexecute)
+                   /* Good enough for a non-exact match.
+                      No need to look at further patterns, if any.  */
+                   beg = match;
+-                  goto success_in_len;
++      if (!match_words)
++        goto success_in_len;
++      else
++        goto success;
++
+                 }
+               if (match < best_match || (match == best_match && len > best_len))
+                 {

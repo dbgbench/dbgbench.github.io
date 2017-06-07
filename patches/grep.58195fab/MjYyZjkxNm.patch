@@ -1,0 +1,11 @@
+diff --git a/src/grep.c b/src/grep.c
+index fbeb089..46195c6 100644
+--- a/src/grep.c
++++ b/src/grep.c
+@@ -2136,7 +2136,7 @@ main (int argc, char **argv)
+       case INCLUDE_OPTION:
+        if (!included_patterns)
+          included_patterns = new_exclude ();
+-       add_exclude (included_patterns, optarg, EXCLUDE_INCLUDE);
++       add_exclude (included_patterns, optarg, EXCLUDE_WILDCARDS | EXCLUDE_INCLUDE);
+        break;

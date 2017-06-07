@@ -1,0 +1,13 @@
+diff --git a/src/grep.c b/src/grep.c
+index 3122e22..61154af 100644
+--- a/src/grep.c
++++ b/src/grep.c
+@@ -1877,7 +1877,7 @@
+
+   /* Internationalization. */
+ #if defined(HAVE_SETLOCALE)
+-  setlocale (LC_ALL, "");
++  setlocale (LC_ALL, "C");
+ #endif
+ #if defined(ENABLE_NLS)
+   bindtextdomain (PACKAGE, LOCALEDIR);

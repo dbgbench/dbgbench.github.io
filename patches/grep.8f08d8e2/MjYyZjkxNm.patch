@@ -1,0 +1,12 @@
+diff --git a/src/search.c b/src/search.c
+index 206260d..eb2e1ba 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -472,6 +472,7 @@ EXECUTE_FCT(EGexecute)
+  success:
+   len = end - beg;
+  success_in_len:
++  len = end - beg;
+   *match_size = len;
+   ret_val = beg - buf;
+  out:

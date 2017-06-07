@@ -1,0 +1,21 @@
+diff --git a/src/grep.c b/src/grep.c
+index e289095..c154ebd 100644
+--- a/src/grep.c
++++ b/src/grep.c
+@@ -1860,11 +1860,14 @@ mb_icase_keys (char **keys, size_t *len)
+          lj += mcm;
+          kj = xrealloc(kj, lj + 1);
+        }
+-      if (mbclen == (size_t) -1 || mbclen == (size_t) -2 || mbclen == 0)
++      if (mbclen == (size_t) -1 || mbclen <= (size_t) -2 || mbclen == 0)
+        {
+          /* An invalid sequence, or a truncated multi-octet character.
+             We treat it as a single-octet character.  */
+-         kj[j++] = ki[i++];
++          if(mbclen <= (size_t) -2)
++            exit(1);
++          else
++            kj[j++] = ki[i++];
+        }
+       else
+        {

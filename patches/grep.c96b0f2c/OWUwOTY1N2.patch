@@ -1,0 +1,15 @@
+diff --git a/src/grep.c b/src/grep.c
+index e289095..478768e 100644
+--- a/src/grep.c
++++ b/src/grep.c
+@@ -1088,7 +1088,9 @@ grepbuf (char const *beg, char const *lim)
+        break;
+       if (!out_invert)
+        {
+-         prtext (b, endp, (int *) 0);
++          if (b < endp) {
++            prtext (b, endp, (int *) 0);
++          }
+          nlines++;
+           outleft--;
+          if (!outleft || done_on_match)

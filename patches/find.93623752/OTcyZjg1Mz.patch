@@ -1,3 +1,5 @@
+diff --git a/find/tree.c b/find/tree.c
+index e0c44c8..f657a80 100644
 --- a/find/tree.c
 +++ b/find/tree.c
 @@ -1247,6 +1247,7 @@ build_expression_tree(int argc, char *argv[], int end_of_leading_options)

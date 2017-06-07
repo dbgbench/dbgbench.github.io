@@ -1,0 +1,13 @@
+diff --git a/src/kwsearch.c b/src/kwsearch.c
+index 973eb60..83b41c8 100644
+--- a/src/kwsearch.c
++++ b/src/kwsearch.c
+@@ -113,7 +113,7 @@ Fexecute (char const *buf, size_t size, size_t *match_size,
+           mbstate_t s;
+           memset (&s, 0, sizeof s);
+           size_t mb_len = mbrlen (mb_start, (buf + size) - (beg + offset), &s);
+-          if (mb_len == (size_t) -2)
++          if (mb_len <= (size_t) -2)
+             goto failure;
+           beg = mb_start;
+           if (mb_len != (size_t) -1)

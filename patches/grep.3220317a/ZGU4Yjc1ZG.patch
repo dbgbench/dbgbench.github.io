@@ -1,0 +1,13 @@
+diff --git a/src/dfa.c b/src/dfa.c
+index 3b0d861..648b6bd 100644
+--- a/src/dfa.c
++++ b/src/dfa.c
+@@ -694,7 +694,7 @@ parse_bracket_exp (void)
+           continue;
+         }
+ 
+-      setbit_case_fold (c, ccl);
++      if (c != EOF) setbit_case_fold (c, ccl); /* MEOLIC: BUG FIXING */
+ #ifdef MBS_SUPPORT
+       /* Build normal characters.  */
+       if (MB_CUR_MAX > 1)

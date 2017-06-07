@@ -1,0 +1,22 @@
+diff --git a/src/dfa.c b/src/dfa.c
+index 3b0d861..3cfc6b9 100644
+--- a/src/dfa.c
++++ b/src/dfa.c
+@@ -541,7 +541,7 @@
+          str[len] = '\0';
+
+               /* Fetch bracket.  */
+-         FETCH (c, _("unbalanced ["));
++         FETCH_WC (c,wc, _("unbalanced ["));
+          if (c1 == ':')
+        /* build character class.  */
+        {
+@@ -694,7 +694,7 @@
+      continue;
+    }
+
+-      setbit_case_fold (c, ccl);
++      setbit_case_fold (wc, ccl);
+ #ifdef MBS_SUPPORT
+       /* Build normal characters.  */
+       if (MB_CUR_MAX > 1)

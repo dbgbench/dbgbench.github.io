@@ -1,0 +1,56 @@
+diff --git a/src/search.c b/src/search.c
+index c986d48..9cd639b 100644
+--- a/src/search.c
++++ b/src/search.c
+@@ -226,17 +226,18 @@ kwsmusts (void)
+ #ifdef MBS_SUPPORT
+ 
+ static bool
+-is_mb_middle(const char **good, const char *buf, const char *end)
++is_mb_middle(const char **good, const char *buf, const char *end, const char **next)
+ {
+   const char *p = *good;
+   const char *prev = p;
+   mbstate_t cur_state;
++  size_t mbclen = 0;
+ 
+   /* TODO: can be optimized for UTF-8.  */
+   memset(&cur_state, 0, sizeof(mbstate_t));
+   while (p < buf)
+     {
+-      size_t mbclen = mbrlen(p, end - p, &cur_state);
++      mbclen = mbrlen(p, end - p, &cur_state);
+ 
+       /* Store the beginning of the previous complete multibyte character.  */
+       if (mbclen != (size_t) -2)
+@@ -252,6 +253,8 @@ is_mb_middle(const char **good, const char *buf, const char *end)
+     }
+ 
+   *good = prev;
++  if (next != NULL)
++    *next = p; // or prev + mbclen?
+   return p > buf;
+ }
+ #endif /* MBS_SUPPORT */
+@@ -423,7 +426,7 @@ EXECUTE_FCT(EGexecute)
+ #ifdef MBS_SUPPORT
+                   if (mb_start < beg)
+                     mb_start = beg;
+-                  if (MB_CUR_MAX == 1 || !is_mb_middle (&mb_start, match, buflim))
++                  if (MB_CUR_MAX == 1 || !is_mb_middle (&mb_start, match, buflim, NULL))
+ #endif
+                     goto success;
+                 }
+@@ -635,9 +638,10 @@ EXECUTE_FCT(Fexecute)
+       if (offset == (size_t) -1)
+        goto failure;
+ #ifdef MBS_SUPPORT
+-      if (MB_CUR_MAX > 1 && is_mb_middle (&mb_start, beg + offset, buf + size))
++      char *next;
++      if (MB_CUR_MAX > 1 && is_mb_middle (&mb_start, beg + offset, buf + size, &next))
+         {
+-          beg = mb_start - 1;
++          beg = next;
+           continue; /* It is a part of multibyte character.  */
+         }
+ #endif /* MBS_SUPPORT */

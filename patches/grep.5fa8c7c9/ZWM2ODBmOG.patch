@@ -1,0 +1,14 @@
+diff --git a/src/searchutils.c b/src/searchutils.c
+index 8c34e31..fdad165 100644
+--- a/src/searchutils.c
++++ b/src/searchutils.c
+@@ -121,6 +121,9 @@ is_mb_middle (const char **good, const char *buf, const char *end,
+   const char *prev = p;
+   mbstate_t cur_state;
+ 
++  if (0 >= match_len)
++    return false;
++
+   /* TODO: can be optimized for UTF-8.  */
+   memset(&cur_state, 0, sizeof(mbstate_t));
+   while (p < buf)

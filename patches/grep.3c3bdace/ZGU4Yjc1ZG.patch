@@ -1,0 +1,32 @@
+diff --git a/src/dfa.c b/src/dfa.c
+index d1d7f25..fcba2f1 100644
+--- a/src/dfa.c
++++ b/src/dfa.c
+@@ -1574,7 +1574,8 @@ epsclosure (position_set *s, struct dfa const *d)
+   int i, j;
+   char *visited;
+   position p, old;
+-
++  int snelem = s->nelem; /* MEOLIC: BUG FIXING */
++  
+   CALLOC(visited, char, d->tindex);
+ 
+   for (i = 0; i < s->nelem; ++i)
+@@ -1618,6 +1619,8 @@ epsclosure (position_set *s, struct dfa const *d)
+           default:
+             break;
+           }
++    if (s->nelem + d->follows[old.index].nelem > snelem)
++          REALLOC(s->elems, position, snelem=(s->nelem+d->follows[old.index].nelem)); /* MEOLIC: BUG FIXING */
+         for (j = 0; j < d->follows[old.index].nelem; ++j)
+           {
+             p.index = d->follows[old.index].elems[j].index;
+@@ -1882,6 +1885,8 @@ dfaanalyze (struct dfa *d, int searchflag)
+           }
+         putc('\n', stderr);
+ #endif
++        if (merged.nelem < d->follows[i].nelem)
++          REALLOC(merged.elems, position, d->follows[i].nelem); /* MEOLIC: BUG FIXING */
+         copy(&d->follows[i], &merged);
+         epsclosure(&merged, d);
+         if (d->follows[i].nelem < merged.nelem)

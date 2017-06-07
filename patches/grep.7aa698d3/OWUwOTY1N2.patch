@@ -1,0 +1,17 @@
+diff --git a/src/grep.c b/src/grep.c
+index 2dc3ee9..5cb5ef1 100644
+--- a/src/grep.c
++++ b/src/grep.c
+@@ -1059,7 +1059,11 @@ static EXECUTE_RET do_execute EXECUTE_ARGS
+ 
+       result = execute (line_buf, line_next - line_buf, match_size, start_ptr);
+       if (result != (size_t) -1)
+-       return (line_buf - buf) + result;
++        {
++          if (match_size)
++            *match_size = line_next - line_buf;
++          return (line_buf - buf) + result;
++        }
+     }
+ 
+   return (size_t) -1;

@@ -1,0 +1,12 @@
+diff --git a/lib/savedir.c b/lib/savedir.c
+index 45bf9c3..31c334a 100644
+--- a/lib/savedir.c
++++ b/lib/savedir.c
+@@ -47,7 +47,7 @@ isdir1 (const char *dir, const char *file)
+ {
+   size_t dirlen = strlen (dir);
+   size_t filelen = strlen (file);
+-
++  if(!path) return 0;
+   while (dirlen && path[dirlen - 1] == '/')
+     dirlen--;

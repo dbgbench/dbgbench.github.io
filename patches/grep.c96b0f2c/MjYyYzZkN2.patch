@@ -1,0 +1,13 @@
+diff --git a/src/grep.c b/src/grep.c
+index e289095..01e27fb 100644
+--- a/src/grep.c
++++ b/src/grep.c
+@@ -1057,7 +1057,7 @@ static EXECUTE_RET do_execute EXECUTE_ARGS
+       if (start_ptr && start_ptr >= line_end)
+         continue;
+ 
+-      result = execute (line_buf, line_next - line_buf, match_size, start_ptr);
++      result = execute (line_buf, line_next - line_buf - 1, match_size, start_ptr);
+       if (result != (size_t) -1)
+         return (line_buf - buf) + result;
+     }

@@ -1,0 +1,18 @@
+diff --git a/src/grep.c b/src/grep.c
+index fbeb089..8cbed5c 100644
+--- a/src/grep.c
++++ b/src/grep.c
+@@ -2265,8 +2265,10 @@ There is NO WARRANTY, to the extent permitted by law.\n"),
+              && !isdir (file))
+            {
+              if (included_patterns &&
+-                 ! excluded_file_name (included_patterns, file))
+-               continue;
++                 ! excluded_file_name (included_patterns, file)) {
++                 status &= grepfile (file, &stats_base);
++                 continue;
++             }
+              if (excluded_patterns &&
+                  excluded_file_name (excluded_patterns, file))
+                continue;
+
