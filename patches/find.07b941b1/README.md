@@ -1,3 +1,6 @@
+* P: patch is Plausible (passes our test case)
+* C: patch is Correct (passes our code review)
+
 | Participant ID | P | C | Strategy | Category | Rationale |
 | -- | -- | -- | -- | -- | -- |
 | ZDc4NDZjMm | 1 | 1 | Increment arg_ptr *after* argv[*arg_ptr] is read | Developer Fix |  |
