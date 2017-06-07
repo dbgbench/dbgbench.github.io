@@ -6,7 +6,6 @@ Make sure to set up the infrastructure and your favorite debuggers ahead of the 
 ______________________
 INSTALLATION AND SETUP
 * Install Docker: https://docs.docker.com/engine/installation/
-* Unpack debugstudy.zip
 
 * Run './run.sh find'. This will
 ** download 1GB of Docker VM 
