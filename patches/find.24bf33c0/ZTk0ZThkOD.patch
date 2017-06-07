@@ -1,0 +1,27 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 3e94da1..9d11488 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -231,12 +231,13 @@ visit(FTS *p, FTSENT *ent, struct stat *pstat)
+   struct predicate *eval_tree;
+
+   state.curdepth = ent->fts_level;
+-  state.have_stat = (ent->fts_info != FTS_NS) && (ent->fts_info != FTS_NSOK);
++  state.have_stat = (ent->fts_info != FTS_NS) && (ent->fts_info != FTS_NSOK) /*&& (ent->fts_info != FTS_SLNONE)*/;
+   state.rel_pathname = ent->fts_accpath;
+   state.cwd_dir_fd   = p->fts_cwd_fd;
+
+   /* Apply the predicates to this path. */
+   eval_tree = get_eval_tree();
++  eval_tree->need_stat = !state.have_stat;
+   (*(eval_tree)->pred_func)(ent->fts_path, pstat, eval_tree);
+
+   /* Deal with any side effects of applying the predicates. */
+@@ -589,6 +590,7 @@ find(char *arg)
+          state.have_type = false;
+          state.type = 0;
+          consider_visiting(p, ent);
++
+        }
+       fts_close(p);
+       p = NULL;

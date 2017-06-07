@@ -1,0 +1,10 @@
+--- a/find/tree.c
++++ b/find/tree.c
+@@ -1247,6 +1247,7 @@ build_expression_tree(int argc, char *argv[], int end_of_leading_options)
+       oldi = i;
+       if (!(*(parse_entry->parser_func)) (parse_entry, argv, &i))
+        {
++          i = oldi;
+          if (argv[i])
+            {
+              if ( (ARG_SPECIAL_PARSE == parse_entry->type) && (i == oldi) )

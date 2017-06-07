@@ -1,0 +1,21 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index b3d44f8..aa90e9b 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -227,7 +227,7 @@ visit(FTS *p, FTSENT *ent, struct stat *pstat)
+ {
+   struct predicate *eval_tree;
+   
+-  state.curdepth = ent->fts_level;
++  /* state.curdepth = ent->fts_level; */ /* MEOLIC: NOT NEEDED HERE */
+   state.have_stat = (ent->fts_info != FTS_NS) && (ent->fts_info != FTS_NSOK);
+   state.rel_pathname = ent->fts_accpath;
+   state.cwd_dir_fd   = p->fts_cwd_fd;
+@@ -617,6 +617,7 @@ find(char *arg)
+           state.have_stat = false;
+           state.have_type = !!ent->fts_statp->st_mode;
+           state.type = state.have_type ? ent->fts_statp->st_mode : 0;
++      state.curdepth = ent->fts_level; /* MEOLIC: FIXED BUG */
+           consider_visiting(p, ent);
+         }
+       fts_close(p);

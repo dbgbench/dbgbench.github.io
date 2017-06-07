@@ -1,0 +1,12 @@
+diff --git a/find/tree.c b/find/tree.c
+index e0c44c8..8d0bd5c 100644
+--- a/find/tree.c
++++ b/find/tree.c
+@@ -1245,6 +1245,7 @@ build_expression_tree(int argc, char *argv[], int end_of_leading_options)
+          i++;
+        }
+       oldi = i;
++      i--;
+       if (!(*(parse_entry->parser_func)) (parse_entry, argv, &i))
+        {
+          if (argv[i])

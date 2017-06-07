@@ -1,0 +1,14 @@
+diff --git a/find/parser.c b/find/parser.c
+index 75bbe69..05e918e 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -3106,7 +3106,8 @@ parse_time (const struct parser_table* entry, char *argv[], int *arg_ptr)
+   /* Decide the origin by previewing the comparison type. */
+   origin = options.cur_day_start;
+ 
+-  if (get_comp_type(&timearg, &comp))
++  const char *timearg_tmp = timearg;
++  if (get_comp_type(&timearg_tmp, &comp))
+     {
+       /* Remember, we invert the sense of the comparison, so this tests against COMP_LT instead of COMP_GT... */
+       if (COMP_LT == tval.kind)

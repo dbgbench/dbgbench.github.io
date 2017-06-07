@@ -1,0 +1,14 @@
+diff --git a/find/util.c b/find/util.c
+index 4792080..e42e27e 100644
+--- a/find/util.c
++++ b/find/util.c
+@@ -893,7 +893,9 @@ safely_quote_err_filename (int n, char const *arg)
+ void
+ fatal_file_error(const char *name)
+ {
++  if(name)
+   error (1, errno, "%s", safely_quote_err_filename(0, name));
++  else   error (1, errno, "%s","");
+   /*NOTREACHED*/
+   abort();
+ }

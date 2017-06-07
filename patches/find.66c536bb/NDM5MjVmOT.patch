@@ -1,0 +1,22 @@
+diff --git a/find/parser.c b/find/parser.c
+index 75bbe69..2fbf657 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -3109,7 +3109,7 @@ parse_time (const struct parser_table* entry, char *argv[], int *arg_ptr)
+   if (get_comp_type(&timearg, &comp))
+     {
+       /* Remember, we invert the sense of the comparison, so this tests against COMP_LT instead of COMP_GT... */
+-      if (COMP_LT == tval.kind)      
++      if (COMP_LT == comp)      
+         {
+           uintmax_t expected = origin + (DAYSECS-1);
+           origin += (DAYSECS-1);
+@@ -3124,7 +3124,7 @@ parse_time (const struct parser_table* entry, char *argv[], int *arg_ptr)
+        */
+     }
+   
+-  if (!get_relative_timestamp(timearg, &tval, origin, DAYSECS, errmsg))
++  if (!get_relative_timestamp(COMP_EQ == comp ? timearg : timearg - 1, &tval, origin, DAYSECS, errmsg))
+     return false;
+ 
+   our_pred = insert_primary (entry);

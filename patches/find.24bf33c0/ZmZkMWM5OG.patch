@@ -1,0 +1,26 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 3e94da1..178b937 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -428,7 +428,8 @@ consider_visiting(FTS *p, FTSENT *ent)
+       error_severity(1);
+       return;
+     }
+-  else if (ent->fts_info == FTS_SLNONE)
++  else if (ent->fts_info == FTS_SLNONE
++           || ent->fts_info == FTS_NS) /* MEOLIC: BUG FIXING */
+     {
+       /* fts_read() claims that ent->fts_accpath is a broken symbolic
+        * link.  That would be fine, but if this is part of a symbolic
+@@ -442,6 +443,12 @@ consider_visiting(FTS *p, FTSENT *ent)
+           error(0, ELOOP, ent->fts_path);
+           error_severity(1);
+           return;
++    /* MEOLIC: BUG FIXING */
++        } else {
++      error(0, ent->fts_errno, ent->fts_path);
++      error_severity(1);
++      return;
++    /* MEOLIC: END OF FIX */
+         }
+     }

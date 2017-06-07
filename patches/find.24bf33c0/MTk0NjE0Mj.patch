@@ -1,0 +1,13 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 3e94da1..6ef1a4c 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -428,7 +428,7 @@ consider_visiting(FTS *p, FTSENT *ent)
+       error_severity(1);
+       return;
+     }
+-  else if (ent->fts_info == FTS_SLNONE)
++  else if (ent->fts_info == FTS_SLNONE || ent->fts_errno == ELOOP)
+     {
+       /* fts_read() claims that ent->fts_accpath is a broken symbolic
+        * link.  That would be fine, but if this is part of a symbolic

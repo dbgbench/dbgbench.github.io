@@ -1,0 +1,13 @@
+diff --git a/find/parser.c b/find/parser.c
+index a707546..9b8f38e 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -1313,7 +1313,9 @@ parse_newerXY (const struct parser_table* entry, char **argv, int *arg_ptr)
+           * past the test name (for most other tests, this is already done)
+           */
+          (*arg_ptr)++;
+-         
++
++         if(argv[*arg_ptr] == NULL)
++               error (1,0, "The `%s' test needs an argument",argv[--(*arg_ptr)]); 
+          our_pred = insert_primary (entry);

@@ -1,0 +1,77 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 3e94da1..a38acd0 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -444,6 +444,19 @@ consider_visiting(FTS *p, FTSENT *ent)
+          return;
+        }
+     }
++  else if (ent->fts_info == FTS_NS)
++    {
++    if (ent->fts_level)
++  {
++    if (symlink_loop (ent->fts_accpath))
++      {
++        error(0, ELOOP, ent->fts_path);
++        error_severity(1);
++        return;
++      }
++
++  }
++    }
+   
+   /* Not an error, cope with the usual cases. */
+  if (ent->fts_info == FTS_NSOK)
+@@ -542,7 +555,7 @@ consider_visiting(FTS *p, FTSENT *ent)
+ 
+ 
+ 
+-static void
++static bool
+ find(char *arg)
+ {
+   char * arglist[2];
+@@ -590,9 +603,18 @@ find(char *arg)
+          state.type = 0;
+          consider_visiting(p, ent);
+        }
++      if (errno)
++  {
++    error (0, errno,
++     "failed to read file names from file system at or below the directory");
++    error_severity (1);
++    return false;
++  }
++
+       fts_close(p);
+      p = NULL;
+     }
++  return true;
+ }
+ 
+ 
+@@ -605,7 +627,10 @@ process_all_startpoints(int argc, char *argv[])
+   for (i = 0; i < argc && !looks_like_expression(argv[i], true); i++)
+     {
+       state.starting_path_length = strlen(argv[i]); /* TODO: is this redundant? */
+-      find(argv[i]);
++      if (!find (argv[i]))
++      {
++        return false;
++      }
+     }
+ 
+   if (i == 0)
+@@ -691,12 +716,6 @@ main (int argc, char **argv)
+       close (starting_desc);
+       starting_desc = -1;
+     }
+-  if (starting_desc < 0)
+-    {
+-      starting_dir = xgetcwd ();
+-      if (! starting_dir)
+-       error (1, errno, _("cannot get current directory"));
+-    }
+ 
+ 
+   process_all_startpoints(argc-end_of_leading_options, argv+end_of_leading_options);

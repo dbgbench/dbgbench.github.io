@@ -1,0 +1,11 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 4b597ec..2b915da 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -388,6 +388,7 @@
+   /* figure out how many start points there are */
+   for (i = 0; i < argc && strchr ("-!(),", argv[i][0]) == NULL; i++)
+     {
++      state.starting_path_length = strlen(argv[i]);  
+       find(argv[i]);
+     }

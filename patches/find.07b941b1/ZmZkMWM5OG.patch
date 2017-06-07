@@ -11,4 +11,3 @@ index a087bec..2d4e64e 100644
 +  (*arg_ptr)++; /* MEOLIC: BUGX FIXING */
    return true;
  }
- 

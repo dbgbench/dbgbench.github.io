@@ -1,0 +1,19 @@
+diff --git a/find/parser.c b/find/parser.c
+index a707546..2867afc 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -1351,6 +1351,14 @@ parse_newerXY (const struct parser_table* entry, char **argv, int *arg_ptr)
+             {
+               struct stat stat_newer;
+               
++          /* MEOLIC: BUG FIXING */
++          if (!argv[*arg_ptr]) {
++                  error(1, 0,
++                        _("The %s test needs an argument"),
++                        quotearg_n_style(0, options.err_quoting_style, argv[*arg_ptr-1]));
++                  }
++          /* MEOLIC: END OF FIX */
++
+               /* Stat the named file. */
+               set_stat_placeholders(&stat_newer);
+               if ((*options.xstat) (argv[*arg_ptr], &stat_newer))

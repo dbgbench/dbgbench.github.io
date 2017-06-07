@@ -1,0 +1,12 @@
+diff --git a/find/parser.c b/find/parser.c
+index 75bbe69..5be5c2e 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -3096,7 +3096,7 @@
+   struct predicate *our_pred;
+   struct time_val tval;
+   enum comparison_type comp;
+-  const char *timearg;
++  const char *timearg, *orig_timearg;
+   const char *errmsg = "arithmetic overflow while converting %s days to a number of seconds";
+   time_t origin;

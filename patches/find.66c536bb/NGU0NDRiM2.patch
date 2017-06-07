@@ -1,0 +1,33 @@
+diff --git a/find/parser.c b/find/parser.c
+index 75bbe69..33a6b2a 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -3097,6 +3097,7 @@ parse_time (const struct parser_table* entry, char *argv[], int *arg_ptr)
+   struct time_val tval;
+   enum comparison_type comp;
+   const char *timearg;
++  const char *origin_timearg;
+   const char *errmsg = "arithmetic overflow while converting %s days to a number of seconds";
+   time_t origin;
+ 
+@@ -3105,11 +3106,12 @@ parse_time (const struct parser_table* entry, char *argv[], int *arg_ptr)
+ 
+   /* Decide the origin by previewing the comparison type. */
+   origin = options.cur_day_start;
++  origin_timearg = timearg;
+ 
+   if (get_comp_type(&timearg, &comp))
+     {
+       /* Remember, we invert the sense of the comparison, so this tests against COMP_LT instead of COMP_GT... */
+-      if (COMP_LT == tval.kind)      
++      if (COMP_LT == comp)
+         {
+           uintmax_t expected = origin + (DAYSECS-1);
+           origin += (DAYSECS-1);
+@@ -3124,6 +3126,7 @@ parse_time (const struct parser_table* entry, char *argv[], int *arg_ptr)
+        */
+     }
+   
++  timearg = origin_timearg;
+   if (!get_relative_timestamp(timearg, &tval, origin, DAYSECS, errmsg))
+     return false;

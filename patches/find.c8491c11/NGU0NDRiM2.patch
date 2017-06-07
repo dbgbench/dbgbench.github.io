@@ -1,0 +1,14 @@
+diff --git a/find/parser.c b/find/parser.c
+index a707546..c10d56b 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -1314,6 +1314,11 @@ parse_newerXY (const struct parser_table* entry, char **argv, int *arg_ptr)
+            */
+           (*arg_ptr)++;
+           
++          if(!argv[*arg_ptr])
++          {
++                  return 0;
++          }
++
+           our_pred = insert_primary (entry);

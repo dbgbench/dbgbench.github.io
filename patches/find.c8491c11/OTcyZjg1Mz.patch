@@ -1,0 +1,16 @@
+diff --git a/find/parser.c b/find/parser.c
+index a707546..d634973 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -1313,6 +1313,12 @@ parse_newerXY (const struct parser_table* entry, char **argv, int *arg_ptr)
+           * past the test name (for most other tests, this is already done)
+           */
+          (*arg_ptr)++;
++
++          /* when no more args - return error  */
++          if((argv[*arg_ptr]) == NULL)
++          {
++            return false;
++          }
+          
+          our_pred = insert_primary (entry);

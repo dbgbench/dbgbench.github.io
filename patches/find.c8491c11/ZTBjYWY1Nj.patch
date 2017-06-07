@@ -1,0 +1,18 @@
+diff --git a/find/parser.c b/find/parser.c
+index a707546..0714974 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -1354,7 +1354,12 @@ parse_newerXY (const struct parser_table* entry, char **argv, int *arg_ptr)
+               /* Stat the named file. */
+               set_stat_placeholders(&stat_newer);
+               if ((*options.xstat) (argv[*arg_ptr], &stat_newer))
+-                fatal_file_error(argv[*arg_ptr]);
++              {
++                if (argv[*arg_ptr])
++                  fatal_file_error(argv[*arg_ptr]);
++                else
++                  error(1, 0, _("Option -newer requires argument"));
++              }
+               
+               if (!get_stat_Ytime(&stat_newer, y, &our_pred->args.reftime.ts))
+                 {

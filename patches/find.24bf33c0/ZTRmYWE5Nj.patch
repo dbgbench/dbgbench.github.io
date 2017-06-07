@@ -1,0 +1,13 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 3e94da1..81ee7ee 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -413,7 +413,7 @@ consider_visiting(FTS *p, FTSENT *ent)
+   inside_dir(p->fts_cwd_fd);
+   prev_depth = ent->fts_level;
+
+-
++  ent->fts_info = FTS_SLNONE;
+   /* Cope with various error conditions. */
+   if (ent->fts_info == FTS_ERR
+       || ent->fts_info == FTS_DNR)

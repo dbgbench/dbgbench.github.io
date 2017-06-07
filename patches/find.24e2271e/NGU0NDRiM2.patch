@@ -1,0 +1,21 @@
+diff --git a/find/pred.c b/find/pred.c
+index ec8e94a..91d7b9b 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -585,6 +585,16 @@ pred_fprintf (char *pathname, struct stat *stat_buf, struct predicate *pred_ptr)
+   char *cp;
+   char hbuf[LONGEST_HUMAN_READABLE + 1];
+ 
++  const char *delimitter = strchr(pathname, '/');
++  if(delimitter)
++  {
++          state.starting_path_length = delimitter - pathname;
++  }
++  else
++  {
++          state.starting_path_length = strlen (pathname);
++  }
++
+   for (segment = pred_ptr->args.printf_vec.segment; segment;
+        segment = segment->next)
+     {

@@ -1,0 +1,13 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 4b597ec..2b915da 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -275,7 +275,7 @@ consider_visiting(FTS *p, FTSENT *ent)
+       mode = statbuf.st_mode;
+     }
+
+-  if (0 == ent->fts_level && (0u == state.starting_path_length))
++  if (0 == ent->fts_level || (0u == state.starting_path_length))
+     state.starting_path_length = ent->fts_pathlen;
+
+   if (0 != digest_mode(mode, ent->fts_path, ent->fts_name, &statbuf, 0))

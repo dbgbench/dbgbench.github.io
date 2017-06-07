@@ -1,0 +1,33 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 3e94da1..a38acd0 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -429,6 +429,28 @@
+       return;
+     }
+
++  else if (ent->fts_info == FTS_NS)
++    {
++      if (ent->fts_level == 0)
++    {
++      error(0, ent->fts_errno, "%s",
++        quotearg_n_style(0,locale_quoting_style, ent->fts_path));
++      error_severity(1);   
++      return;
++    }
++      else
++    {
++      if (symlink_loop(ent->fts_accpath))
++        {
++          error(0, ELOOP, "%s",
++            quotearg_n_style(0,locale_quoting_style, ent->fts_path));
++          error_severity(1);
++          return;
++        }
++    }
++    }
++
++
+   else if (ent->fts_info == FTS_SLNONE)
+     {
+       /* fts_read() claims that ent->fts_accpath is a broken symbolic

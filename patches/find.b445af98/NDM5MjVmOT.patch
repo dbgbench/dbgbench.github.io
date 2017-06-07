@@ -1,0 +1,13 @@
+diff --git a/find/util.c b/find/util.c
+index 27db863..eea102d 100644
+--- a/find/util.c
++++ b/find/util.c
+@@ -604,7 +604,7 @@ following_links(void)
+     case SYMLINK_ALWAYS_DEREF:
+       return 1;
+     case SYMLINK_DEREF_ARGSONLY:
+-      return (state.curdepth == 0);
++      return (state.curdepth == -1);
+     case SYMLINK_NEVER_DEREF:
+     default:
+       return 0;

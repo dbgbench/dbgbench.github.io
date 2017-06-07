@@ -10,4 +10,3 @@ index a087bec..e6926f4 100644
 +  (*arg_ptr)++;
    return true;
  }
- 

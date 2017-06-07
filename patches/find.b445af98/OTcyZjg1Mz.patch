@@ -1,0 +1,12 @@
+  if (state.have_stat)
+      mode = stat_buf->st_mode;
+   else
+-     mode = state.type;
++     if (get_statinfo(pathname,  state.rel_pathname, stat_buf) != 0)
++       return false;
++
++     //mode = state.type;
++     mode = stat_buf->st_mode;
+ 
+ #ifndef S_IFMT
+   /* POSIX system; check `mode' the slow way. */

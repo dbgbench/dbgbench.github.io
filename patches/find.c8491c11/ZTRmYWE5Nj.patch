@@ -1,0 +1,12 @@
+diff --git a/find/parser.c b/find/parser.c
+index a707546..077c065 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -1312,7 +1312,7 @@ parse_newerXY (const struct parser_table* entry, char **argv, int *arg_ptr)
+          /* Because this item is ARG_SPECIAL_PARSE, we have to advance arg_ptr
+           * past the test name (for most other tests, this is already done)
+           */
+-         (*arg_ptr)++;
++        /* (*arg_ptr)++; */
+
+          our_pred = insert_primary (entry);

@@ -1,0 +1,10 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 4b597ec..229e18e 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -273,6 +273,7 @@ consider_visiting(FTS *p, FTSENT *ent)
+       state.have_stat = true;
+       statbuf = *(ent->fts_statp);
+       mode = statbuf.st_mode;
++      state.starting_path_length = 0u;
+     }

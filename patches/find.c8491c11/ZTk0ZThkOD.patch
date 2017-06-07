@@ -1,0 +1,13 @@
+diff --git a/find/parser.c b/find/parser.c
+index a707546..d634973 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -1350,6 +1350,8 @@ parse_newerXY (const struct parser_table* entry, char **argv, int *arg_ptr)
+          else
+            {
+              struct stat stat_newer;
++             if (!argv[*arg_ptr])
++               return false;
+
+              /* Stat the named file. */
+              set_stat_placeholders(&stat_newer);

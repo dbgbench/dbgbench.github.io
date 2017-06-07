@@ -11,4 +11,3 @@ index a087bec..30d66d7 100644
    our_pred->est_success_rate = estimate_pattern_match_rate(argv[*arg_ptr], 1);
    return true;
  }
- 

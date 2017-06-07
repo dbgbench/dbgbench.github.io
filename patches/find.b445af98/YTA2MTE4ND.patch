@@ -1,0 +1,21 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index b3d44f8..5f67eb0 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -227,7 +227,6 @@ visit(FTS *p, FTSENT *ent, struct stat *pstat)
+ {
+   struct predicate *eval_tree;
+   
+-  state.curdepth = ent->fts_level;
+   state.have_stat = (ent->fts_info != FTS_NS) && (ent->fts_info != FTS_NSOK);
+   state.rel_pathname = ent->fts_accpath;
+   state.cwd_dir_fd   = p->fts_cwd_fd;
+@@ -490,6 +489,8 @@ consider_visiting(FTS *p, FTSENT *ent)
+        }
+     }
+ 
++  state.curdepth = ent->fts_level;
++
+   if (mode)
+     {
+       if (!digest_mode(mode, ent->fts_path, ent->fts_name, &statbuf, 0))

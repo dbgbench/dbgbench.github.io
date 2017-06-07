@@ -1,0 +1,40 @@
+diff --git a/find/tree.c b/find/tree.c
+index e0c44c8..8d0bd5c 100644
+--- a/find/tree.c
++++ b/find/tree.c
+@@ -1247,7 +1247,7 @@
+       oldi = i;
+       if (!(*(parse_entry->parser_func)) (parse_entry, argv, &i))
+    {
+-     if (argv[i])
++     if (argv[oldi])
+        {
+          if ( (ARG_SPECIAL_PARSE == parse_entry->type) && (i == oldi) )
+        {
+@@ -1260,7 +1260,7 @@
+          else
+        {
+          error (1, 0, _("invalid argument `%s' to `%s'"),
+-            argv[i], predicate_name);
++            argv[oldi], predicate_name);
+        }
+diff --git a/find/parser.c b/find/parser.c
+index 75bbe69..7759866 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -911,8 +911,16 @@
+ parse_gid (const struct parser_table* entry, char **argv, int *arg_ptr)
+ {
+   struct predicate *p = insert_num (argv, arg_ptr, entry);
++  if(p)
++  {
+   p->est_success_rate = (p->args.numinfo.l_val < 100) ? 0.99 : 0.2;
+-  return p;
++  return true;
++  }
++
++  else
++  {
++  return false;
++  }
+ }

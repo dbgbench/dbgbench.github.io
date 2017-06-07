@@ -1,0 +1,98 @@
+diff --git a/find/parser.c b/find/parser.c
+index 75bbe69..365f03c 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -911,8 +911,11 @@ static boolean
+ parse_gid (const struct parser_table* entry, char **argv, int *arg_ptr)
+ {
+   struct predicate *p = insert_num (argv, arg_ptr, entry);
+-  p->est_success_rate = (p->args.numinfo.l_val < 100) ? 0.99 : 0.2;
+-  return p;
++  if (p)
++    p->est_success_rate = (p->args.numinfo.l_val < 100) ? 0.99 : 0.2;
++  else
++    --*arg_ptr;
++  return !!p;
+ }
+ 
+ static boolean
+@@ -1112,8 +1115,11 @@ parse_inum (const struct parser_table* entry, char **argv, int *arg_ptr)
+ {
+   struct predicate *p =  insert_num (argv, arg_ptr, entry);
+   /* inode number is exact match only, so very low proportions of files match */
+-  p->est_success_rate = 1e-6;
+-  return p;
++  if (p)
++    p->est_success_rate = 1e-6;
++  else
++    --*arg_ptr;
++  return !!p;
+ }
+ 
+ /* -ipath is deprecated (at RMS's request) in favour of 
+@@ -1157,13 +1163,18 @@ static boolean
+ parse_links (const struct parser_table* entry, char **argv, int *arg_ptr)
+ {
+   struct predicate *p = insert_num (argv, arg_ptr, entry);
+-  if (p->args.numinfo.l_val == 1)
+-    p->est_success_rate = 0.99;
+-  else if (p->args.numinfo.l_val == 2)
+-    p->est_success_rate = 0.01;
++  if (p)
++    {
++      if (p->args.numinfo.l_val == 1)
++        p->est_success_rate = 0.99;
++      else if (p->args.numinfo.l_val == 2)
++        p->est_success_rate = 0.01;
++      else
++        p->est_success_rate = 1e-3;
++    }
+   else
+-    p->est_success_rate = 1e-3;
+-  return p;
++    --*arg_ptr;
++  return !!p;
+ }
+ 
+ static boolean
+@@ -2208,8 +2219,11 @@ static boolean
+ parse_uid (const struct parser_table* entry, char **argv, int *arg_ptr)
+ {
+   struct predicate *p = insert_num (argv, arg_ptr, entry);
+-  p->est_success_rate = (p->args.numinfo.l_val < 100) ? 0.99 : 0.2;
+-  return p;
++  if (p)
++    p->est_success_rate = (p->args.numinfo.l_val < 100) ? 0.99 : 0.2;
++  else
++    --*arg_ptr;
++  return !!p;
+ }
+ 
+ static boolean
+@@ -3125,7 +3139,10 @@ parse_time (const struct parser_table* entry, char *argv[], int *arg_ptr)
+     }
+   
+   if (!get_relative_timestamp(timearg, &tval, origin, DAYSECS, errmsg))
+-    return false;
++    {
++      --*arg_ptr;
++      return false;
++    }
+ 
+   our_pred = insert_primary (entry);
+   our_pred->args.reftime = tval;
+diff --git a/find/tree.c b/find/tree.c
+index e0c44c8..9d08188 100644
+--- a/find/tree.c
++++ b/find/tree.c
+@@ -1257,6 +1257,10 @@ build_expression_tree(int argc, char *argv[], int end_of_leading_options)
+                   error (1, 0, _("invalid predicate `%s'"),
+                          predicate_name);
+                 }
++              else if ((i == oldi) && (NULL != find_parser (argv[i])))
++                {
++                    error (1, 0, _("missing argument to `%s'"), predicate_name);
++                }
+               else
+                 {
+                   error (1, 0, _("invalid argument `%s' to `%s'"),

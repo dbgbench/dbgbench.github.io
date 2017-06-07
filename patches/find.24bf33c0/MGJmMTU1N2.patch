@@ -1,0 +1,15 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 3e94da1..3e6b7b7 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -581,6 +581,10 @@ find(char *arg)
+             _("cannot search %s"),
+             quotearg_n_style(0, locale_quoting_style, arg));
+     }
++    else if(p->fts_cwd_fd<0) {
++      error (0, errno,quotearg_n_style(0, locale_quoting_style, arg));
++      state.exit_status=p->fts_cwd_fd;
++    }
+   else
+     {
+       while ( (ent=fts_read(p)) != NULL )
