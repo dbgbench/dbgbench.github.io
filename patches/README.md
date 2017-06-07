@@ -9,6 +9,7 @@ to apply the patch of participant [Participant ID] for error [Error ID].
 ## Example: Dry-run-apply All Patches
 
 ```
+cd ~/Desktop
 git config --global http.sslVerify false
 git clone https://github.com/dbgbench/dbgbench.github.io.git
 
