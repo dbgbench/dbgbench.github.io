@@ -34,7 +34,7 @@ In the following we provide the complete list of errors and their average debugg
 * Download the <a href="questionnaire.pdf" target="_blank">example questionnaire</a>.
 * Download the <a href="https://github.com/dbgbench/dbgbench.github.io/tree/master/docker" target="_blank">Docker virtual infrastructure</a>.
 * Download the <a href="https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U" target="_blank">tutorial material</a>, including slides, videos, and readme files.
-* Download <a href="https://github.com/thierry-tct/Tests_CPA_ICSE" target="_blank">more test cases</a> for DBGBench.<br/>(Credits to <a href="https://sites.google.com/site/mikepapadakis/ICSE17.pdf?attredirects=0&d=1" target="_blank">Titcheu Chekam Thierry, Mike Papadakis, Yves Le Traon, and Mark Harman</a>)!
+* Download <a href="https://github.com/thierry-tct/Tests_CPA_ICSE" target="_blank">more test cases</a> for DBGBench.<br/>(Credits: <a href="https://sites.google.com/site/mikepapadakis/ICSE17.pdf?attredirects=0&d=1" target="_blank">Titcheu Chekam Thierry, Mike Papadakis, Yves Le Traon, and Mark Harman</a>)!
 * Read out [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH.
 * Read our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
 
