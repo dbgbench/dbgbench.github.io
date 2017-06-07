@@ -1,0 +1,2 @@
+find/gnulib/lib/fts.c:779
++ CLR(FTS_NOCHDIR);

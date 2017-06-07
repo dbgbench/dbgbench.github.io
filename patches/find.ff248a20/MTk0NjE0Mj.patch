@@ -1,0 +1,21 @@
+diff --git a/find/find.c b/find/find.c
+index 2c63677..4df1fb5 100644
+--- a/find/find.c
++++ b/find/find.c
+@@ -1569,7 +1569,7 @@ process_dir (char *pathname, char *name, int pathlen, struct stat *statp, char *
+   char *name_space;            /* Names of files in PATHNAME. */
+   int subdirs_left;            /* Number of unexamined subdirs in PATHNAME. */
+   int idx;                     /* Which entry are we on? */
+-  struct stat stat_buf;
++  struct stat stat_buf = {};
+   struct savedir_dirinfo *dirinfo;
+   
+   subdirs_left = statp->st_nlink - 2; /* Account for name and ".". */
+@@ -1612,6 +1612,8 @@ process_dir (char *pathname, char *name, int pathlen, struct stat *statp, char *
+          switch (status)
+            {
+            case SafeChdirOK:
++             if (stat_buf.st_dev == 0 && stat_buf.st_ino == 0)
++               break;
+              /* If there had been a change but wd_sanity_check()
+               * accepted it, we need to accept that on the 

@@ -1,0 +1,30 @@
+diff --git a/find/find.c b/find/find.c
+index 2c63677..862657a 100644
+--- a/find/find.c
++++ b/find/find.c
+@@ -1460,7 +1460,7 @@ process_path (char *pathname, char *name, boolean leaf, char *parent,
+   
+   if (state.stop_at_current_level == false)
+     /* Scan directory on disk. */
+-    process_dir (pathname, name, strlen (pathname), &stat_buf, parent);
++    process_dir (pathname, name, strlen (pathname), &stat_buf, parent);   
+ 
+   if (options.do_dir_first == false && state.curdepth >= options.mindepth)
+     {
+@@ -1468,6 +1468,7 @@ process_path (char *pathname, char *name, boolean leaf, char *parent,
+       apply_predicate (pathname, &stat_buf, eval_tree);
+     }
+ 
++  
+   dir_curr--;
+ 
+   return 1;
+@@ -1618,8 +1619,8 @@ process_dir (char *pathname, char *name, int pathlen, struct stat *statp, char *
+               * of what we think we should see later.
+               * If there was no change, the assignments are a no-op.
+               */
+-             dir_ids[dir_curr].dev = stat_buf.st_dev;
+-             dir_ids[dir_curr].ino = stat_buf.st_ino;
++             dir_ids[dir_curr+1].dev = stat_buf.st_dev;
++             dir_ids[dir_curr+1].ino = stat_buf.st_ino;
+              break;

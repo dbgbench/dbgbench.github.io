@@ -1,0 +1,26 @@
+diff --git a/find/find.c b/find/find.c
+index 2c63677..d97d5c2 100644
+--- a/find/find.c
++++ b/find/find.c
+@@ -1697,8 +1697,19 @@ process_dir (char *pathname, char *name, int pathlen, struct stat *statp, char *
+           else
+             {
+               /* There might be weird (e.g., CD-ROM or MS-DOS) filesystems
+-                 mounted, which don't have Unix-like directory link counts. */
+-              process_path (cur_path, cur_name, false, pathname, mode);
++                 mounted, which don't have Unix-like directory link counts.
++               */
++                if (mode && S_ISLNK(mode))
++                {
++                  int olddepth = options.maxdepth; /* HACK to make descent stop */
++                  options.maxdepth = 1;
++                  state.curdepth = options.maxdepth;
++                  issue_loop_warning(cur_name, cur_path, 0);
++                  process_path (cur_path, cur_name, false, pathname, mode);
++                  options.maxdepth = olddepth;
++                }
++                else
++                  process_path (cur_path, cur_name, false, pathname, mode);
+             }
+           
+           state.curdepth--;

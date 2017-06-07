@@ -1,0 +1,48 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 49aef9b..42d83af 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -525,6 +525,7 @@ consider_visiting (FTS *p, FTSENT *ent)
+    * that it doesn't tell us just before we leave a directory.  For the moment,
+    * we punt and don't allow the arguments to build up.
+    */
++
+   if (state.execdirs_outstanding)
+     {
+       show_outstanding_execdirs (stderr);
+diff --git a/find/pred.c b/find/pred.c
+index e2e8dfb..f643836 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -520,6 +520,8 @@ record_exec_dir (struct exec_val *execp)
+       /* Record the WD. */
+       execp->wd_for_exec = xmalloc (sizeof (*execp->wd_for_exec));
+       execp->wd_for_exec->name = NULL;
++      //[rc]
++      //printf(" state.cwd_dir= %s\n",execp->wd_for_exec->desc);
+       execp->wd_for_exec->desc = openat (state.cwd_dir_fd, ".", O_RDONLY);
+       if (execp->wd_for_exec->desc < 0)
+        return false;
+@@ -602,6 +604,11 @@ new_impl_pred_exec (const char *pathname,
+
+       /* Actually invoke the command. */
+       bc_do_exec (&execp->ctl, &execp->state);
++      //[rc]
++      if (is_exec_in_local_dir (pred_ptr->pred_func))
++      {
++         execp->wd_for_exec =NULL;
++      }
+       if (WIFEXITED(execp->last_child_status))
+        {
+          if (0 == WEXITSTATUS(execp->last_child_status))
+diff --git a/find/util.c b/find/util.c
+index b072fea..ba355c0 100644
+--- a/find/util.c
++++ b/find/util.c
+@@ -390,7 +390,6 @@ do_complete_pending_execdirs (struct predicate *p)
+            }
+        }
+     }
+-
+   do_complete_pending_execdirs (p->pred_right);
+ }

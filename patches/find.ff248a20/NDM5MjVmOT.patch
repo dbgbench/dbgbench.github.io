@@ -1,0 +1,11 @@
+diff --git a/find/find.c b/find/find.c
+index 2c63677..5882764 100644
+--- a/find/find.c
++++ b/find/find.c
+@@ -1569,7 +1569,7 @@ process_dir (char *pathname, char *name, int pathlen, struct stat *statp, char *
+   char *name_space;            /* Names of files in PATHNAME. */
+   int subdirs_left;            /* Number of unexamined subdirs in PATHNAME. */
+   int idx;                     /* Which entry are we on? */
+-  struct stat stat_buf;
++  struct stat stat_buf = *statp;
+   struct savedir_dirinfo *dirinfo;

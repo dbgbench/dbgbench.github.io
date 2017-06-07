@@ -1,0 +1,17 @@
+diff --git a/find/pred.c b/find/pred.c
+index e2e8dfb..33a9511 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -542,6 +542,12 @@ new_impl_pred_exec (const char *pathname,
+ 
+   if (is_exec_in_local_dir (pred_ptr->pred_func))
+     {
++
++      /* MEOLIC: BUG FIXING, BUT THIS IS NOT THE EFFICIENT ONE */
++      /* THIS COULD BE DONE ONLY IF DIR IS CHANGED SINCE LAST CALL */
++      execp->wd_for_exec = 0;
++      /* MEOLIC: END OF FIX */
++
+       /* For -execdir/-okdir predicates, the parser did not fill in
+          the wd_for_exec member of sturct exec_val.  So for those
+          predicates, we do so now.

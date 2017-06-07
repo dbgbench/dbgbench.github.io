@@ -1,0 +1,36 @@
+diff --git a/find/parser.c b/find/parser.c
+index 23a3374..d20a9b7 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -2736,9 +2736,8 @@ get_num (char *str,
+         double *fractional_part,
+         enum comparison_type *comp_type)
+ {
+-  char **pend;
++  char *pend;
+   boolean ok;
+-  
+   if (str == NULL)
+     return false;
+   switch (str[0])
+@@ -2756,16 +2755,16 @@ get_num (char *str,
+       break;
+     }
+ 
+-  ok = xstrtoumax (str, pend, 10, num, "") == LONGINT_OK;
++  ok = xstrtoumax (str, &pend, 10, num, "") == LONGINT_OK;
+   if (ok && fractional_part)
+     {
+-      if (*pend)
++      if (pend)
+        {
+-         if ('.'== (**pend))
++         if ('.'== (*pend))
+            {
+              /* We have a fractional part. */
+              const char *p;
+-             ok = xstrtod(*pend, &p, fractional_part, strtod);
++             ok = xstrtod(pend, &p, fractional_part, strtod);
+              if (!ok)
+                {
+                  *fractional_part = 0.0;

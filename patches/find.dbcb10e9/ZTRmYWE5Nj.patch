@@ -1,0 +1,12 @@
+diff --git a/find/parser.c b/find/parser.c
+index 23a3374..234ccaa 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -2756,6 +2756,7 @@ get_num (char *str,
+       break;
+     }
+
++  pend = str;
+   ok = xstrtoumax (str, pend, 10, num, "") == LONGINT_OK;
+   if (ok && fractional_part)
+     {

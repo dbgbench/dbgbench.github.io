@@ -1,0 +1,18 @@
+diff --git a/find/find.c b/find/find.c
+index 2c63677..73e6300 100644
+--- a/find/find.c
++++ b/find/find.c
+@@ -1618,8 +1618,11 @@
+           * of what we think we should see later.
+           * If there was no change, the assignments are a no-op.
+           */
+-         dir_ids[dir_curr].dev = stat_buf.st_dev;
+-         dir_ids[dir_curr].ino = stat_buf.st_ino;
++          if (0 == stat(".", &stat_buf))
++          {    
++           dir_ids[dir_curr].dev = stat_buf.st_dev;
++           dir_ids[dir_curr].ino = stat_buf.st_ino;
++          }
+          break;
+
+        case SafeChdirFailWouldBeUnableToReturn:

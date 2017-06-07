@@ -1,0 +1,25 @@
+diff --git a/find/find.c b/find/find.c
+index 2c63677..e42b76f 100644
+--- a/find/find.c
++++ b/find/find.c
+@@ -1570,6 +1570,7 @@ process_dir (char *pathname, char *name, int pathlen, struct stat *statp, char *
+   int subdirs_left;      /* Number of unexamined subdirs in PATHNAME. */
+   int idx;             /* Which entry are we on? */
+   struct stat stat_buf;
++  stat_buf.st_ino = -1;
+   struct savedir_dirinfo *dirinfo;
+   
+   subdirs_left = statp->st_nlink - 2; /* Account for name and ".". */
+@@ -1618,8 +1619,10 @@ process_dir (char *pathname, char *name, int pathlen, struct stat *statp, char *
+         * of what we think we should see later.
+         * If there was no change, the assignments are a no-op.
+         */
+-       dir_ids[dir_curr].dev = stat_buf.st_dev;
+-       dir_ids[dir_curr].ino = stat_buf.st_ino;
++        if (stat_buf.st_ino != -1) {
++          dir_ids[dir_curr].dev = stat_buf.st_dev;
++          dir_ids[dir_curr].ino = stat_buf.st_ino;
++        }
+        break;
+       
+      case SafeChdirFailWouldBeUnableToReturn:

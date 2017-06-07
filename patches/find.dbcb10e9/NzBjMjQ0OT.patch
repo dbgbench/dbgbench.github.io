@@ -1,0 +1,35 @@
+diff --git a/find/parser.c b/find/parser.c
+index 23a3374..ad73c2e 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -2757,31 +2757,6 @@
+     }
+
+   ok = xstrtoumax (str, pend, 10, num, "") == LONGINT_OK;
+-  if (ok && fractional_part)
+-    {
+-      if (*pend)
+-   {
+-     if ('.'== (**pend))
+-       {
+-         const char *p;
+-         ok = xstrtod(*pend, &p, fractional_part, strtod);
+-         if (!ok)
+-       {
+-         *fractional_part = 0.0;
+-         ok = true;
+-       }
+-       }
+-     else
+-       {
+-         *fractional_part = 0.0;
+-       }
+-   }
+-      else
+-   {
+-     *fractional_part = 0.0;
+-   }
+-    }
+-    
+   return ok;
+ }

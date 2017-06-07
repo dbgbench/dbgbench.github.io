@@ -1,0 +1,31 @@
+diff --git a/find/ftsfind.c b/find/ftsfind.c
+index 4b597ec..2af8855 100644
+--- a/find/ftsfind.c
++++ b/find/ftsfind.c
+@@ -74,6 +74,17 @@
+ #ifdef STAT_MOUNTPOINTS
+ static void init_mounted_dev_list(void);
+ #endif
++
++/* check if it is rdirectory or not
++ */
++int isDirectory(const char *path)
++{
++   struct stat statbuf;
++   if (stat(path, &statbuf) != 0)
++       return 0;
++   return S_ISDIR(statbuf.st_mode);
++}
++
+ ^L
+ /* We have encountered an error which shoudl affect the exit status.
+  * This is normally used to change the exit status from 0 to 1.
+@@ -503,6 +514,8 @@ main (int argc, char **argv)
+       else if (0 == strcmp("-L", argv[i]))
+        {
+          /* Meaning: dereference all symbolic links. */
++          // check if next argument is directory then no need to follow always deref stat
++          if(!isDirectory)
+          set_follow_state(SYMLINK_ALWAYS_DEREF);
+        }
+       else if (0 == strcmp("-P", argv[i]))

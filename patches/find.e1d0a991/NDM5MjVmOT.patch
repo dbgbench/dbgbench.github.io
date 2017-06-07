@@ -1,0 +1,52 @@
+diff --git a/find/pred.c b/find/pred.c
+index ec8e94a..5aacb60 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -28,6 +28,7 @@
+ #include <sys/stat.h>
+ #include <assert.h>
+ #include <fcntl.h>
++#include <libgen.h>
+ #include "xalloc.h"
+ #include "dirname.h"
+ #include "human.h"
+@@ -506,10 +507,37 @@ pred_exec (char *pathname, struct stat *stat_buf, struct predicate *pred_ptr)
+ boolean
+ pred_execdir (char *pathname, struct stat *stat_buf, struct predicate *pred_ptr)
+ {
+-   const char *prefix = (state.rel_pathname[0] == '/') ? NULL : "./";
+    (void) &pathname;
+-   return new_impl_pred_exec (state.rel_pathname, stat_buf, pred_ptr,
++   if (SYMLINK_ALWAYS_DEREF == options.symlink_handling)
++     {
++       /* handle change dir due it do not happens before */
++       /* using POSIX versions of parse pathname functions, so they may alter argument */
++       char copy_base [PATH_MAX], copy_dir [PATH_MAX], cur_dir [PATH_MAX], *dir_name, *base_name, *p;
++       boolean ret_val;
++
++       strncpy (copy_base, state.rel_pathname, PATH_MAX);
++       strncpy (copy_dir, state.rel_pathname, PATH_MAX);
++       dir_name = dirname (copy_dir);
++       base_name = basename (copy_base);
++       p = getcwd (cur_dir, PATH_MAX);
++       if (!p)
++          error (1, errno, _("cannot get current directory"));
++       if (chdir (dir_name))
++          error (1, errno, _("cannot change directory into %s"), dir_name);
++       
++       ret_val = new_impl_pred_exec (base_name, stat_buf, pred_ptr, "./", 2);
++
++       if (p && chdir (cur_dir))
++          error (1, errno, _("cannot change directory back into %s"), dir_name);
++       return ret_val;
++     }
++   else
++     {
++       /* keep old style behaviour */
++       const char *prefix = (state.rel_pathname[0] == '/') ? NULL : "./";
++       return new_impl_pred_exec (state.rel_pathname, stat_buf, pred_ptr,
+                               prefix, (prefix ? 2 : 0));
++     }
+ }
+ 
+ boolean

@@ -1,0 +1,42 @@
+diff --git a/find/pred.c b/find/pred.c
+index e2e8dfb..345ede4 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -510,21 +510,25 @@ pred_empty (const char *pathname, struct stat *stat_buf, struct predicate *pred_
+ static bool
+ record_exec_dir (struct exec_val *execp)
+ {
+-  if (!execp->wd_for_exec)
++  if (execp->wd_for_exec)
+     {
+-      /* working directory not already known, so must be a *dir variant,
+-        and this must be the first arg we added.   However, this may
+-        be -execdir foo {} \; (i.e. not multiple).  */
+-      assert (!execp->state.todo);
+-
+-      /* Record the WD. */
+-      execp->wd_for_exec = xmalloc (sizeof (*execp->wd_for_exec));
+-      execp->wd_for_exec->name = NULL;
+-      execp->wd_for_exec->desc = openat (state.cwd_dir_fd, ".", O_RDONLY);
+-      if (execp->wd_for_exec->desc < 0)
+-       return false;
+-      set_cloexec_flag (execp->wd_for_exec->desc, true);
++      free(execp->wd_for_exec);
++      execp->wd_for_exec = NULL;
+     }
++
++  /* working directory not already known, so must be a *dir variant,
++   and this must be the first arg we added.   However, this may
++   be -execdir foo {} \; (i.e. not multiple).  */
++  assert (!execp->state.todo);
++  
++  /* Record the WD. */
++  execp->wd_for_exec = xmalloc (sizeof (*execp->wd_for_exec));
++  execp->wd_for_exec->name = NULL;
++  execp->wd_for_exec->desc = openat (state.cwd_dir_fd, ".", O_RDONLY);
++  if (execp->wd_for_exec->desc < 0)
++    return false;
++  set_cloexec_flag (execp->wd_for_exec->desc, true);
++
+   return true;
+ }

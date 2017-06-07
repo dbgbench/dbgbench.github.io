@@ -1,0 +1,17 @@
+diff --git a/find/find.c b/find/find.c
+index 2c63677..73e6300 100644
+--- a/find/find.c
++++ b/find/find.c
+@@ -1459,8 +1459,12 @@ process_path (char *pathname, char *name, boolean leaf, char *parent,
+ #endif /* DEBUG */
+   
+   if (state.stop_at_current_level == false)
++  {
+     /* Scan directory on disk. */
++    dir_curr++;
+     process_dir (pathname, name, strlen (pathname), &stat_buf, parent);
++    dir_curr--;
++  }
+ 
+   if (options.do_dir_first == false && state.curdepth >= options.mindepth)
+     {

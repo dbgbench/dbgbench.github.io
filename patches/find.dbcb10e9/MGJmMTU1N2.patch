@@ -1,0 +1,13 @@
+diff --git a/find/parser.c b/find/parser.c
+index 23a3374..6fd62d6 100644
+--- a/find/parser.c
++++ b/find/parser.c
+@@ -2736,7 +2736,7 @@ get_num (char *str,
+         double *fractional_part,
+         enum comparison_type *comp_type)
+ {
+-  char **pend;
++  char *end,**pend=&end;
+   boolean ok;
+
+   if (str == NULL)

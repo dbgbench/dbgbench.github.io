@@ -1,0 +1,13 @@
+diff --git a/find/pred.c b/find/pred.c
+index e2e8dfb..364883f 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -510,7 +510,7 @@ pred_empty (const char *pathname, struct stat *stat_buf, struct predicate *pred_
+ static bool
+ record_exec_dir (struct exec_val *execp)
+ {
+-  if (!execp->wd_for_exec)
++  if (!execp->state.todo)
+     {
+       /* working directory not already known, so must be a *dir variant,
+          and this must be the first arg we added.   However, this may
