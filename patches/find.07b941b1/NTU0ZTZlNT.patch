@@ -31,7 +31,7 @@ index a087bec..59013b0 100644
 +  return result;
 +}
 +
- ^L
+ 
  /* The parsers are responsible to continue scanning ARGV for
     their arguments.  Each parser knows what is and isn't
 @@ -1618,32 +1643,35 @@ parse_regex (const struct parser_table* entry, char **argv, int *arg_ptr)

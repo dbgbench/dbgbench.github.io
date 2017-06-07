@@ -1,8 +1,8 @@
 diff --git a/find/pred.c b/find/pred.c
-index e2e8dfb..345ede4 100644
+index e2e8dfb..f70c4fe 100644
 --- a/find/pred.c
 +++ b/find/pred.c
-@@ -510,21 +510,25 @@ pred_empty (const char *pathname, struct stat *stat_buf, struct predicate *pred_
+@@ -510,13 +510,13 @@ pred_empty (const char *pathname, struct stat *stat_buf, struct predicate *pred_
  static bool
  record_exec_dir (struct exec_val *execp)
  {

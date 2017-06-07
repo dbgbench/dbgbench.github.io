@@ -1,11 +1,9 @@
-diff --git a/find/ftsfind.c b/find/ftsfind.c
-index 3e94da1..a38acd0 100644
 --- a/find/ftsfind.c
 +++ b/find/ftsfind.c
-@@ -429,6 +429,28 @@
+@@ -429,4 +429,27 @@
        return;
      }
-
++
 +  else if (ent->fts_info == FTS_NS)
 +    {
 +      if (ent->fts_level == 0)
@@ -30,4 +28,3 @@ index 3e94da1..a38acd0 100644
 +
    else if (ent->fts_info == FTS_SLNONE)
      {
-       /* fts_read() claims that ent->fts_accpath is a broken symbolic

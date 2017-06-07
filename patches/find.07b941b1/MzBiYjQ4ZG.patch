@@ -24,3 +24,4 @@ index a087bec..0520f10 100644
 +  our_pred->est_success_rate = estimate_pattern_match_rate(temp, 1);
    return true;
  }
+ 

@@ -1,7 +1,7 @@
-diff --git a/find/ftsfind.c b/find/ftsfind.c
+diff --git a/find/pred.c b/find/pred.c
 index 3e94da1..8454a37 100644
---- a/find/ftsfind.c
-+++ b/find/ftsfind.c
+--- a/find/pred.c
++++ b/find/pred.c
 @@ -1575,8 +1575,9 @@
    mode_t type = pred_ptr->args.type;
 

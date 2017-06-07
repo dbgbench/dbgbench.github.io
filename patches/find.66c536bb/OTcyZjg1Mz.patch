@@ -1,8 +1,8 @@
 diff --git a/find/parser.c b/find/parser.c
-index 75bbe69..e06b195 100644
+index 75bbe69..dbe8503 100644
 --- a/find/parser.c
 +++ b/find/parser.c
-@@ -3096,20 +3096,21 @@ parse_time (const struct parser_table* entry, char *argv[], int *arg_ptr)
+@@ -3096,7 +3096,7 @@ parse_time (const struct parser_table* entry, char *argv[], int *arg_ptr)
    struct predicate *our_pred;
    struct time_val tval;
    enum comparison_type comp;

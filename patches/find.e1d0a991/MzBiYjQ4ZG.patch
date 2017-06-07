@@ -17,7 +17,7 @@ index 4b597ec..2af8855 100644
 +   return S_ISDIR(statbuf.st_mode);
 +}
 +
- ^L
+ 
  /* We have encountered an error which shoudl affect the exit status.
   * This is normally used to change the exit status from 0 to 1.
 @@ -503,6 +514,8 @@ main (int argc, char **argv)

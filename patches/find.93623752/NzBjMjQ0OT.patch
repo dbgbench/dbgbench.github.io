@@ -18,8 +18,10 @@ index e0c44c8..8d0bd5c 100644
 -            argv[i], predicate_name);
 +            argv[oldi], predicate_name);
         }
+        }
+      else
 diff --git a/find/parser.c b/find/parser.c
-index 75bbe69..7759866 100644
+index 75bbe69..f6bb24d 100644
 --- a/find/parser.c
 +++ b/find/parser.c
 @@ -911,8 +911,16 @@

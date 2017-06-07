@@ -22,10 +22,7 @@ index 3e94da1..a38acd0 100644
    
    /* Not an error, cope with the usual cases. */
   if (ent->fts_info == FTS_NSOK)
-@@ -542,7 +555,7 @@ consider_visiting(FTS *p, FTSENT *ent)
- 
- 
- 
+@@ -545,4 +558,4 @@ consider_visiting(FTS *p, FTSENT *ent)
 -static void
 +static bool
  find(char *arg)
