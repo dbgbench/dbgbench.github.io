@@ -17,7 +17,7 @@ for id in $(ls -1d ~/Desktop/find*/find.*); do
   pushd $(echo $id | rev | cut -d/ -f2- | rev)/find 2>/dev/null
   error=$(echo $id | rev | cut -d/ -f1 | rev)
   for patch in $(ls -1d ~/Desktop/dbgbench.github.io/patches/$error/*.patch); do 
-    echo Checking whether we can apply $patch to $error ($(echo $id | rev | cut -d/ -f2- | rev))
+    echo "Checking whether we can apply $patch to $error ($(echo $id | rev | cut -d/ -f2- | rev))"
     patch -l -p1 --dry-run -f < $patch
   done
   popd 2>/dev/null
