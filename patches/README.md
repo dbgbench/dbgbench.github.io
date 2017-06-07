@@ -1,6 +1,6 @@
 # Using Participant Patches
 
-```
+```bash
 $ cd ~/Desktop/[Error ID]/find
 $ patch -p1 -l -f < [Error ID]/[Participant ID].patch
 ```
@@ -8,7 +8,7 @@ to apply the patch of participant [Participant ID] for error [Error ID].
 
 ## Example 1: Dry-run-apply All Patches
 
-```
+```bash
 # Make patches available locally
 cd ~/Desktop
 git config --global http.sslVerify false
@@ -35,7 +35,7 @@ done
 ```
 
 ## Example 2: Check Patch Plausibility
-```
+```bash
 # Make patches available locally
 cd ~/Desktop
 git config --global http.sslVerify false
