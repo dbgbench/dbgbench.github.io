@@ -13,7 +13,7 @@ How do professional software engineers debug computer programs? In an experiment
 <br/>
 
 ## FAQ
-* <a href="FSE.artefact.md">I am in the FSE Artefact Evaluation Committee. How do I navigate through this artefact?</a>
+* <a href="FSE.artefact.md">I am in the **FSE Artefact Evaluation Committee**. How do I navigate through this artefact?</a>
 * <a href="#use">How can I evaluate my **automated fault localization** technique?</a>
 * <a href="#use">How can I evaluate my **automated bug diagnosis** technique?</a>
 * <a href="#use">How can I evaluate my **automated repair** technique?</a>
