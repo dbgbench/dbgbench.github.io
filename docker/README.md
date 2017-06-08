@@ -15,3 +15,6 @@
 There is a UI available for those who prefer Desktop:
 * *Details for find*: [UI.README.find.txt](docker/UI.README.find.txt)
 * *Details for grep*: [UI.README.grep.txt](docker/UI.README.grep.txt)
+
+# Example Usage: Checking Patch Plausibility
+* See [https://dbgbench.github.io/patches/](https://dbgbench.github.io/patches/)
