@@ -12,7 +12,7 @@
 | ZTRmYWE5Nj | 0 | 0 | Point **pend to *str | Incomplete Fix | Test case fails (no crash but no expected output either) |
 | NGU0NDRiM2 | 1 | 1 | Change definition of pend | Different but Correct Fix |  |
 | NTU0ZTZlNT | 1 | 1 | Change definition of pend | Different but Correct Fix |  |
-| NzBjMjQ0OT | 1 | 0 | Remove offending code | Treating Symptom |  |
+| NzBjMjQ0OT | 1 | 0 | Remove offending code | Treating Symptom | Removed code not yet exercised, only in future versions. |
 | MzYzM2Y4MG | 1 | 1 | Add null pointer check for pend | Developer-Fix |  |
 | OTRmYzA5OD | 1 | 1 | Change definition of pend | Different but Correct Fix |  |
 | MzBiYjQ4ZG | 1 | 0 | Change comparison to use address instead of value | Treating Symptom | Nullpointer is still dereference. Only now it happens to not crash |
