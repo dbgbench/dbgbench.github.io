@@ -51,10 +51,10 @@ These patches can be used to compare the readability, structure and correctness 
 automated repair tools.
 
 4. We provide diagnosis of each bug (in natural language) as provided by the study participants. See the 
-<a href="https://dbgbench.github.io/find.24e2271e.diagnosis.txt">plaintext version of such diagnosis</a>. 
-Such diagnoses can be leveraged upon to generate natural-language explanations of common bug types. Such 
-explanations can further be used to design and evaluate sophisticated debugging tools that highlight suspicious locations 
-along with a possible explanation of the bug. 
+<a href="https://dbgbench.github.io/find.24e2271e.diagnosis.txt">plaintext version</a> of such diagnosis 
+for the bug `find.24e2271e`. Such diagnoses can be leveraged upon to generate natural-language explanations 
+of common bug types. Such explanations can further be used to design and evaluate sophisticated debugging 
+tools that highlight suspicious locations along with a possible explanation of the bug. 
 
 5. We also provide data on the average time and the average number of correct fixes for each bug in the 
 <a href="https://dbgbench.github.io">project website</a>. This data can be used to evaluate automated 
