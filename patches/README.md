@@ -81,7 +81,7 @@ for id in $(ls -1d ~/Desktop/find*/find.*); do
 done
 ```
 
-## List of Errors with Participant-provided Patches
+## List of Errors w/Patches
 * [find.07b941b1](find.07b941b1)
 * [find.091557f6](find.091557f6)
 * [find.183115d0](find.183115d0)
