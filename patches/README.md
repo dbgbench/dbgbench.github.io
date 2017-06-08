@@ -86,6 +86,7 @@ done
 * Sometimes there are **less than 12 patches** per error. This is due to the fact that we only asked to debug/fix at least 80% of errors. This was to reduce bias and not link success to completion. At the same time we provided an incentivice to fix the majority of bugs.
 
 ## List of Errors w/Patches
+You can click on the links below.
 * [`find.07b941b1`](find.07b941b1)
 * [`find.091557f6`](find.091557f6)
 * [`find.183115d0`](find.183115d0)
