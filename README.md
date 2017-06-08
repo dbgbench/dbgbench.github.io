@@ -19,6 +19,7 @@ How do professional software engineers debug computer programs? In an experiment
 * <a href="#setup">Where do I get **more test cases** for DBGBench?</a>
 * <a href="#use">What **distinguishes** DBGBench from other error benchmarks?</a>
 * <a href="#cite">How do I **cite** DBGBench?</a>
+* <a href="#learn">How can I **learn more**?</a>
 
 ## DBGBench
 In the following we provide the complete list of errors and their average debugging time, difficulty, and patch correctness, with human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time. For each error, we also provide the commit introducing the error, the simplified and original bug report, the fault locations, and the submitted and original patches.
@@ -35,6 +36,11 @@ In the following we provide the complete list of errors and their average debugg
 * Download the <a href="https://github.com/dbgbench/dbgbench.github.io/tree/master/docker" target="_blank">Docker virtual infrastructure</a>.
 * Download the <a href="https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U" target="_blank">tutorial material</a>, including slides, videos, and readme files.
 * Download <a href="https://github.com/thierry-tct/Tests_CPA_ICSE" target="_blank">more test cases</a> for DBGBench.<br/>(Credits: <a href="https://sites.google.com/site/mikepapadakis/ICSE17.pdf?attredirects=0&d=1" target="_blank">Titcheu Chekam Thierry, Mike Papadakis, Yves Le Traon, and Mark Harman</a>)!
+
+### <a name="learn"></a>Who are we?
+* <a href="https://www.comp.nus.edu.sg/~mboehme" target="_blank">Marcel B&ouml;hme</a>, National University of Singapore
+* <a href="https://st.cs.unisaarland.de" target="_blank">Ezekiel Olamide Soremekun</a>
+* <a href="" target="_blank"></a>
 * Read out [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH.
 * Read our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
 
