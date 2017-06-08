@@ -14,9 +14,9 @@ In order to carry out a similar study and extend the `DBGBENCH` dataset, we prov
 the necessary computational infrastructure. Specifically, the following steps should be carried out in 
 order to replicate the study environment:
 
-1. [Install the docker virtual infrastructure] (https://dbgbench.github.io/docker/). This docker includes 
-all the necessary source code as well as tests to manifest the investigated bugs. It can be shared with 
-the study participant. 
+1. <a href="https://dbgbench.github.io/docker/">Install the docker virtual infrastructure</a>. This docker 
+includes all the necessary source code as well as tests to manifest the investigated bugs. It can be shared 
+with the study participant. 
 
 2. [Download tutorial materials] (https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U) that 
 include slides and videos to provide details about the study to participants. 
