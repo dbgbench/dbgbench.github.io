@@ -35,4 +35,4 @@ There is a UI available for those who prefer Desktop:
 * *Details for grep*: [UI.README.grep.txt](docker/UI.README.grep.txt)
 
 ## Example Usage: Checking Patch Plausibility
-* See [https://dbgbench.github.io/patches/](https://dbgbench.github.io/patches/)
+* See [https://dbgbench.github.io/patches/](patches/)
