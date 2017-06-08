@@ -76,12 +76,12 @@ for id in $(ls -1d ~/Desktop/find*/find.*); do
     echo " from $(echo $patch | rev | cut -d/ -f1 | rev | cut -d. -f1) for $error ($(echo $id | rev | cut -d/ -f2 | rev))"
 
   done
+  
+  # make sure to build correct (reverted) version
+  make > /dev/null 2>&1
 
   popd > /dev/null
 done
-
-# make sure to build correct (reverted) version
-make > /dev/null 2>&1
 ```
 
 ## Notes
