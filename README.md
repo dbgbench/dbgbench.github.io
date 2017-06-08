@@ -5,7 +5,7 @@ How do professional software engineers debug computer programs? In an experiment
 <a href="#setup">Downloads</a><br/>
 <a href="#find">DBGBench (find)</a><br/>
 <a href="#grep">DBGBench (grep)</a><br/>
-<a href="#use">Use DBGBench</a><br/>
+<a href="artifact/">Use DBGBench</a><br/>
 <a href="#cite">Cite DBGBench</a><br/>
 <a href="abstract.pdf"><img src="abstract.png" alt="DBGBench Abstract" style="width: 200px;"/></a></p>
 
@@ -13,15 +13,15 @@ How do professional software engineers debug computer programs? In an experiment
 <br/>
 
 ## FAQ
-* <a href="artifact/README.md">I am in the **FSE Artefact Evaluation Committee**. How do I navigate this artefact?</a>
-* <a href="#use">How can I evaluate my **automated fault localization** technique?</a>
-* <a href="#use">How can I evaluate my **automated bug diagnosis** technique?</a>
-* <a href="#use">How can I evaluate my **automated repair** technique?</a>
+* <a href="artifact/">I am in the **FSE Artefact Evaluation Committee**. How do I navigate this artefact?</a>
+* <a href="artifact/">How can I evaluate my **automated fault localization** technique?</a>
+* <a href="artifact/">How can I evaluate my **automated bug diagnosis** technique?</a>
+* <a href="artifact/">How can I evaluate my **automated repair** technique?</a>
 * <a href="docker/">How do I **install** the virtual infrastructure?</a>
 * <a href="patches/">How do I **use** the virtual infrastructure?</a>
 * <a href="#setup">Where do I get **more test cases** for DBGBench?</a>
-* <a href="#use">What **distinguishes** DBGBench from other error benchmarks?</a>
-* <a href="FSE.artefact.md">How can I **reproduce** this study for other subjects or languages?</a>
+* <a href="artifact/">What **distinguishes** DBGBench from other error benchmarks?</a>
+* <a href="artifact/">How can I **reproduce** this study for other subjects or languages?</a>
 * <a href="#learn">How can I **learn more** about your research?</a>
 * <a href="#cite">How do I **cite** DBGBench?</a>
 
