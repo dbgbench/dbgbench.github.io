@@ -36,16 +36,8 @@ In the following we provide the complete list of errors and their average debugg
 * Download the <a href="https://github.com/dbgbench/dbgbench.github.io/tree/master/docker" target="_blank">Docker virtual infrastructure</a>.
 * Download the <a href="https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U" target="_blank">tutorial material</a>, including slides, videos, and readme files.
 * Download <a href="https://github.com/thierry-tct/Tests_CPA_ICSE" target="_blank">more test cases</a> for DBGBench.<br/>(Credits: <a href="https://sites.google.com/site/mikepapadakis/ICSE17.pdf?attredirects=0&d=1" target="_blank">Titcheu Chekam Thierry, Mike Papadakis, Yves Le Traon, and Mark Harman</a>)!
-
-### <a name="learn"></a>Who are we?
-* <a href="https://www.comp.nus.edu.sg/~mboehme" target="_blank">Marcel B&ouml;hme</a>, National University of Singapore, Singapore
-* <a href="https://www.st.cs.uni-saarland.de/~soremekun/" target="_blank">Ezekiel Olamide Soremekun</a>, Saarland University, Germany
-* <a href="https://sudiptac.bitbucket.io" target="_blank">Sudipta Chattopadhyay</a>, Singapore University of Technology and Design, Singapore
-* <a href="https://www.st.cs.uni-saarland.de" target="_blank">Emamurho Ugherughe</a>, Saarland University, Germany
-* <a href="https://www.st.cs.uni-saarland.de/~zeller" target="_blank">Andreas Zeller</a>, Saarland University, Germany
-* Read out [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH.
+* Read our [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH.
 * Read our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
-
 
 ### <a name="find"></a>GNU Findutils
 GNU [findutils](https://www.gnu.org/software/findutils/) offers basic file searching utilities to search the systems directories of GNU and Unix-based computers. 
@@ -100,4 +92,9 @@ GNU [grep](https://www.gnu.org/software/grep/manual/grep.html) is a command-line
 }
 ```
 
-
+## <a name="learn"></a>Who are we?
+* <a href="https://www.comp.nus.edu.sg/~mboehme" target="_blank">Marcel B&ouml;hme</a>, National University of Singapore, Singapore
+* <a href="https://www.st.cs.uni-saarland.de/~soremekun/" target="_blank">Ezekiel Olamide Soremekun</a>, Saarland University, Germany
+* <a href="https://sudiptac.bitbucket.io" target="_blank">Sudipta Chattopadhyay</a>, Singapore University of Technology and Design, Singapore
+* <a href="https://www.st.cs.uni-saarland.de" target="_blank">Emamurho Ugherughe</a>, Saarland University, Germany
+* <a href="https://www.st.cs.uni-saarland.de/~zeller" target="_blank">Andreas Zeller</a>, Saarland University, Germany
