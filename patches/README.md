@@ -76,6 +76,9 @@ for id in $(ls -1d ~/Desktop/find*/find.*); do
     echo " from $(echo $patch | rev | cut -d/ -f1 | rev | cut -d. -f1) for $error ($(echo $id | rev | cut -d/ -f2 | rev))"
 
   done
+  
+  # make sure to build correct (reverted) version
+  make > /dev/null 2>&1
 
   popd > /dev/null
 done
@@ -84,3 +87,33 @@ done
 ## Notes
 * Sometimes there are **more than 12 patches** per error. This is due to the fact that some candidates decided to skip out after trying a few errors.
 * Sometimes there are **less than 12 patches** per error. This is due to the fact that we only asked to debug/fix at least 80% of errors. This was to reduce bias and not link success to completion. At the same time we provided an incentivice to fix the majority of bugs.
+
+## List of Errors w/Patches
+You can click on the links below.
+* [`find.07b941b1`](find.07b941b1)
+* [`find.091557f6`](find.091557f6)
+* [`find.183115d0`](find.183115d0)
+* [`find.24bf33c0`](find.24bf33c0)
+* [`find.24e2271e`](find.24e2271e)
+* [`find.66c536bb`](find.66c536bb)
+* [`find.6e4cecb6`](find.6e4cecb6)
+* [`find.93623752`](find.93623752)
+* [`find.b445af98`](find.b445af98)
+* [`find.c8491c11`](find.c8491c11)
+* [`find.dbcb10e9`](find.dbcb10e9)
+* [`find.e1d0a991`](find.e1d0a991)
+* [`find.e6680237`](find.e6680237)
+* [`find.ff248a20`](find.ff248a20)
+* [`grep.2be0c659`](grep.2be0c659)
+* [`grep.3220317a`](grep.3220317a)
+* [`grep.3c3bdace`](grep.3c3bdace)
+* [`grep.54d55bba`](grep.54d55bba)
+* [`grep.55cf7b6a`](grep.55cf7b6a)
+* [`grep.58195fab`](grep.58195fab)
+* [`grep.5fa8c7c9`](grep.5fa8c7c9)
+* [`grep.7aa698d3`](grep.7aa698d3)
+* [`grep.8f08d8e2`](grep.8f08d8e2)
+* [`grep.9c45c193`](grep.9c45c193)
+* [`grep.c1cb19fe`](grep.c1cb19fe)
+* [`grep.c96b0f2c`](grep.c96b0f2c)
+* [`grep.db9d6340`](grep.db9d6340)

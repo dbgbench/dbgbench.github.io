@@ -10,8 +10,8 @@
 | MGJmMTU1N2 | 1 | 0 | Handle Top Dir case | Regression | Unrelated |
 | ZTRmYWE5Nj | 0 | 0 | Set ent->fts_info to FTS_SLNONE such that it is handled as error | Incomplete Fix | Test case still fails |
 | NDM5MjVmOT | 1 | 0 | Handle FTS_NS as error (independent of whether it is a symlink loop) | Regression | Fix also impacts inputs where FTS_NS is not an error flag |
-| NGU0NDRiM2 | 1 | 0 | Handle FTS_NS as error IF symlink loop, and remove handling for negative file descriptors | Regression | There is no problem with negative file descriptors |
-| NTU0ZTZlNT | 1 | 1 | Handle FTS_NS as error IF symlink loop | Developer-Fix |  |
+| NTU0ZTZlNT | 1 | 0 | Handle FTS_NS as error IF symlink loop, and remove handling for negative file descriptors | Regression | There is no problem with negative file descriptors |
+| NGU0NDRiM2 | 1 | 1 | Handle FTS_NS as error IF symlink loop | Developer-Fix |  |
 | NzBjMjQ0OT | 1 | 1 | Handle FTS_NS as error IF symlink loop | Developer-Fix |  |
 | MzBiYjQ4ZG | 1 | 1 | Handle FTS_NS as error IF symlink loop | Developer-Fix |  |
 | ZTBjYWY1Nj | 1 | 1 | Handle FTS_NS as error IF symlink loop | Developer-Fix |  |
