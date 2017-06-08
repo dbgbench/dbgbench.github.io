@@ -13,5 +13,5 @@
 | NzBjMjQ0OT | 1 | 1 | Save timearg in auxiliary variable and restore after first call to get_comp_type. | Developer-Fix |  |
 | ZTBjYWY1Nj | 1 | 1 | Pass a copy of timearg into get_relative_timestamp (which calls get_comp_type the second time) | Different but Correct |  |
 | MTk0NjE0Mj | 1 | 1 | Pass a copy of timearg into the first call of get_comp_type. | Different but Correct |  |
-| MzBiYjQ4ZG | 1 | 0 | Restore timearg only if classified as COMP_LT | Incomplete Fix | Doesn't fix the problem for -mtime +2 |
+| MzBiYjQ4ZG | 1 | 1 | Restore timearg only if classified as COMP_LT | Developer Fix | get_comp_type always returns true |
 | ODY3ODM5YW | 1 | 1 | Pass a copy of timearg into the first call of get_comp_type. | Different but Correct |  |
