@@ -21,6 +21,7 @@ How do professional software engineers debug computer programs? In an experiment
 * <a href="patches/">How do I **use** the virtual infrastructure?</a>
 * <a href="#setup">Where do I get **more test cases** for DBGBench?</a>
 * <a href="#use">What **distinguishes** DBGBench from other error benchmarks?</a>
+* <a href="FSE.artefact.md">How can I reproduce this study for other subjects or languages?</a>
 * <a href="#learn">How can I **learn more** about your research?</a>
 * <a href="#cite">How do I **cite** DBGBench?</a>
 
