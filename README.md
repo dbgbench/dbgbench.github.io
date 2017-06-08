@@ -19,7 +19,7 @@ How do professional software engineers debug computer programs? In an experiment
 * <a href="#setup">Where do I get **more test cases** for DBGBench?</a>
 * <a href="#use">What **distinguishes** DBGBench from other error benchmarks?</a>
 * <a href="#cite">How do I **cite** DBGBench?</a>
-* <a href="#learn">How can I **learn more**?</a>
+* <a href="#learn">How can I **learn more** about your research?</a>
 
 ## DBGBench
 In the following we provide the complete list of errors and their average debugging time, difficulty, and patch correctness, with human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time. For each error, we also provide the commit introducing the error, the simplified and original bug report, the fault locations, and the submitted and original patches.
@@ -98,3 +98,5 @@ GNU [grep](https://www.gnu.org/software/grep/manual/grep.html) is a command-line
 * <a href="https://sudiptac.bitbucket.io" target="_blank">Sudipta Chattopadhyay</a>, Singapore University of Technology and Design, Singapore
 * <a href="https://www.st.cs.uni-saarland.de" target="_blank">Emamurho Ugherughe</a>, Saarland University, Germany
 * <a href="https://www.st.cs.uni-saarland.de/~zeller" target="_blank">Andreas Zeller</a>, Saarland University, Germany
+* Read our [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH.
+* Read our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
