@@ -18,26 +18,27 @@ How do professional software engineers debug computer programs? In an experiment
 * <a href="#use">How can I evaluate my **automated repair** technique?</a>
 * <a href="#setup">Where do I get **more test cases** for DBGBench?</a>
 * <a href="#use">What **distinguishes** DBGBench from other error benchmarks?</a>
-* <a href="#cite">How do I **cite** DBGBench?</a>
 * <a href="#learn">How can I **learn more** about your research?</a>
+* <a href="#cite">How do I **cite** DBGBench?</a>
+
 
 ## DBGBench
 In the following we provide the complete list of errors and their average debugging time, difficulty, and patch correctness, with human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time. For each error, we also provide the commit introducing the error, the simplified and original bug report, the fault locations, and the submitted and original patches.
 
 ### <a name="setup"></a>Setup and Infrastructure
-* Download the <a href="benchmark.pdf" target="_blank">benchmark summary</a> containing the complete list of errors, their average debugging time, difficulty, and patch correctness, human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time.
+* **Download** the <a href="benchmark.pdf" target="_blank">benchmark summary</a> containing the complete list of errors, their average debugging time, difficulty, and patch correctness, human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time.
 * Download the <a href="https://docs.google.com/spreadsheets/d/12dYERCbuVCX6Ks4QgAF-XEEsLIxD9zsm2XAHE1bhyK0/edit?usp=sharing" target="_blank">complete data</a> containing for each debugging session (error, participant) the following data:
   * BUG ID & Participant ID
   * Provided Fault Locations, Bug diagnosis/Explanations & Patches
   * Patch Plausibility, Correctness and Category
   * Reasons for (In)correctness
   * Simplified Bug Report
-* Download the <a href="questionnaire.pdf" target="_blank">example questionnaire</a>.
-* Download the <a href="https://github.com/dbgbench/dbgbench.github.io/tree/master/docker" target="_blank">Docker virtual infrastructure</a>.
-* Download the <a href="https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U" target="_blank">tutorial material</a>, including slides, videos, and readme files.
-* Download <a href="https://github.com/thierry-tct/Tests_CPA_ICSE" target="_blank">more test cases</a> for DBGBench.<br/>(Credits: <a href="https://sites.google.com/site/mikepapadakis/ICSE17.pdf?attredirects=0&d=1" target="_blank">Titcheu Chekam Thierry, Mike Papadakis, Yves Le Traon, and Mark Harman</a>)!
-* Read our [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH.
-* Read our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
+* **Download** the <a href="questionnaire.pdf" target="_blank">example questionnaire</a>.
+* **Download** the <a href="https://github.com/dbgbench/dbgbench.github.io/tree/master/docker" target="_blank">Docker virtual infrastructure</a>.
+* **Download** the <a href="https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U" target="_blank">tutorial material</a>, including slides, videos, and readme files.
+* **Download** <a href="https://github.com/thierry-tct/Tests_CPA_ICSE" target="_blank">more test cases</a> for DBGBench.<br/>(Credits: <a href="https://sites.google.com/site/mikepapadakis/ICSE17.pdf?attredirects=0&d=1" target="_blank">Titcheu Chekam Thierry, Mike Papadakis, Yves Le Traon, and Mark Harman</a>)!
+* **Read** our [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH.
+* **Read** our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
 
 ### <a name="find"></a>GNU Findutils
 GNU [findutils](https://www.gnu.org/software/findutils/) offers basic file searching utilities to search the systems directories of GNU and Unix-based computers. 
