@@ -81,6 +81,10 @@ for id in $(ls -1d ~/Desktop/find*/find.*); do
 done
 ```
 
+## Notes
+* Sometimes there are **more than 12 patches** per error. This is due to the fact that some candidates decided to skip out after trying a few errors.
+* Sometimes there are **less than 12 patches** per error. This is due to the fact that we only asked to debug/fix at least 80% of errors. This was to reduce bias and not link success to completion. At the same time we provided an incentivice to fix the majority of bugs.
+
 ## List of Errors w/Patches
 * [find.07b941b1](find.07b941b1)
 * [find.091557f6](find.091557f6)
@@ -109,7 +113,3 @@ done
 * [grep.c1cb19fe](grep.c1cb19fe)
 * [grep.c96b0f2c](grep.c96b0f2c)
 * [grep.db9d6340](grep.db9d6340)
-
-## Notes
-* Sometimes there are **more than 12 patches** per error. This is due to the fact that some candidates decided to skip out after trying a few errors.
-* Sometimes there are **less than 12 patches** per error. This is due to the fact that we only asked to debug/fix at least 80% of errors. This was to reduce bias and not link success to completion. At the same time we provided an incentivice to fix the majority of bugs.
