@@ -56,7 +56,7 @@ for the bug `find.24e2271e`. Such diagnoses can be leveraged upon to generate na
 of common bug types. Such explanations can further be used to design and evaluate sophisticated debugging 
 tools that highlight suspicious locations along with a possible explanation of the bug. 
 
-5. We also provide data on the average time and the average number of correct fixes for each bug in the 
+5. We provide data on the average time and the average number of correct fixes for each bug in the 
 <a href="https://dbgbench.github.io">project website</a>. This data can be used to evaluate automated 
 debugging tools in the future. In particular, we hypothesize that a necessary (but not sufficient) condition to 
 validate automated fault localization and repair tools is to outperform the study participants. 
