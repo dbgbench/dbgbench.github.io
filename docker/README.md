@@ -14,7 +14,7 @@ cd dbgbench/docker
 * to get buggy source
 * to get buggy executables, and  
 * to get infrastructure for all errors in **findutils**.
-* *More details*: [README.find.txt](docker/README.find.txt)
+* *More details*: [README.find.txt](README.find.txt)
 
 ## Installing the GREP errors
 ```bash
@@ -28,11 +28,11 @@ cd dbgbench/docker
 * to get buggy source
 * to get buggy executables, and  
 * to get infrastructure for all errors in **grep**.
-* *More details*: [README.grep.txt](docker/README.grep.txt)
+* *More details*: [README.grep.txt](README.grep.txt)
 
 There is a UI available for those who prefer Desktop:
-* *Details for find*: [UI.README.find.txt](docker/UI.README.find.txt)
-* *Details for grep*: [UI.README.grep.txt](docker/UI.README.grep.txt)
+* *Details for find*: [UI.README.find.txt](UI.README.find.txt)
+* *Details for grep*: [UI.README.grep.txt](UI.README.grep.txt)
 
 ## Example Usage
 * Checking Patch Plausibility: [https://dbgbench.github.io/patches/](../patches/)
