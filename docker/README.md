@@ -36,3 +36,11 @@ There is a UI available for those who prefer Desktop:
 
 ## Example Usage
 * Checking Patch Plausibility: [https://dbgbench.github.io/patches/](../patches/)
+
+## Cleaning Up
+Cleanup must be done when switching from find to grep.
+```bash
+docker kill debugstudy0
+docker rm debugstudy0
+docker rmi debugstudy
+```
