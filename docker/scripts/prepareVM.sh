@@ -70,6 +70,12 @@ function test_revs {
   #COPY TEST CASE AND SRC
   cp -rf "$scriptdir/subjects/$subject/tests/${reg_after_rev}_${fix_after_rev}/." $TEST/  2>&1 >& /dev/null
   mv "$TEST/regression.sh" "$TEST/test.sh"  2>&1 >& /dev/null
+  if [[ "$subject.${fix_after_rev}" == "find.66c536bb" ]]; then
+    pushd $TEST > /dev/null
+    patch -p1 -f -l < ~/test.find.66c536bb.patch
+    popd > /dev/null
+  fi
+
   cp -Lrf "$basedir/$subject/$reg_after_rev/$subject/." $SRC/
   cd $SRC
   printf "all: ;\nclean: ;\n" > doc/Makefile 

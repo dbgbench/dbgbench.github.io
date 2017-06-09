@@ -1,10 +1,16 @@
 # Using Participant Patches
-
+* Install and run the [docker virtual infrastructure](../docker/).
 ```bash
-$ cd ~/Desktop/[Error ID]/find
-$ patch -p1 -l -f < [Error ID]/[Participant ID].patch
+
+git clone https://github.com/dbgbench/dbgbench.github.io.git dbgbench
+cd dbgbench/docker
+./run.sh find
 ```
-to apply the patch of participant [Participant ID] for error [Error ID].
+* Within the Docker container, apply the [patch](#list-of-errors-wpatches) of participant [Participant ID] for error [Error ID]:
+```bash
+cd ~/Desktop/[Error ID]/find
+patch -p1 -l -f < [Error ID]/[Participant ID].patch
+```
 
 ## Example 1: Dry-run-apply All Patches
 
@@ -12,14 +18,14 @@ to apply the patch of participant [Participant ID] for error [Error ID].
 # Make patches available locally
 cd ~/Desktop
 git config --global http.sslVerify false
-git clone https://github.com/dbgbench/dbgbench.github.io.git
+git clone https://github.com/dbgbench/dbgbench.github.io.git dbgbench
 
 # Loop over all errors and check patch applicability
 for id in $(ls -1d ~/Desktop/find*/find.*); do
   pushd $(echo $id | rev | cut -d/ -f2- | rev)/find > /dev/null
 
   error=$(echo $id | rev | cut -d/ -f1 | rev)
-  for patch in $(ls -1d ~/Desktop/dbgbench.github.io/patches/$error/*.patch); do 
+  for patch in $(ls -1d ~/Desktop/dbgbench/patches/$error/*.patch); do 
     patch -l -p1 --dry-run -f < $patch > /dev/null
 
     if [ $? -eq 0 ]; then
@@ -39,14 +45,14 @@ done
 # Make patches available locally
 cd ~/Desktop
 git config --global http.sslVerify false
-git clone https://github.com/dbgbench/dbgbench.github.io.git
+git clone https://github.com/dbgbench/dbgbench.github.io.git dbgbench
 
 # Loop over all errors and check patch plausibility
 for id in $(ls -1d ~/Desktop/find*/find.*); do
   pushd $(echo $id | rev | cut -d/ -f2- | rev)/find > /dev/null
 
   error=$(echo $id | rev | cut -d/ -f1 | rev)
-  for patch in $(ls -1d ~/Desktop/dbgbench.github.io/patches/$error/*.patch); do
+  for patch in $(ls -1d ~/Desktop/dbgbench/patches/$error/*.patch); do
 
     # Apply patch
     patch -l -p1 -f < $patch > /dev/null
@@ -85,8 +91,11 @@ done
 ```
 
 ## Notes
+* The **participants** fixed an error for the version right after it was introduced.
+* The **developer** fixed an error often many years after it was introduced. Hence, sometimes there is some ingenuity needed to retrofit the developer-patch to the error-introducing version.
 * Sometimes there are **more than 12 patches** per error. This is due to the fact that some candidates decided to skip out after trying a few errors.
-* Sometimes there are **less than 12 patches** per error. This is due to the fact that we only asked to debug/fix at least 80% of errors. This was to reduce bias and not link success to completion. At the same time we provided an incentivice to fix the majority of bugs.
+* Sometimes there are **less than 12 patches** per error. This is due to the fact that we only asked to debug/fix at least 80% of errors. This was to reduce bias and not link success to completion. At the same time we provided an incentive to fix the majority of bugs.
+* For some incorrect patches, we wrote **new test cases** that would fail because of the incorrectness.
 
 ## List of Errors w/Patches
 You can click on the links below.
