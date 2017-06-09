@@ -11,6 +11,6 @@
 | OWMzNDk3N2 | 1 | 1 | Do not skip if desc is set to STDIN_FILENO | Developer Fix |  |
 | NTM3Y2E1MW | 1 | 1 | Do not skip if desc is set to STDIN_FILENO | Developer Fix |  |
 | MDliMzQ4OT | 1 | 1 | Do not skip if desc is set to STDIN_FILENO | Developer Fix |  |
-| ZmU3ZTExOW | 1 | 0 | Negate the skip condition | Regression | Skip everything that should not be skipped (while not skipping STDIN) |
+| ZmU3ZTExOW | 0 | 0 | Negate the skip condition | Regression | Skip everything that should not be skipped (while not skipping STDIN) |
 | MGFkYmExOT | 1 | 1 | Do not skip if desc is set to STDIN_FILENO | Developer Fix |  |
 | MDUyYzIwMz | 1 | 1 | Do not skip if desc is set to STDIN_FILENO | Developer Fix |  |
