@@ -7,49 +7,6 @@ A comprehensive description of the shared dataset and infrastructure is provided
 several purposes that might well go beyond the scope of our ESEC/FSE 2017 paper. In the following, we will 
 explicitly outline two usage scenarios to help understand the scope of our work.
 
-If time is of the essence, we suggest to explore this artifact following the error in our motivating example (`find.66c536bb`, Fig. 1).
-* [Benchmark Summary](../dbgbench.summary.pdf)
-* [Collected Data](../#find) for `find.66c536bb`
-  * [Error-introducing commit](http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=e8bd5a2c245f583f7d1b7b33f01b71ac1a678e98)
-  * [Simplified Bug Report](../find.66c536bb.report.txt) to quickly reproduce the error and understand its symptoms
-  * [Original Bug Report](http://savannah.gnu.org/bugs/?20005) as reported by a user, incl. discussion with the developer.
-  * [Bug Diagnosis](../find.66c536bb.diagnosis.txt) as participant description of how the error comes about.
-  * [Fault Locations](../find.66c536bb.faults.txt) as pointed out by about 50% of participants or more.
-  * [Original Patch](http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=66c536bbb7cdb1673fb6f389b18c77165392cdc7) as provided by the developer. Notice that this patch occured about a month after the error was introduced.
-  * [Patches](../patches/find.66c536bb/) as provided by our participants, including 
-    * fix strategies,
-    * our classification as correct and incorrect, and
-    * our rationale for our classification;
-    * For many incorrect patches, we produced tests that fail on these patches, e.g., for [find.091557f6](../patches/find.091557f6/tests)
-* [Install and Run Docker Virtual Infrastructure](../docker)
-  * Use infrastructure to [check patch plausibility](../patches)
-  * Apply patch of participant `MzBiYjQ4ZG` for `find.66c536bb` and execute test case. Once you installed and ran the infrastructure, you can copy-paste this into your terminal.
-```bash
-# Checkout patches
-cd ~/Desktop
-git config --global http.sslVerify false
-git clone https://github.com/dbgbench/dbgbench.github.io.git dbgbench
-  
-# Order of errors is scrambled for each participant.
-# Identify version containing find.66c536bb
-ls find*/find.66c536bb
-
-# Suppose find1 contains find.66c536bb, apply patch from participant MzBiYjQ4ZG
-cd ~/Desktop/find1/find
-patch -l -p1 -f < ~/Desktop/dbgbench/patches/find.66c536bb/MzBiYjQ4ZG.patch
-
-# Build fixed version
-make
-
-# Execute test case (should *not* print FAIL)
-../test/test.sh $PWD || echo FAIL
-
-# Revert patch, build, and execute test (should print FAIL)
-patch -l -p1 -f < ~/Desktop/dbgbench/patches/find.66c536bb/MzBiYjQ4ZG.patch
-make
-../test/test.sh $PWD || echo FAIL
-```
-
 
 ### Extending the DBGBENCH dataset
 
@@ -104,6 +61,49 @@ tools that highlight suspicious locations along with a possible explanation of t
 debugging tools in the future. In particular, we hypothesize that a necessary (but not sufficient) condition to 
 validate automated fault localization and repair tools is to outperform the study participants. 
 
+### Step-by-Step suggestions to navigate the artifact
+If time is of the essence, we suggest to explore this artifact following the error in our motivating example (`find.66c536bb`, Fig. 1).
+* [Benchmark Summary](../dbgbench.summary.pdf)
+* [Collected Data](../#find) for `find.66c536bb`
+  * [Error-introducing commit](http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=e8bd5a2c245f583f7d1b7b33f01b71ac1a678e98)
+  * [Simplified Bug Report](../find.66c536bb.report.txt) to quickly reproduce the error and understand its symptoms
+  * [Original Bug Report](http://savannah.gnu.org/bugs/?20005) as reported by a user, incl. discussion with the developer.
+  * [Bug Diagnosis](../find.66c536bb.diagnosis.txt) as participant description of how the error comes about.
+  * [Fault Locations](../find.66c536bb.faults.txt) as pointed out by about 50% of participants or more.
+  * [Original Patch](http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=66c536bbb7cdb1673fb6f389b18c77165392cdc7) as provided by the developer. Notice that this patch occured about a month after the error was introduced.
+  * [Patches](../patches/find.66c536bb/) as provided by our participants, including 
+    * fix strategies,
+    * our classification as correct and incorrect, and
+    * our rationale for our classification;
+    * For many incorrect patches, we produced tests that fail on these patches, e.g., for [find.091557f6](../patches/find.091557f6/tests)
+* [Install and Run Docker Virtual Infrastructure](../docker)
+  * Use infrastructure to [check patch plausibility](../patches)
+  * Apply patch of participant `MzBiYjQ4ZG` for `find.66c536bb` and execute test case. Once you installed and ran the infrastructure, you can copy-paste this into your terminal.
+```bash
+# Checkout patches
+cd ~/Desktop
+git config --global http.sslVerify false
+git clone https://github.com/dbgbench/dbgbench.github.io.git dbgbench
+  
+# Order of errors is scrambled for each participant.
+# Identify version containing find.66c536bb
+ls find*/find.66c536bb
+
+# Suppose find1 contains find.66c536bb, apply patch from participant MzBiYjQ4ZG
+cd ~/Desktop/find1/find
+patch -l -p1 -f < ~/Desktop/dbgbench/patches/find.66c536bb/MzBiYjQ4ZG.patch
+
+# Build fixed version
+make
+
+# Execute test case (should *not* print FAIL)
+../test/test.sh $PWD || echo FAIL
+
+# Revert patch, build, and execute test (should print FAIL)
+patch -l -p1 -f < ~/Desktop/dbgbench/patches/find.66c536bb/MzBiYjQ4ZG.patch
+make
+../test/test.sh $PWD || echo FAIL
+```
 
 ### Final note
 
