@@ -105,7 +105,7 @@ make
 ../test/test.sh $PWD || echo FAIL
 ```
 
-### Final note
+## Final note
 
 * The entire **raw data** of `DBGBENCH` can be downloaded as a [self-containted CSV file](../dbgbench.raw.csv).
 * The entire **cleaned data** of `DBGBENCH` is available as [repository](https://github.com/dbgbench/dbgbench.github.io). Pull requests welcome!
