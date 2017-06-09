@@ -23,10 +23,8 @@ How do professional software engineers debug computer programs? In an experiment
 * <a href="http://program-repair.org/benchmarks.html" target="_blank">Where do I get **more subjects** for *empirical* evaluation of my technique?</a>
 * <a href="artifact/">How can I **reproduce** this study for other subjects or languages?</a>
 * <a href="#learn">How can I **learn more** about your research?</a>
-* <a href="www.comp.nus.edu.sg/~release/corebench/" target="_blank"/>Where does DBGBench come from? CoREBench.</a>
+* <a href="www.comp.nus.edu.sg/~release/corebench/" target="_blank"/>Where does DBGBench come from? Answer: CoREBench.</a>
 * <a href="#cite">How do I **cite** DBGBench?</a>
-
-
 
 ## DBGBench
 In the following we provide the complete list of errors and their average debugging time, difficulty, and patch correctness, with human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time. For each error, we also provide the commit introducing the error, the simplified and original bug report, the fault locations, and the submitted and original patches.
