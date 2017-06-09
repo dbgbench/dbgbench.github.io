@@ -9,7 +9,7 @@
 | OTcyZjg1Mz | 1 | 1 | Increment arg_ptr *after* argv[*arg_ptr] is read | Developer Fix |  |
 | ZmZkMWM5OG | 1 | 1 | Increment arg_ptr *after* argv[*arg_ptr] is read | Developer Fix |  |
 | ZTRmYWE5Nj | 1 | 0 | Do not increment arg_ptr at all | Regression | Fix impacts other inputs where cmd args may not be parsed at all |
-| MGJmMTU1N2 | 1 | 0 | Add null-pointer check | Incomplete Fix | estimate_pattern_match is still called with a nullpointer |
+| MGJmMTU1N2 | 1 | 0 | Add null-pointer check | Regression | estimate_pattern_match is not called when it should be called. |
 | NDM5MjVmOT | 1 | 1 | Increment arg_ptr *after* argv[*arg_ptr] is read | Developer Fix |  |
 | NGU0NDRiM2 | 1 | 1 | Increment arg_ptr *after* argv[*arg_ptr] is read | Developer Fix |  |
 | NzBjMjQ0OT | 1 | 1 | Increment arg_ptr *after* argv[*arg_ptr] is read | Developer Fix |  |
