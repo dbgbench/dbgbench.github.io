@@ -1,7 +1,5 @@
-in lib/exclude.c:359 replace line:
-
-  bool excluded = !! (options & EXCLUDE_INCLUDE);
-
-with:
-
-  bool excluded = 0;
+--- a/gnulib/lib/exclude.c
++++ b/gnulib/lib/exclude.c
+@@ -359,1 +359,1 @@
+-  bool excluded = !! (options & EXCLUDE_INCLUDE);
++  bool excluded = 0;
