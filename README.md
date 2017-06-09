@@ -36,7 +36,6 @@ In the following we provide the complete list of errors and their average debugg
   * Provided Fault Locations, Bug diagnosis/Explanations & Patches
   * Patch Plausibility, Correctness and Category
   * Reasons for (In)correctness
-  * Simplified Bug Report
 * **Download** the <a href="questionnaire.pdf" target="_blank">example questionnaire</a>.
 * **Download** the <a href="docker/" target="_blank">Docker virtual infrastructure</a>.
 * **Download** the <a href="https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U" target="_blank">tutorial material</a>, including slides, videos, and readme files.
