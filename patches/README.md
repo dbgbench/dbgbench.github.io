@@ -13,7 +13,7 @@ patch -p1 -l -f < [Error ID]/[Participant ID].patch
 ```
 
 ## Example 1: Dry-run-apply All Patches
-
+You can simply copy-paste the following into your terminal.
 ```bash
 # Change to grep if needed
 PROJECT=find
@@ -44,6 +44,7 @@ done
 ```
 
 ## Example 2: Check Patch Plausibility
+You can simply copy-paste the following into your terminal.
 ```bash
 # Change to 'grep' if needed
 PROJECT=find
