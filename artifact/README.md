@@ -65,6 +65,7 @@ validate automated fault localization and repair tools is to outperform the stud
 ### Final note
 
 * The entire **raw data** of `DBGBENCH` can be downloaded as a [self-containted CSV file](../dbgbench.raw.csv).
+* The entire **cleaned data** of `DBGBENCH` is available as [repository](https://github.com/dbgbench/dbgbench.github.io). Pull requests welcome!
 * A **summary** of the data can be downloaded as [PDF file](../dbgbench.summary.pdf)
 * Apart from the aforementioned use cases, researchers and professionals may take advantage of this dataset 
 in ways that best match their research interests. 
