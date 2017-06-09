@@ -16,7 +16,7 @@ How do professional software engineers debug computer programs? In an experiment
 * <a href="artifact/">I am in the **FSE Artefact Evaluation Committee**. How do I navigate this artefact?</a>
 * <a href="artifact/">How can I evaluate my **automated fault localization** technique?</a>
 * <a href="artifact/">How can I evaluate my **automated bug diagnosis** technique?</a>
-* <a href="artifact/">How can I evaluate my **automated repair** technique?</a>
+* <a href="repair/">How can I evaluate my **automated repair** technique?</a>
 * <a href="docker/">How do I **install** the virtual infrastructure?</a>
 * <a href="patches/">How do I **use** the virtual infrastructure?</a>
 * <a href="#setup">Where do I get **more test cases** for DBGBench?</a>
