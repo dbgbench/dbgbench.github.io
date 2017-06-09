@@ -1,12 +1,12 @@
 # Using Participant Patches
-* Install and run the [docker virtual infrastructure](docker/).
+* Install and run the [docker virtual infrastructure](../docker/).
 ```bash
 
 git clone https://github.com/dbgbench/dbgbench.github.io.git dbgbench
 cd dbgbench/docker
 ./run.sh find
 ```
-* Within the Docker container, apply the [patch](patches/) of participant [Participant ID] for error [Error ID]:
+* Within the Docker container, apply the patch of participant [Participant ID] for error [Error ID]:
 ```bash
 cd ~/Desktop/[Error ID]/find
 patch -p1 -l -f < [Error ID]/[Participant ID].patch
