@@ -93,6 +93,7 @@ done
 ## Notes
 * Sometimes there are **more than 12 patches** per error. This is due to the fact that some candidates decided to skip out after trying a few errors.
 * Sometimes there are **less than 12 patches** per error. This is due to the fact that we only asked to debug/fix at least 80% of errors. This was to reduce bias and not link success to completion. At the same time we provided an incentivice to fix the majority of bugs.
+* For some incorrect patches, we wrote **new test cases** that would fail because of the incorrectness.
 
 ## List of Errors w/Patches
 You can click on the links below.
