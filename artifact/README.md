@@ -1,5 +1,5 @@
 
-## How to use the ESEC/FSE 2017 artifact
+# How to use the ESEC/FSE 2017 artifact
 
 The `DBGBENCH` artifact provides materials drawn from a large-scale debugging study with human participants. 
 A comprehensive description of the shared dataset and infrastructure is provided in the 
@@ -8,7 +8,7 @@ several purposes that might well go beyond the scope of our ESEC/FSE 2017 paper.
 explicitly outline two usage scenarios to help understand the scope of our work.
 
 
-### Extending the DBGBENCH dataset
+## Extending the DBGBENCH dataset
 
 In order to carry out a similar study and extend the `DBGBENCH` dataset, we provide all questionnaire and 
 the necessary computational infrastructure. Specifically, the following steps should be carried out in 
@@ -27,7 +27,7 @@ after she finishes debugging. The questionnaire can be set up in an online form 
 make it easily accessible by the participants. 
 
 
-### Using the DBGBENCH dataset
+## Using the DBGBENCH dataset
 
 The `DBGBENCH` dataset collected data from 12 professional developers debugging 27 real-world bugs. 
 This dataset is provided in a comprehensive format in the <a href="https://dbgbench.github.io">project website</a>.
@@ -61,7 +61,7 @@ tools that highlight suspicious locations along with a possible explanation of t
 debugging tools in the future. In particular, we hypothesize that a necessary (but not sufficient) condition to 
 validate automated fault localization and repair tools is to outperform the study participants. 
 
-### Step-by-Step suggestions to navigate the artifact
+## Step-by-Step suggestions to navigate the artifact
 If time is of the essence, we suggest to explore this artifact following the error in our motivating example (`find.66c536bb`, Fig. 1).
 * [Benchmark Summary](../dbgbench.summary.pdf)
 * [Collected Data](../#find) for `find.66c536bb`
