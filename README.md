@@ -23,7 +23,7 @@ How do professional software engineers debug computer programs? In an experiment
 * <a href="http://program-repair.org/benchmarks.html" target="_blank">Where do I get **more subjects** for *empirical* evaluation of my technique?</a>
 * <a href="artifact/">How can I **reproduce** this study for other subjects or languages?</a>
 * <a href="#learn">How can I **learn more** about your research?</a>
-* <a href="www.comp.nus.edu.sg/~release/corebench/" target="_blank"/>Where does DBGBench come from?</a> Answer: **CoREBench**.
+* <a href="www.comp.nus.edu.sg/~release/corebench/" target="_blank">Where does DBGBench come from? Answer: **CoREBench**.</a>
 * <a href="#cite">How do I **cite** DBGBench?</a>
 
 ## DBGBench
