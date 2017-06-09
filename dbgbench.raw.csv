@@ -107,7 +107,7 @@ index a087bec..c1b5131 100644
 
 
 
-",1,0,Incomplete Fix,estimate_pattern_match is still called with a nullpointer
+",1,0,Regression,estimate_pattern_match is not called when it should be called
 find.07b941b1,NDM5MjVmOT,find/parser.c:1644-1645,find/parser.c:926,find/tree.c:1322,,,"Index of array increased before using element of array it points to. Element of array must be used at find/parser.c:926 invoked from find/parser.c:1644-1645. Arguments counter must be increased after element value used. In test case used for this study, it is last argument in arguments list. That is why next vaue does not exists and segfault caused by passing NULL to a function. NULL is invalid argument for strpbrk() causing segfault. I believe if there will be more arguments in command line after -regex x, then no segfault will happen but program will not work correctly anyway. Although I did not tested that.","diff --git a/find/parser.c b/find/parser.c
 index a087bec..e6926f4 100644
 --- a/find/parser.c
@@ -289,7 +289,7 @@ index a087bec..0520f10 100644
 +  our_pred->est_success_rate = estimate_pattern_match_rate(temp, 1);
    return true;
  }
-",1,0,Regression,Fix impacts other inputs where cmd args may not be parsed at all
+",1,1,Different but Correct,"When increment happens does not matter since we are working on a copy of the original argument."
 find.07b941b1,ZTBjYWY1Nj,find/tree.c:1322,find/parser.c:1646,find/parser.c:926,,,The cause of error is trying to estimate pattern match rate with corresponding function called with incorrect pattern argument.,"diff --git a/find/parser.c b/find/parser.c
 index a087bec..e6926f4 100644
 --- a/find/parser.c
@@ -5456,7 +5456,7 @@ grep.9c45c193,OWUwOTY1N2,lib/exclude.c:359,src/grep.c:2268,lib/exclude.c:410,lib
 with:
 
   bool excluded = 0;
-",0,0,Unrelated Workaround,The bug is definitely not in the third-party library.
+",1,0,Unrelated Workaround,The bug is definitely not in the third-party library.
 grep.9c45c193,YmI4MGM3ND,src/grep.c:2136-2140,lib/exclude.c:445,src/grep.c:2261-2286,,,"""include"" option skipped by the incorrect loop within main function src/grep.c:2267+","diff --git a/src/grep.c b/src/grep.c
 index fbeb089..8cbed5c 100644
 --- a/src/grep.c
