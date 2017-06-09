@@ -902,7 +902,7 @@ index 3e94da1..5895bf6 100644
    /* Not an error, cope with the usual cases. */
    if (ent->fts_info == FTS_NSOK)
      {
-",1,0,Regression,There is no problem with negative file descriptors
+",1,0,Developer-Fix,N/A
 find.24bf33c0,NTU0ZTZlNT,find/ftsfind.c:447,find/ftsfind.c:545,find/ftsfind.c:694-699,,,"- region 1:  The code lacks the handler when the flags member of the consider_visiting FTSENT* argument is a stat(2) failure.
 - region 2:  continued read of member files & directories of directories that produced an errno makes these kinds of 'finds' inefficient
 - region 3:  catering for negative file descriptors adds a computing cycle","diff --git a/find/ftsfind.c b/find/ftsfind.c
@@ -981,7 +981,7 @@ index 3e94da1..a38acd0 100644
 -    }
  
  
-   process_all_startpoints(argc-end_of_leading_options, argv+end_of_leading_options);",1,1,Developer-Fix,N/A
+   process_all_startpoints(argc-end_of_leading_options, argv+end_of_leading_options);",1,0,Regression,"Handle FTS_NS as error IF symlink loop, and remove handling for negative file descriptors but there is no problem with negative file descriptors."
 find.24bf33c0,NzBjMjQ0OT,find/ftsfind.c:687-689,find/ftsfind.c:614-615,find/ftsfind.c:388-469,,,"The line numbers might not be accurate since I have applied the patch and then put these numbers.
 The condition to check the failure of stat call was missing. I added a simple check","--- ftsfind.c   2016-05-28 02:11:12.950418832 +0530
 +++ ftsfind_new.c   2016-05-28 02:13:58.974426753 +0530
@@ -1563,7 +1563,7 @@ index 75bbe69..b36d7bf 100644
      }
 
    if (!get_relative_timestamp(timearg, &tval, origin, DAYSECS, errmsg))
-",1,0,Incomplete Fix,Doesn't fix the problem for -mtime +2
+",1,1,Developer Fix,get_comp_type always returns true
 find.66c536bb,ODY3ODM5YW,prec.c:278-288,pred.c:1246,parser.c:3172,parser.c:3102-3128,,At parser.c:3110 we call get_comp_type which increments timearg if the comp type is COMP_GT or COMP_LT. The call to get_relative_timestamp also calls get_comp_type. However at this point the timearg was already incremented and does not point to the sign anymore but to the number.,"diff --git a/find/parser.c b/find/parser.c
 index 75bbe69..05e918e 100644
 --- a/find/parser.c
@@ -2963,7 +2963,7 @@ index 23a3374..a9e67fb 100644
             {
               /* We have a fractional part. */
               const char *p;
-",1,0,Treating Symptom,Nullpointer is still dereference. Only now it happens to not crash
+",1,1,Developer-Fix,
 find.dbcb10e9,ZTBjYWY1Nj,gnulib/lib/xstrtol.c:79,find/parser.c:2778,find/parser.c:2674,,,"The cause of error was bad checking of the return parameters of function __xstrtol, which parses the argument string of -mtime option to actual numbers. The check for pointer to pointer to char correctness was wrong.","diff --git a/find/parser.c b/find/parser.c
 index 23a3374..2a4148a 100644
 --- a/find/parser.c
@@ -3130,7 +3130,7 @@ index 15f0418..614cc67 100644
 +  /* working directory if non-zero */
 +  int wd;
  };
-",0,0,Regression,N/A
+",0,0,Regression,Original test case still fails
 find.e1d0a991 ,ZmZkMWM5OG,find/ftsfind.c:349,find/ftsfind.c:364,find/ftsfind.c:373,,,"If using -L then FTS_LOGICAL flag is set in find/ftsfind.c:349 and passed to fts_open in find/ftsfind.c:364. Because of this flag, no chdir is performed during fts_read, called from find/ftsfind.c:373. I have tried without FTS_LOGICAL flag but then the results are even more wrong (link are not followed). Thus, if I suppose, that the error is not in fts_read (because that function is from fts.c which is outside of current project) then (1) something must be added to tell fts_read that chdir must be made or (2) chdir must be invoked and also struct ent adapted just before find/ftsfind.c:375. Please note, that chdir must be invoked, otherwise one could not obtain the correct result e.g. for ""-execdir pwd"".",no solution,N/A,N/A,N/A,N/A
 find.e1d0a991 ,ZTRmYWE5Nj,find/ftsfind.c:346-359,find/ftsfind.c:373-376,find/ftsfind.c:125-130,,,"346   switch (options.symlink_handling)
 347     {
