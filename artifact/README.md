@@ -89,8 +89,10 @@ git clone https://github.com/dbgbench/dbgbench.github.io.git dbgbench
 # Identify version containing find.66c536bb
 ls find*/find.66c536bb
 
-# Suppose find1 contains find.66c536bb, apply patch from participant MzBiYjQ4ZG
+# Suppose find1 contains find.66c536bb
 cd ~/Desktop/find1/find
+
+# Apply patch from participant MzBiYjQ4ZG
 patch -l -p1 -f < ~/Desktop/dbgbench/patches/find.66c536bb/MzBiYjQ4ZG.patch
 
 # Build fixed version
@@ -100,7 +102,7 @@ make
 ../test/test.sh $PWD || echo FAIL
 
 # Revert patch, build, and execute test (should print FAIL)
-patch -l -p1 -f < ~/Desktop/dbgbench/patches/find.66c536bb/MzBiYjQ4ZG.patch
+patch -R -l -p1 -f < ~/Desktop/dbgbench/patches/find.66c536bb/MzBiYjQ4ZG.patch
 make
 ../test/test.sh $PWD || echo FAIL
 ```
