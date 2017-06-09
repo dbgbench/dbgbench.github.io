@@ -5,7 +5,7 @@ The `DBGBENCH` artifact provides materials drawn from a large-scale debugging st
 A comprehensive description of the shared dataset and infrastructure is provided in the 
 <a href="https://dbgbench.github.io">project website</a> In general, the provided artifact can be used for 
 several purposes that might well go beyond the scope of our ESEC/FSE 2017 paper. In the following, we will 
-explicitly outline two usage scenarios to help understand the scope of our work.
+explicitly outline two usage scenarios to help understand the scope of our work. Scroll down for *step-by-step instructions*.
 
 
 ## Extending the DBGBENCH dataset
@@ -61,7 +61,7 @@ tools that highlight suspicious locations along with a possible explanation of t
 debugging tools in the future. In particular, we hypothesize that a necessary (but not sufficient) condition to 
 validate automated fault localization and repair tools is to outperform the study participants. 
 
-## Step-by-Step suggestions to navigate the artifact
+## Step-by-Step instructions
 If time is of the essence, we suggest to explore this artifact following the error in our motivating example (`find.66c536bb`, Fig. 1).
 * [Benchmark Summary](../dbgbench.summary.pdf)
 * [Collected Data](../#find) for `find.66c536bb`
@@ -115,9 +115,3 @@ make
 * A **summary** of the data can be downloaded as [PDF file](../dbgbench.summary.pdf)
 * Apart from the aforementioned use cases, researchers and professionals may take advantage of this dataset 
 in ways that best match their research interests. 
-
-
-
-
-
-
