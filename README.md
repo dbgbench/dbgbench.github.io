@@ -24,7 +24,7 @@ How do professional software engineers debug computer programs? In an experiment
 * <a href="artifact/">How can I **reproduce** this study for other subjects or languages?</a>
 * <a href="https://yangsu.github.io/pull-request-tutorial/">How can I **contribute** to DBGBench? Answer: Create a Pull Request.</a>
 * <a href="#learn">How can I **learn more** about your research?</a>
-* <a href="www.comp.nus.edu.sg/~release/corebench/" target="_blank">Where does DBGBench come from? Answer: **CoREBench**.</a>
+* <a href="https://www.comp.nus.edu.sg/~release/corebench/" target="_blank">Where does DBGBench come from? Answer: **CoREBench**.</a>
 * <a href="#cite">How do I **cite** DBGBench?</a>
 
 ## DBGBench
