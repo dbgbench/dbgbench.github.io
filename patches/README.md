@@ -15,14 +15,17 @@ patch -p1 -l -f < [Error ID]/[Participant ID].patch
 ## Example 1: Dry-run-apply All Patches
 
 ```bash
+# Change to grep if needed
+project=find
+
 # Make patches available locally
 cd ~/Desktop
 git config --global http.sslVerify false
 git clone https://github.com/dbgbench/dbgbench.github.io.git dbgbench
 
 # Loop over all errors and check patch applicability
-for id in $(ls -1d ~/Desktop/find*/find.*); do
-  pushd $(echo $id | rev | cut -d/ -f2- | rev)/find > /dev/null
+for id in $(ls -1d ~/Desktop/${project}*/${project}.*); do
+  pushd $(echo $id | rev | cut -d/ -f2- | rev)/$project > /dev/null
 
   error=$(echo $id | rev | cut -d/ -f1 | rev)
   for patch in $(ls -1d ~/Desktop/dbgbench/patches/$error/*.patch); do 
@@ -42,14 +45,17 @@ done
 
 ## Example 2: Check Patch Plausibility
 ```bash
+# Change to 'grep' if needed
+project=find
+
 # Make patches available locally
 cd ~/Desktop
 git config --global http.sslVerify false
 git clone https://github.com/dbgbench/dbgbench.github.io.git dbgbench
 
 # Loop over all errors and check patch plausibility
-for id in $(ls -1d ~/Desktop/find*/find.*); do
-  pushd $(echo $id | rev | cut -d/ -f2- | rev)/find > /dev/null
+for id in $(ls -1d ~/Desktop/$project*/$project.*); do
+  pushd $(echo $id | rev | cut -d/ -f2- | rev)/$project > /dev/null
 
   error=$(echo $id | rev | cut -d/ -f1 | rev)
   for patch in $(ls -1d ~/Desktop/dbgbench/patches/$error/*.patch); do
