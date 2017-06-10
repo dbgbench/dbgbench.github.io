@@ -111,7 +111,7 @@ make
 ## Final note
 
 * The entire **raw data** of `DBGBENCH` can be downloaded as a [self-containted CSV file](../dbgbench.raw.csv).
-* The entire **cleaned data** of `DBGBENCH` is available as [repository](https://github.com/dbgbench/dbgbench.github.io). Pull requests welcome!
+* The entire **cleaned data** of `DBGBENCH` is available as [zip-file](https://github.com/dbgbench/dbgbench.github.io/archive/master.zip) and as [Github Repository](https://github.com/dbgbench/dbgbench.github.io). Pull requests welcome!
 * A **summary** of the data can be downloaded as [PDF file](../dbgbench.summary.pdf)
 * Apart from the aforementioned use cases, researchers and professionals may take advantage of this dataset in ways that best match their research interests. 
 * [Find out how DBGBench can be used for the qualitative evaluation of automated repair techniques.](../repair)
