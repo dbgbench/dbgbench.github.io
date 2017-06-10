@@ -2,6 +2,7 @@
 How do professional software engineers debug computer programs? In an experiment with 27 real bugs that existed in several widely used programs, we invited 12 professional software engineers, who together spent one month on localizing, explaining, and fixing these bugs. This did not only allow us to study the various tools and strategies used to debug the same set of errors. We could also determine exactly which statements a developer would localize as faults, how a developer would diagnose and explain an error, and how a developer would fix an error – all of which software engineering researchers seek to automate. Until now, it has been difficult to evaluate the effectiveness and utility of automated debugging techniques without a user study. We publish the collected data, called DBGBENCH, to facilitate the effective evaluation of automated fault localization, diagnosis, and repair techniques w.r.t. the judgement of human experts.
 
 <p style="position:fixed; left: 50%; top: 200px; transform: translate(-545px, 0%); width: 200px; padding: 0px">
+[ESEC/FSE'17 AEC](artifact/)<br/>
 <a href="#setup">Downloads</a><br/>
 <a href="#find">DBGBench (find)</a><br/>
 <a href="#grep">DBGBench (grep)</a><br/>
@@ -13,7 +14,7 @@ How do professional software engineers debug computer programs? In an experiment
 <br/>
 
 ## FAQ
-* <a href="artifact/">I am in the **ESEC/FSE Artifact Evaluation Committee**. How do I navigate this artifact?</a>
+* <a href="artifact/">I am in the **ESEC/FSE'17 Artifact Evaluation Committee**. How do I navigate this artifact?</a>
 * <a href="artifact/">How can I evaluate my **automated fault localization** technique?</a>
 * <a href="artifact/">How can I evaluate my **automated bug diagnosis** technique?</a>
 * <a href="repair/">How can I evaluate my **automated repair** technique?</a>
