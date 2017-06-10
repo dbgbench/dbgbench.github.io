@@ -23,7 +23,7 @@ How do professional software engineers debug computer programs? In an experiment
 * <a href="#setup">Where do I get **more test cases** for DBGBench?</a>
 * <a href="http://program-repair.org/benchmarks.html" target="_blank">Where do I get **more subjects** for *empirical* evaluation of my technique?</a>
 * <a href="artifact/">How can I **reproduce** this study for other subjects or languages?</a>
-* <a href="https://yangsu.github.io/pull-request-tutorial/">How can I **contribute**? Answer: Create a Pull Request.</a>
+* <a href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/">How can I **contribute**? Answer: Create a Pull Request.</a>
 * <a href="#learn">How can I **learn more** about your research?</a>
 * <a href="https://www.comp.nus.edu.sg/~release/corebench/" target="_blank">Where does DBGBench come from? Answer: **CoREBench**.</a>
 * <a href="#cite">How do I **cite** DBGBench?</a>
@@ -45,6 +45,7 @@ In the following we provide the complete list of errors and their average debugg
 * **Download** <a href="https://github.com/thierry-tct/Tests_CPA_ICSE" target="_blank">more test cases</a> for DBGBench.<br/>(Credits: <a href="https://sites.google.com/site/mikepapadakis/ICSE17.pdf?attredirects=0&d=1" target="_blank">Titcheu Chekam Thierry, Mike Papadakis, Yves Le Traon, and Mark Harman</a>)!
 * **Read** our [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH.
 * **Read** our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
+* **Contribute** by <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">forking</a> DBGBench and creating a <a href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/" target="_blank">pull request</a>.
 
 ### <a name="find"></a>GNU Findutils
 GNU [findutils](https://www.gnu.org/software/findutils/) offers basic file searching utilities to search the systems directories of GNU and Unix-based computers. 
