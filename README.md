@@ -7,7 +7,7 @@ How do professional software engineers debug computer programs? In an experiment
 <a href="#grep">DBGBench (grep)</a><br/>
 <!--a href="artifact/">Use DBGBench</a><br/-->
 <a href="#cite">Cite DBGBench</a><br/>
-[ESEC/FSE'17 AEC](artifact/)<br/>
+<a href="artifact/">ESEC/FSE'17 AEC</a><br/>
 <a href="abstract.pdf"><img src="abstract.png" alt="DBGBench Abstract" style="width: 200px;"/></a></p>
 
 <p align="center"><img src="mainobjective.png" alt="Main Objectives" width="100%" /></p>
