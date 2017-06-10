@@ -2,7 +2,9 @@ FROM debug/find
 ENV SUBJECT findutils
 RUN sudo apt-get install -y gdb valgrind
 ADD scripts/prepareVM.sh .
-ADD scripts/test.find.66c536bb.patch ~
+ADD scripts/test.find.66c536bb.patch .
+ADD scripts/patch.sh .
 RUN ./prepareVM.sh $SUBJECT
+RUN ./patch.sh
 RUN rm -rf /root/corerepo && rm /*.m4 && rm prepareVM.sh
 WORKDIR /root/Desktop

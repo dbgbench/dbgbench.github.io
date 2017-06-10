@@ -4746,7 +4746,7 @@ index 3376fa4..3d2c35e 100644
                                        || S_ISBLK (stats->stat.st_mode)
                                        || S_ISSOCK (stats->stat.st_mode)
                                        || S_ISFIFO (stats->stat.st_mode))))
-",1,0,Regression,Skip everything that should not be skipped (while not skipping STDIN)
+",0,0,Regression,Skip everything that should not be skipped (while not skipping STDIN)
 grep.55cf7b6a,MGFkYmExOT,main.c:1246,main.c:1218,none.c:0,,,desc is STDIN_FILENO at main.c:1218. So if statement is taken on main.c:1246 because stdin is a character device indeed (S_ISCHR (stats->stat.st_mode)).,"diff --git a/src/main.c b/src/main.c
 index 3376fa4..1ee0448 100644
 --- a/src/main.c

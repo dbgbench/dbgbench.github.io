@@ -1,6 +1,6 @@
 --- test.sh
 +++ test.sh
-@@ -125,12 +125,13 @@
+@@ -125,11 +125,12 @@
  TDIR=`mktemp -d`
  touch $TDIR/$(date --date="today" +"%Y-%m-%d") -t $(date --date="today" +"%y%m%d%H%M")
  touch $TDIR/$(date --date="yesterday" +"%Y-%m-%d") -t $(date --date="yesterday" +"%y%m%d%H%M")

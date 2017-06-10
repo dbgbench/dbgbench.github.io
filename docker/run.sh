@@ -22,6 +22,9 @@ exit_code=0
 
 if [ $(docker ps | grep -c "debugstudy ") -ne 0 ]; then
   echo "An instance of 'debugstudy' is already running ($(docker ps | grep "debugstudy " | cut -c-12))"
+  echo "You can use VNCViewer from your Desktop or a different terminal window to access: "
+  echo "$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' debugstudy0):5900 (password: corebench)"
+  echo ""
   echo "Connecting .."
   if [ -z "$2" ]; then 
     docker exec -it $(docker ps | grep "debugstudy " | cut -c-12) bash
@@ -29,17 +32,14 @@ if [ $(docker ps | grep -c "debugstudy ") -ne 0 ]; then
     echo "$2" | docker exec -i $(docker ps | grep "debugstudy " | cut -c-12) bash 
     exit_code=$?
   fi
+  
   exit $exit_code
 fi
 
 printf "Running container: "
 docker run -dt --name debugstudy0 -v $(pwd):/shared -p 5900:5900 --dns 8.8.8.8 --dns 8.8.4.4 debugstudy | cut -c-12
 echo "Now use VNCViewer from your Desktop or a different terminal window to access: "
-if [ -z "$(which boot2docker)" ]; then
-  echo "$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' debugstudy0):5900 (password: corebench)"
-else 
-  echo "$(boot2docker ip):5900 (password: corebench)"
-fi
+echo "$(docker inspect --format '{{ .NetworkSettings.IPAddress }}' debugstudy0):5900 (password: corebench)"
 echo
 echo Note: Once the container is removed or broken, any temporary data will be lost!
 echo Use the '/shared'-folder for scripts and data which you would like to keep.  
