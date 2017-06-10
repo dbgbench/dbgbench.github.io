@@ -13,7 +13,7 @@ How do professional software engineers debug computer programs? In an experiment
 <br/>
 
 ## FAQ
-* <a href="artifact/">I am in the **FSE Artefact Evaluation Committee**. How do I navigate this artefact?</a>
+* <a href="artifact/">I am in the **ESEC/FSE Artifact Evaluation Committee**. How do I navigate this artifact?</a>
 * <a href="artifact/">How can I evaluate my **automated fault localization** technique?</a>
 * <a href="artifact/">How can I evaluate my **automated bug diagnosis** technique?</a>
 * <a href="repair/">How can I evaluate my **automated repair** technique?</a>
@@ -35,8 +35,9 @@ In the following we provide the complete list of errors and their average debugg
 * **Download** the <a href="dbgbench.raw.csv" target="_blank">complete raw data</a> containing for each debugging session (error, participant) the following data:
   * BUG ID & Participant ID
   * Provided Fault Locations, Bug diagnosis/Explanations & Patches
-  * Patch Plausibility, Correctness and Category
+  * Patch Plausibility, Correctness, and Fix Strategy
   * Reasons for (In)correctness
+* **Download** the <a href="https://github.com/dbgbench/dbgbench.github.io/archive/master.zip">complete cleaned data</a> (i.e., this repository).
 * **Download** the <a href="questionnaire.pdf" target="_blank">example questionnaire</a>.
 * **Download** the <a href="docker/" target="_blank">Docker virtual infrastructure</a>.
 * **Download** the <a href="https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U" target="_blank">tutorial material</a>, including slides, videos, and readme files.
