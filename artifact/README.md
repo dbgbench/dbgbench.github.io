@@ -79,6 +79,7 @@ If time is of the essence, we suggest to explore this artifact following the err
 * [Install and Run Docker Virtual Infrastructure](../docker)
   * Use infrastructure to [check patch plausibility](../patches)
   * Apply patch of participant `MzBiYjQ4ZG` for `find.66c536bb` and execute test case. Once you installed and ran the infrastructure, you can copy-paste this into your terminal.
+
 ```bash
 # Checkout patches
 cd ~/Desktop
