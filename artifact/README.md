@@ -5,7 +5,7 @@ The `DBGBENCH` artifact provides materials drawn from a large-scale debugging st
 A comprehensive description of the shared dataset and infrastructure is provided in the 
 <a href="https://dbgbench.github.io">project website</a> In general, the provided artifact can be used for 
 several purposes that might well go beyond the scope of our ESEC/FSE 2017 paper. In the following, we will 
-explicitly outline two usage scenarios to help understand the scope of our work. Scroll down for *step-by-step instructions*.
+explicitly outline two usage scenarios to help understand the scope of our work. Scroll down for *[step-by-step instructions](#step-by-step-instructions)*.
 
 
 ## Extending the DBGBENCH dataset
@@ -71,15 +71,14 @@ If time is of the essence, we suggest to explore this artifact following the err
   * [Bug Diagnosis](../find.66c536bb.diagnosis.txt) as participant description of how the error comes about.
   * [Fault Locations](../find.66c536bb.faults.txt) as pointed out by about 50% of participants or more.
   * [Original Patch](http://git.savannah.gnu.org/cgit/findutils.git/commit/?id=66c536bbb7cdb1673fb6f389b18c77165392cdc7) as provided by the developer. Notice that this patch occured about a month after the error was introduced.
-  * [Patches](../patches/find.66c536bb/) as provided by our participants, including 
+  * [Patches](https://github.com/dbgbench/dbgbench.github.io/tree/master/patches/find.66c536bb/) as provided by our participants, including 
     * fix strategies,
     * our classification as correct and incorrect, and
     * our rationale for our classification;
-    * For many incorrect patches, we produced tests that fail on these patches, e.g., for [find.091557f6](../patches/find.091557f6/tests)
+    * For many incorrect patches, we produced tests that fail on these patches, e.g., for [find.091557f6](https://github.com/dbgbench/dbgbench.github.io/tree/master/patches/find.091557f6/tests)
 * [Install and Run Docker Virtual Infrastructure](../docker)
   * Use infrastructure to [check patch plausibility](../patches)
   * Apply patch of participant `MzBiYjQ4ZG` for `find.66c536bb` and execute test case. Once you installed and ran the infrastructure, you can copy-paste this into your terminal.
-
 ```bash
 # Checkout patches
 cd ~/Desktop
@@ -113,5 +112,5 @@ make
 * The entire **raw data** of `DBGBENCH` can be downloaded as a [self-containted CSV file](../dbgbench.raw.csv).
 * The entire **cleaned data** of `DBGBENCH` is available as [repository](https://github.com/dbgbench/dbgbench.github.io). Pull requests welcome!
 * A **summary** of the data can be downloaded as [PDF file](../dbgbench.summary.pdf)
-* Apart from the aforementioned use cases, researchers and professionals may take advantage of this dataset 
-in ways that best match their research interests. 
+* Apart from the aforementioned use cases, researchers and professionals may take advantage of this dataset in ways that best match their research interests. 
+* [Find out how DBGBench can be used for the qualitative evaluation of automated repair techniques.](../repair)
