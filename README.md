@@ -102,6 +102,21 @@ GNU [grep](https://www.gnu.org/software/grep/manual/grep.html) is a command-line
 }
 ```
 
+DBGBench is based on [CoREBench](www.comp.nus.edu.sg/~release/corebench/), a collection of 70 real regression errors in four open source projects (coreutils, findutils, grep, and make).
+```
+@inproceedings{errorComplexity,
+ author = {B\"{o}hme, Marcel and Roychoudhury, Abhik},
+ title = {CoREBench: Studying Complexity of Regression Errors},
+ booktitle = {Proceedings of the 23rd ACM/SIGSOFT International Symposium on Software Testing and Analysis},
+ series = {ISSTA},
+ year = {2014},
+ location = {San Jose, California, USA},
+ pages = {105-115},
+ numpages = {11}
+}
+```
+
+
 ## <a name="learn"></a>Who are we?
 * <a href="https://www.comp.nus.edu.sg/~mboehme" target="_blank">Marcel B&ouml;hme</a>, National University of Singapore, Singapore
 * <a href="https://www.st.cs.uni-saarland.de/~soremekun/" target="_blank">Ezekiel Olamide Soremekun</a>, Saarland University, Germany
@@ -112,5 +127,5 @@ GNU [grep](https://www.gnu.org/software/grep/manual/grep.html) is a command-line
 * Read our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
 
 ## Links
-* https://www.comp.nus.edu.sg/~release/corebench
-* http://program-repair.org/benchmarks
+* [https://www.comp.nus.edu.sg/~release/corebench](https://www.comp.nus.edu.sg/~release/corebench)
+* [http://program-repair.org/benchmarks](http://program-repair.org/benchmarks)
