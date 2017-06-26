@@ -95,15 +95,15 @@ GNU [grep](https://www.gnu.org/software/grep/manual/grep.html) is a command-line
 @inproceedings{dbgbench, 
   author = {B\"{o}hme, Marcel and Soremekun, Ezekiel Olamide and Chattopadhyay, Sudipta and Ugherughe, Emamurho and Zeller, Andreas}, 
   title = {Where is the Bug and How is it Fixed? An Experiment with Practitioners}, 
-  booktitle = {Proceedings of the Joint meeting of the European Software Engineering Conference and the ACM SIGSOFT Symposium on the Foundations of Software Engineering (ESEC/FSE) 2017}, 
-  series = {FSE 2017}, 
+  booktitle = {Proceedings of the Joint meeting of the European Software Engineering Conference and the ACM SIGSOFT Symposium on the Foundations of Software Engineering}, 
+  series = {ESEC/FSE 2017}, 
   pages = {1-11}, 
   year = {2017}
 }
 ```
 <br/>
 
-DBGBench is based on [CoREBench](www.comp.nus.edu.sg/~release/corebench/), a collection of 70 real regression errors in four open source projects (coreutils, findutils, grep, and make).
+DBGBench is based on [CoREBench](www.comp.nus.edu.sg/~release/corebench/), a collection of 70 real regression errors in four open source projects (coreutils, findutils, grep, and make). Of course, both can be cited.
 ```
 @inproceedings{corebench,
  author = {B\"{o}hme, Marcel and Roychoudhury, Abhik},
@@ -114,7 +114,6 @@ DBGBench is based on [CoREBench](www.comp.nus.edu.sg/~release/corebench/), a col
  pages = {105-115},
 }
 ```
-
 
 ## <a name="learn"></a>Who are we?
 * <a href="https://www.comp.nus.edu.sg/~mboehme" target="_blank">Marcel B&ouml;hme</a>, National University of Singapore, Singapore
