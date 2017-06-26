@@ -7,8 +7,8 @@ How do professional software engineers debug computer programs? In an experiment
 <a href="#find">Data for find</a><br/>
 <a href="#grep">Data for grep</a><br/>
 <a href="patches">Patch Data</a><br/>
-<a href="docker">Execute</a><br/>
-<a href="artifact">Reproduce</a><br/>
+<a href="docker">Execute w/ Docker</a><br/>
+<a href="artifact">Use and Reproduce</a><br/>
 <!--a href="artifact/">Use DBGBench</a><br/-->
 <a href="#cite">Learn More</a><br/>
 <!--<b><a href="artifact/">ESEC/FSE'17 AEC</a></b>--><br/>
@@ -18,7 +18,7 @@ How do professional software engineers debug computer programs? In an experiment
 <br/>
 
 ## <a name="faq"> FAQ
-* <a href="artifact/">I am in the **ESEC/FSE'17 Artifact Evaluation Committee**. How do I navigate this artifact?</a>
+* <a href="artifact/">I am in the **ESEC/FSE'17 AEC**. How do I navigate this artifact?</a>
 * <a href="artifact/">How can I evaluate my **automated fault localization** technique?</a>
 * <a href="artifact/">How can I evaluate my **automated bug diagnosis** technique?</a>
 * <a href="repair/">How can I evaluate my **automated repair** technique?</a>
