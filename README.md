@@ -101,18 +101,17 @@ GNU [grep](https://www.gnu.org/software/grep/manual/grep.html) is a command-line
   year = {2017}
 }
 ```
+<br/>
 
 DBGBench is based on [CoREBench](www.comp.nus.edu.sg/~release/corebench/), a collection of 70 real regression errors in four open source projects (coreutils, findutils, grep, and make).
 ```
-@inproceedings{errorComplexity,
+@inproceedings{corebench,
  author = {B\"{o}hme, Marcel and Roychoudhury, Abhik},
  title = {CoREBench: Studying Complexity of Regression Errors},
  booktitle = {Proceedings of the 23rd ACM/SIGSOFT International Symposium on Software Testing and Analysis},
  series = {ISSTA},
  year = {2014},
- location = {San Jose, California, USA},
  pages = {105-115},
- numpages = {11}
 }
 ```
 
