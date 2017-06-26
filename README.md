@@ -103,7 +103,7 @@ GNU [grep](https://www.gnu.org/software/grep/manual/grep.html) is a command-line
 ```
 <br/>
 
-DBGBench is based on [CoREBench](https://www.comp.nus.edu.sg/~release/corebench/), a collection of 70 real regression errors in four open source projects (coreutils, findutils, grep, and make). Since DBGBench reuses and extends many results from CoREBench such as infrastructure, developer bug reports and patches, we recommend that both be cited.
+DBGBench is based on [CoREBench](https://www.comp.nus.edu.sg/~release/corebench/), a collection of 70 real regression errors in four open source projects (coreutils, findutils, grep, and make). Since DBGBench reuses and extends many results from CoREBench (e.g., infrastructure, developer bug reports, and developer patches), we recommend that both references be cited.
 ```
 @inproceedings{corebench,
  author = {B\"{o}hme, Marcel and Roychoudhury, Abhik},
