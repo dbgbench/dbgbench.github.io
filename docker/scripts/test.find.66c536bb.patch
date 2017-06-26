@@ -1,16 +1,16 @@
 --- test.sh
 +++ test.sh
-@@ -125,11 +125,12 @@
+@@ -125,12 +125,11 @@
  TDIR=`mktemp -d`
  touch $TDIR/$(date --date="today" +"%Y-%m-%d") -t $(date --date="today" +"%y%m%d%H%M")
  touch $TDIR/$(date --date="yesterday" +"%Y-%m-%d") -t $(date --date="yesterday" +"%y%m%d%H%M")
-+touch $TDIR/$(date --date="2 days ago" +"%Y-%m-%d") -t $(date --date="2 days ago" +"%y%m%d%H%M")
+-touch $TDIR/$(date --date="2 days ago" +"%Y-%m-%d") -t $(date --date="2 days ago" +"%y%m%d%H%M")
  touch $TDIR/$(date --date="3 days ago" +"%Y-%m-%d") -t $(date --date="3 days ago" +"%y%m%d%H%M")
  touch $TDIR/$(date --date="4 days ago" +"%Y-%m-%d") -t $(date --date="4 days ago" +"%y%m%d%H%M")
 
 
  fail=0
--printf "$TDIR\n$TDIR/$(date --date='yesterday' +'%Y-%m-%d')\n$TDIR/$(date --date='today' +'%Y-%m-%d')\n" > exp
-+printf "$TDIR\n$TDIR/$(date --date='2 days ago' +'%Y-%m-%d')\n$TDIR/$(date --date='yesterday' +'%Y-%m-%d')\n$TDIR/$(date --date='today' +'%Y-%m-%d')\n" > exp
+-printf "$TDIR\n$TDIR/$(date --date='2 days ago' +'%Y-%m-%d')\n$TDIR/$(date --date='yesterday' +'%Y-%m-%d')\n$TDIR/$(date --date='today' +'%Y-%m-%d')\n" > exp
++printf "$TDIR\n$TDIR/$(date --date='yesterday' +'%Y-%m-%d')\n$TDIR/$(date --date='today' +'%Y-%m-%d')\n" > exp
  $versiondir/find/find $TDIR -mtime -2 | sort > out || fail=255
  compare exp out || fail=1

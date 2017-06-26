@@ -1,0 +1,11 @@
+--- test.sh
++++ test.sh
+@@ -115,7 +115,7 @@
+ echo xaSFasdkl > x/2.e
+ 
+ printf "x/1.e:xaSFasdkl\nx/2.e:xaSFasdkl\n" > exp
+-$versiondir/src/grep -r --include="*.e" xaSFasdkl x > out
++$versiondir/src/grep -r --include="*.e" xaSFasdkl x | sort> out
+ compare out exp || fail=1
+ rm -rf x
+ 
