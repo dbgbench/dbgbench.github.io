@@ -95,10 +95,10 @@ GNU [grep](https://www.gnu.org/software/grep/manual/grep.html) is a command-line
 @inproceedings{dbgbench, 
   author = {B\"{o}hme, Marcel and Soremekun, Ezekiel Olamide and Chattopadhyay, Sudipta and Ugherughe, Emamurho and Zeller, Andreas}, 
   title = {Where is the Bug and How is it Fixed? An Experiment with Practitioners}, 
-  booktitle = {Proceedings of the Joint meeting of the European Software Engineering Conference and the ACM SIGSOFT Symposium on the Foundations of Software Engineering}, 
+  booktitle = {Proceedings of the 11th Joint meeting of the European Software Engineering Conference and the ACM SIGSOFT Symposium on the Foundations of Software Engineering}, 
   series = {ESEC/FSE 2017}, 
   pages = {1-11}, 
-  year = {2017}
+  year = {2017},
 }
 ```
 <br/>
@@ -109,9 +109,9 @@ DBGBench is based on [CoREBench](https://www.comp.nus.edu.sg/~release/corebench/
  author = {B\"{o}hme, Marcel and Roychoudhury, Abhik},
  title = {CoREBench: Studying Complexity of Regression Errors},
  booktitle = {Proceedings of the 23rd ACM/SIGSOFT International Symposium on Software Testing and Analysis},
- series = {ISSTA},
- year = {2014},
+ series = {ISSTA 2014},
  pages = {105-115},
+ year = {2014},
 }
 ```
 
