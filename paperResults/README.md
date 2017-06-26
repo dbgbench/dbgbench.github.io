@@ -1,4 +1,4 @@
-## How to reproduce the figures in our paper
+## Reproducing the figures in our paper
 * Download and untar [figures.tar.gz](https://github.com/dbgbench/dbgbench.github.io/raw/master/paperResults/results.tar.gz)
 * Install R: [http://cran.r-project.org/mirrors.html](http://cran.r-project.org/mirrors.html)
 * Install RStudio: [https://www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/)
