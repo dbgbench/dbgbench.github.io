@@ -5,7 +5,7 @@ The `DBGBENCH` artifact provides materials drawn from a large-scale debugging st
 A comprehensive description of the shared dataset and infrastructure is provided in the 
 <a href="https://dbgbench.github.io">project website</a> In general, the provided artifact can be used for 
 several purposes that might well go beyond the scope of our ESEC/FSE 2017 paper. In the following, we will 
-explicitly outline two usage scenarios to help understand the scope of our work. Scroll down for *[step-by-step instructions](#step-by-step-instructions)*.
+explicitly outline two usage scenarios to help understand the scope of our work. Scroll down for *[step-by-step instructions](#step-by-step-instructions)*. Find out how to generate the figures in our paper [here](../paperResults).
 
 
 ## Extending the DBGBENCH dataset
