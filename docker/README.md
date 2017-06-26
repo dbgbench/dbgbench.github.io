@@ -1,6 +1,9 @@
 # Starting the Docker Virtual Infrastructure
 * Find out more about Docker: https://docker.com
 * Install Docker: https://docs.docker.com/#run-docker-anywhere
+* We provide a simple bash script [run.sh](run.sh) to setup and interface the docker container.
+  * Bash is available on most Linux and MacOS host operating systems.
+  * If you have a Windows host, follow the instructions in `run.sh` correspondingly.
 
 ## Installing the Find errors
 ```bash
