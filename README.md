@@ -119,7 +119,7 @@ DBGBench is based on [CoREBench](https://www.comp.nus.edu.sg/~release/corebench/
 * <a href="https://www.comp.nus.edu.sg/~mboehme" target="_blank">Marcel B&ouml;hme</a>, National University of Singapore, Singapore
 * <a href="https://www.st.cs.uni-saarland.de/~soremekun/" target="_blank">Ezekiel Olamide Soremekun</a>, Saarland University, Germany
 * <a href="https://sudiptac.bitbucket.io" target="_blank">Sudipta Chattopadhyay</a>, Singapore University of Technology and Design, Singapore
-* <a href="https://www.st.cs.uni-saarland.de" target="_blank">Emamurho Ugherughe</a>, Saarland University, Germany
+* <a href="https://ng.linkedin.com/in/emamurho-ugherughe-93b97a44" target="_blank">Emamurho Ugherughe</a>, SAP Berlin, Germany
 * <a href="https://www.st.cs.uni-saarland.de/~zeller" target="_blank">Andreas Zeller</a>, Saarland University, Germany
 * Read our [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH.
 * Read our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
