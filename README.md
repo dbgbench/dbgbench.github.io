@@ -1,7 +1,7 @@
 ## Summary
 How do professional software engineers debug computer programs? In an experiment with 27 real bugs that existed in several widely used programs, we invited 12 professional software engineers, who together spent one month on localizing, explaining, and fixing these bugs. This did not only allow us to study the various tools and strategies used to debug the same set of errors. We could also determine exactly which statements a developer would localize as faults, how a developer would diagnose and explain an error, and how a developer would fix an error – all of which software engineering researchers seek to automate. Until now, it has been difficult to evaluate the effectiveness and utility of automated debugging techniques without a user study. We publish the collected data, called DBGBENCH, to facilitate the effective evaluation of automated fault localization, diagnosis, and repair techniques w.r.t. the judgement of human experts.
 
-<p style="position:fixed; left: 50%; top: 200px; transform: translate(-545px, 0%); width: 150px; padding: 0px">
+<p style="position:fixed; left: 50%; top: 200px; transform: translate(-515px, 0%); width: 170px; padding: 0px">
 <a href="#setup">FAQ</a><br/>
 <a href="#setup">Downloads</a><br/>
 <a href="#find">Data for find</a><br/>
@@ -12,7 +12,7 @@ How do professional software engineers debug computer programs? In an experiment
 <!--a href="artifact/">Use DBGBench</a><br/-->
 <a href="#cite">Learn More</a><br/>
 <!--<b><a href="artifact/">ESEC/FSE'17 AEC</a></b>--><br/>
-<a href="abstract.pdf"><img src="abstract.png" alt="DBGBench Abstract" style="width: 150px;"/></a></p>
+<a href="abstract.pdf"><img src="abstract.png" alt="DBGBench Abstract" style="width: 170px;"/></a></p>
 
 <p align="center"><img src="mainobjective.png" alt="Main Objectives" width="100%" /></p>
 <br/>
