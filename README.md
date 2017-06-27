@@ -1,7 +1,7 @@
 ## Summary
 How do professional software engineers debug computer programs? In an experiment with 27 real bugs that existed in several widely used programs, we invited 12 professional software engineers, who together spent one month on localizing, explaining, and fixing these bugs. This did not only allow us to study the various tools and strategies used to debug the same set of errors. We could also determine exactly which statements a developer would localize as faults, how a developer would diagnose and explain an error, and how a developer would fix an error – all of which software engineering researchers seek to automate. Until now, it has been difficult to evaluate the effectiveness and utility of automated debugging techniques without a user study. We publish the collected data, called DBGBENCH, to facilitate the effective evaluation of automated fault localization, diagnosis, and repair techniques w.r.t. the judgement of human experts.
 
-<p style="position:fixed; left: 50%; top: 200px; transform: translate(-545px, 0%); width: 200px; padding: 0px">
+<p style="position:fixed; left: 50%; top: 200px; transform: translate(-545px, 0%); width: 150px; padding: 0px">
 <a href="#setup">FAQ</a><br/>
 <a href="#setup">Downloads</a><br/>
 <a href="#find">Data for find</a><br/>
@@ -12,7 +12,7 @@ How do professional software engineers debug computer programs? In an experiment
 <!--a href="artifact/">Use DBGBench</a><br/-->
 <a href="#cite">Learn More</a><br/>
 <!--<b><a href="artifact/">ESEC/FSE'17 AEC</a></b>--><br/>
-<a href="abstract.pdf"><img src="abstract.png" alt="DBGBench Abstract" style="width: 200px;"/></a></p>
+<a href="abstract.pdf"><img src="abstract.png" alt="DBGBench Abstract" style="width: 150px;"/></a></p>
 
 <p align="center"><img src="mainobjective.png" alt="Main Objectives" width="100%" /></p>
 <br/>
@@ -38,10 +38,23 @@ In the following we provide the complete list of errors and their average debugg
 ### <a name="setup"></a>Setup and Infrastructure
 * **Download** the <a href="dbgbench.summary.pdf" target="_blank">benchmark summary</a> containing the complete list of errors, their average debugging time, difficulty, and patch correctness, human-generated explanations of the runtime actions leading to the error, and examples of correct and incorrect fixes, sorted according to average debugging time.
 * **Download** the <a href="dbgbench.raw.csv" target="_blank">complete raw data</a> containing for each debugging session (error, participant) the following data:
-  * BUG ID & Participant ID
-  * Provided Fault Locations, Bug diagnosis/Explanations & Patches
-  * Patch Plausibility, Correctness, and Fix Strategy
-  * Reasons for (In)correctness
+  * *Error ID* to identify error 
+  * *Participant ID* to identify participant
+  * *Timestamp* to follow participants accross errors
+  * *Fault Locations and Bug diagnosis* (Patches [here](patches/)) -- the main artifacts
+  * *Confidence* in the correctness of their diagnosis / patch
+  * *Difficulty* to diagnose / patch the error
+  * *Time* taken to diagnosis / patch the error
+  * *Improvement*: What could have helped to reduce the diagnosis / patch time?
+  * *Steps* taken to arrive at the diagnosis / patch
+  * *Tools* used to arrive at the diagnosis / patch
+  * *Problems* if they could not diagnose / patch the error
+  * *Automation*: Does the participant believe that diagnosis / patching of the error can be automated?
+  * *Automation Rationale*: Why does the participant believe so?
+  * *Code Familiarity* to assess code comprehension of the same code base over time
+  * *Diagnosis Techniques* used, such as trace-based, interactive debugging, slicing, ..
+  * *Ensuring Patch Correctness*: How did the participant ensure the correctness of the submitted patch?
+    
 * **Download** the <a href="https://github.com/dbgbench/dbgbench.github.io/archive/master.zip">complete cleaned data</a> (i.e., this repository).
 * **Download** the <a href="questionnaire.pdf" target="_blank">example questionnaire</a>.
 * **Download** the <a href="docker/" target="_blank">Docker virtual infrastructure</a>.
