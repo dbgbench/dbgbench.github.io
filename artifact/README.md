@@ -5,7 +5,7 @@ The `DBGBENCH` artifact provides materials drawn from a large-scale debugging st
 A comprehensive description of the shared dataset and infrastructure is provided in the 
 <a href="https://dbgbench.github.io">project website</a> In general, the provided artifact can be used for 
 several purposes that might well go beyond the scope of our ESEC/FSE 2017 paper. In the following, we will 
-explicitly outline two usage scenarios to help understand the scope of our work. Scroll down for *[step-by-step instructions](#step-by-step-instructions)*.
+explicitly outline two usage scenarios to help understand the scope of our work. Scroll down for *[step-by-step instructions](#step-by-step-instructions)*. Find out how to generate results and figures in our paper: [here](../paperResults). 
 
 
 ## Extending the DBGBENCH dataset
@@ -112,6 +112,7 @@ make
 
 * The entire **raw data** of `DBGBENCH` can be downloaded as a [self-containted CSV file](../dbgbench.raw.csv).
 * The entire **cleaned data** of `DBGBENCH` is available as [ZIP file](https://github.com/dbgbench/dbgbench.github.io/archive/master.zip) and as [Github Repository](https://github.com/dbgbench/dbgbench.github.io). Pull requests welcome!
-* A **summary** of the data can be downloaded as [PDF file](../dbgbench.summary.pdf)
+* A **summary** of the data can be downloaded as [PDF file](../dbgbench.summary.pdf).
+* You can **re-generate all figures** in the paper [here](../paperResults/).
 * Apart from the aforementioned use cases, researchers and professionals may take advantage of this dataset in ways that best match their research interests. 
 * [Find out how DBGBench can be used for the qualitative evaluation of automated repair techniques.](../repair)

@@ -2,19 +2,23 @@
 How do professional software engineers debug computer programs? In an experiment with 27 real bugs that existed in several widely used programs, we invited 12 professional software engineers, who together spent one month on localizing, explaining, and fixing these bugs. This did not only allow us to study the various tools and strategies used to debug the same set of errors. We could also determine exactly which statements a developer would localize as faults, how a developer would diagnose and explain an error, and how a developer would fix an error – all of which software engineering researchers seek to automate. Until now, it has been difficult to evaluate the effectiveness and utility of automated debugging techniques without a user study. We publish the collected data, called DBGBENCH, to facilitate the effective evaluation of automated fault localization, diagnosis, and repair techniques w.r.t. the judgement of human experts.
 
 <p style="position:fixed; left: 50%; top: 200px; transform: translate(-545px, 0%); width: 200px; padding: 0px">
+<a href="#setup">FAQ</a><br/>
 <a href="#setup">Downloads</a><br/>
-<a href="#find">DBGBench (find)</a><br/>
-<a href="#grep">DBGBench (grep)</a><br/>
+<a href="#find">Data for find</a><br/>
+<a href="#grep">Data for grep</a><br/>
+<a href="patches">Patch Data</a><br/>
+<a href="docker">Execute w/ Docker</a><br/>
+<a href="artifact">Use and Reproduce</a><br/>
 <!--a href="artifact/">Use DBGBench</a><br/-->
-<a href="#cite">Cite DBGBench</a><br/>
-<b><a href="artifact/">ESEC/FSE'17 AEC</a></b><br/>
+<a href="#cite">Learn More</a><br/>
+<!--<b><a href="artifact/">ESEC/FSE'17 AEC</a></b>--><br/>
 <a href="abstract.pdf"><img src="abstract.png" alt="DBGBench Abstract" style="width: 200px;"/></a></p>
 
 <p align="center"><img src="mainobjective.png" alt="Main Objectives" width="100%" /></p>
 <br/>
 
-## FAQ
-* <a href="artifact/">I am in the **ESEC/FSE'17 Artifact Evaluation Committee**. How do I navigate this artifact?</a>
+## <a name="faq"> FAQ
+* <a href="artifact/">I am in the **ESEC/FSE'17 AEC**. How do I navigate this artifact?</a>
 * <a href="artifact/">How can I evaluate my **automated fault localization** technique?</a>
 * <a href="artifact/">How can I evaluate my **automated bug diagnosis** technique?</a>
 * <a href="repair/">How can I evaluate my **automated repair** technique?</a>
@@ -91,10 +95,23 @@ GNU [grep](https://www.gnu.org/software/grep/manual/grep.html) is a command-line
 @inproceedings{dbgbench, 
   author = {B\"{o}hme, Marcel and Soremekun, Ezekiel Olamide and Chattopadhyay, Sudipta and Ugherughe, Emamurho and Zeller, Andreas}, 
   title = {Where is the Bug and How is it Fixed? An Experiment with Practitioners}, 
-  booktitle = {Proceedings of the Joint meeting of the European Software Engineering Conference and the ACM SIGSOFT Symposium on the Foundations of Software Engineering (ESEC/FSE) 2017}, 
-  series = {FSE 2017}, 
+  booktitle = {Proceedings of the 11th Joint meeting of the European Software Engineering Conference and the ACM SIGSOFT Symposium on the Foundations of Software Engineering}, 
+  series = {ESEC/FSE 2017}, 
   pages = {1-11}, 
-  year = {2017}
+  year = {2017},
+}
+```
+<br/>
+
+DBGBench is based on [CoREBench](https://www.comp.nus.edu.sg/~release/corebench/), a collection of 70 real regression errors in four open source projects (coreutils, findutils, grep, and make). Since DBGBench reuses and extends many results from CoREBench (e.g., infrastructure, developer bug reports, and developer patches), we recommend that both references be cited.
+```
+@inproceedings{corebench,
+ author = {B\"{o}hme, Marcel and Roychoudhury, Abhik},
+ title = {CoREBench: Studying Complexity of Regression Errors},
+ booktitle = {Proceedings of the 23rd ACM/SIGSOFT International Symposium on Software Testing and Analysis},
+ series = {ISSTA 2014},
+ pages = {105-115},
+ year = {2014},
 }
 ```
 
@@ -102,11 +119,11 @@ GNU [grep](https://www.gnu.org/software/grep/manual/grep.html) is a command-line
 * <a href="https://www.comp.nus.edu.sg/~mboehme" target="_blank">Marcel B&ouml;hme</a>, National University of Singapore, Singapore
 * <a href="https://www.st.cs.uni-saarland.de/~soremekun/" target="_blank">Ezekiel Olamide Soremekun</a>, Saarland University, Germany
 * <a href="https://sudiptac.bitbucket.io" target="_blank">Sudipta Chattopadhyay</a>, Singapore University of Technology and Design, Singapore
-* <a href="https://www.st.cs.uni-saarland.de" target="_blank">Emamurho Ugherughe</a>, Saarland University, Germany
+* <a href="https://ng.linkedin.com/in/emamurho-ugherughe-93b97a44" target="_blank">Emamurho Ugherughe</a>, SAP Berlin, Germany
 * <a href="https://www.st.cs.uni-saarland.de/~zeller" target="_blank">Andreas Zeller</a>, Saarland University, Germany
 * Read our [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH.
 * Read our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
 
 ## Links
-* https://www.comp.nus.edu.sg/~release/corebench
-* http://program-repair.org/benchmarks
+* [https://www.comp.nus.edu.sg/~release/corebench](https://www.comp.nus.edu.sg/~release/corebench)
+* [http://program-repair.org/benchmarks](http://program-repair.org/benchmarks)
