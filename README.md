@@ -49,7 +49,7 @@ In the following we provide the complete list of errors and their average debugg
   * *Steps* taken to arrive at the diagnosis / patch
   * *Tools* used to arrive at the diagnosis / patch
   * *Problems* if they could not diagnose / patch the error
-  * *Automation*: Does participant believe in automation of diagnosing / patching the error?
+  * *Automation*: Does he/she believe in automation of diagnosing / patching the error?
   * *Automation Rationale*: Why does the participant believe so?
   * *Code Familiarity* to assess code comprehension of the same code base over time
   * *Diagnosis Techniques* used, such as trace-based, interactive debugging, slicing, ..
