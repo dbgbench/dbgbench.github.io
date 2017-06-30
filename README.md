@@ -2,22 +2,22 @@
 How do professional software engineers debug computer programs? In an experiment with 27 real bugs that existed in several widely used programs, we invited 12 professional software engineers, who together spent one month on localizing, explaining, and fixing these bugs. This did not only allow us to study the various tools and strategies used to debug the same set of errors. We could also determine exactly which statements a developer would localize as faults, how a developer would diagnose and explain an error, and how a developer would fix an error – all of which software engineering researchers seek to automate. Until now, it has been difficult to evaluate the effectiveness and utility of automated debugging techniques without a user study. We publish the collected data, called DBGBENCH, to facilitate the effective evaluation of automated fault localization, diagnosis, and repair techniques w.r.t. the judgement of human experts.
 
 <p style="position:fixed; left: 50%; top: 200px; transform: translate(-515px, 0%); width: 170px; padding: 0px">
-<a href="#setup">FAQ</a><br/>
+<a href="#faq">FAQ</a><br/>
 <a href="#setup">Downloads</a><br/>
 <a href="#find">Data for find</a><br/>
 <a href="#grep">Data for grep</a><br/>
 <a href="patches">Patch Data</a><br/>
 <a href="docker">Execute w/ Docker</a><br/>
-<a href="artifact">Use and Reproduce</a><br/>
+<a href="artifact">Use and reproduce</a><br/>
 <!--a href="artifact/">Use DBGBench</a><br/-->
-<a href="#cite">Learn More</a><br/>
+<a href="#cite">Learn more & Cite us</a><br/>
 <!--<b><a href="artifact/">ESEC/FSE'17 AEC</a></b>--><br/>
 <a href="abstract.pdf"><img src="abstract.png" alt="DBGBench Abstract" style="width: 170px;"/></a></p>
 
 <p align="center"><img src="mainobjective.png" alt="Main Objectives" width="100%" /></p>
 <br/>
 
-## <a name="faq"> FAQ
+## <a name="faq"></a> FAQ
 * <a href="artifact/">I am in the **ESEC/FSE'17 AEC**. How do I navigate this artifact?</a>
 * <a href="artifact/">How can I evaluate my **automated fault localization** technique?</a>
 * <a href="artifact/">How can I evaluate my **automated bug diagnosis** technique?</a>
@@ -60,7 +60,7 @@ In the following we provide the complete list of errors and their average debugg
 * **Download** the <a href="docker/" target="_blank">Docker virtual infrastructure</a>.
 * **Download** the <a href="https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U" target="_blank">tutorial material</a>, including slides, videos, and readme files.
 * **Download** <a href="https://github.com/thierry-tct/Tests_CPA_ICSE" target="_blank">more test cases</a> for DBGBench.<br/>(Credits: <a href="https://sites.google.com/site/mikepapadakis/ICSE17.pdf?attredirects=0&d=1" target="_blank">Titcheu Chekam Thierry, Mike Papadakis, Yves Le Traon, and Mark Harman</a>)!
-* **Read** our [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH.
+* **Read** our [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH. [Here](#cite)'s how to cite us.
 * **Read** our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
 * **Contribute** by <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">forking</a> DBGBench and creating a <a href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/" target="_blank">pull request</a>.
 
