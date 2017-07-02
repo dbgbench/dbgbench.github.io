@@ -16,5 +16,5 @@ Using DBGBench, you can significantly reduce the time and effort required for us
 ## Empirical evaluation
 DBGBench is a first milestone towards the *realistic evaluation* of tools in software engineering that is grounded in practice. DBGBench can thus be used as necessary reality check for in-depth studies. For now, we would strongly suggest to also utilize other benchmarks, such as <a href="www.comp.nus.edu.sg/~release/corebench/" target="_blank">CoREBench</a> or <a href="https://github.com/rjust/defects4j" target="_blank">Defects4J</a>, for the *empirical evaluation*. Going forward, we hope that more researchers will produce similar realistic benchmarks which take the practitioner into account. To this end, we also publish our battle-tested, formal experiment procedure, effective strategies to mitigate common pitfalls, and all our material.
 
-* Find empirical benchmarks:  <a href="program-repair.org/benchmarks.html" target="_blank"></a>
+* Find empirical benchmarks:  <a href="program-repair.org/benchmarks.html" target="_blank">program-repair.org/benchmarks.html</a>
 * Contribute by <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">forking</a> DBGBench and creating a <a href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/" target="_blank">pull request</a>.
