@@ -12,7 +12,7 @@ How do professional software engineers debug computer programs? In an experiment
 <!--a href="artifact/">Use DBGBench</a><br/-->
 <a href="#cite">Learn more & Cite us</a><br/>
 <!--<b><a href="artifact/">ESEC/FSE'17 AEC</a></b>--><br/>
-<a href="abstract.pdf"><img src="abstract.png" alt="DBGBench Abstract" style="width: 170px;"/></a></p>
+<a href="https://www.comp.nus.edu.sg/~mboehme/paper/FSE17.pdf" target="_blank"><img src="abstract.png" alt="DBGBench Paper" style="width: 170px;"/></a></p>
 
 <p align="center"><img src="mainobjective.png" alt="Main Objectives" width="100%" /></p>
 <br/>
@@ -60,7 +60,7 @@ In the following we provide the complete list of errors and their average debugg
 * **Download** the <a href="docker/" target="_blank">Docker virtual infrastructure</a>.
 * **Download** the <a href="https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U" target="_blank">tutorial material</a>, including slides, videos, and readme files.
 * **Download** <a href="https://github.com/thierry-tct/Tests_CPA_ICSE" target="_blank">more test cases</a> for DBGBench.<br/>(Credits: <a href="https://sites.google.com/site/mikepapadakis/ICSE17.pdf?attredirects=0&d=1" target="_blank">Titcheu Chekam Thierry, Mike Papadakis, Yves Le Traon, and Mark Harman</a>)!
-* **Read** our [full paper](notlinked) (**@ESEC/FSE'17**) to find out more about DBGBENCH. [Here](#cite)'s how to cite us.
+* **Read** our [full paper](https://www.comp.nus.edu.sg/~mboehme/paper/FSE17.pdf) (**@ESEC/FSE'17**) to find out more about DBGBENCH. [Here](#cite)'s how to cite us.
 * **Read** our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
 * **Contribute** by <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">forking</a> DBGBench and creating a <a href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/" target="_blank">pull request</a>.
 
