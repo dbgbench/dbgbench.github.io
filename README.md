@@ -11,7 +11,6 @@ How do professional software engineers debug computer programs? In an experiment
 <a href="artifact">Use and reproduce</a><br/>
 <!--a href="artifact/">Use DBGBench</a><br/-->
 <a href="#cite">Learn more & Cite us</a><br/>
-<!--<b><a href="artifact/">ESEC/FSE'17 AEC</a></b>--><br/>
 <a href="https://www.comp.nus.edu.sg/~mboehme/paper/FSE17.pdf" target="_blank"><img src="abstract.png" alt="DBGBench Paper" style="width: 170px;"/></a></p>
 
 <p align="center"><img src="mainobjective.png" alt="Main Objectives" width="100%" /></p>
