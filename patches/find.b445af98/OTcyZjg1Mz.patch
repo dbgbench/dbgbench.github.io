@@ -1,3 +1,8 @@
+diff --git a/find/pred.c b/find/pred.c
+index 27db863..eea102d 100644
+--- a/find/pred.c
++++ b/find/pred.c
+@@ -1723,7 +1723,11 @@ pred_type (const char *pathname, struct stat *stat_buf, struct predicate *pred_ptr)
   if (state.have_stat)
       mode = stat_buf->st_mode;
    else
