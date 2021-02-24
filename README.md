@@ -11,7 +11,7 @@ How do professional software engineers debug computer programs? In an experiment
 <a href="artifact">Use and reproduce</a><br/>
 <!--a href="artifact/">Use DBGBench</a><br/-->
 <a href="#cite">Learn more & Cite us</a><br/>
-<a href="https://www.comp.nus.edu.sg/~mboehme/paper/FSE17.pdf" target="_blank"><img src="abstract.png" alt="DBGBench Paper" style="width: 170px;"/></a></p>
+<a href="https://mboehme.github.io/paper/FSE17.pdf" target="_blank"><img src="abstract.png" alt="DBGBench Paper" style="width: 170px;"/></a></p>
 
 <p align="center"><img src="mainobjective.png" alt="Main Objectives" width="100%" /></p>
 <br/>
@@ -59,7 +59,7 @@ In the following we provide the complete list of errors and their average debugg
 * **Download** the <a href="docker/" target="_blank">Docker virtual infrastructure</a>.
 * **Download** the <a href="https://drive.google.com/open?id=0Bx6dkN27OssKVWJYZGdXcWdWQ0U" target="_blank">tutorial material</a>, including slides, videos, and readme files.
 * **Download** <a href="https://github.com/thierry-tct/Tests_CPA_ICSE" target="_blank">more test cases</a> for DBGBench.<br/>(Credits: <a href="https://sites.google.com/site/mikepapadakis/ICSE17.pdf?attredirects=0&d=1" target="_blank">Titcheu Chekam Thierry, Mike Papadakis, Yves Le Traon, and Mark Harman</a>)!
-* **Read** our [full paper](https://www.comp.nus.edu.sg/~mboehme/paper/FSE17.pdf) (**@ESEC/FSE'17**). [Here](#cite)'s how to cite us.
+* **Read** our [full paper](https://mboehme.github.io/paper/FSE17.pdf) (**@ESEC/FSE'17**). [Here](#cite)'s how to cite us.
 * **Read** our extended <a href="abstract.pdf" target="_blank">abstract</a> or <a href="poster.pdf" target="_blank">poster</a> (**@ICSE'17**) to find out more about DBGBENCH.
 * **Contribute** by <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">forking</a> DBGBench and creating a <a href="https://help.github.com/articles/creating-a-pull-request-from-a-fork/" target="_blank">pull request</a>.
 
@@ -130,7 +130,7 @@ DBGBench is based on [CoREBench](https://www.comp.nus.edu.sg/~release/corebench/
 ## <a name="learn"></a>Who are we?
 This work was initiated at the end of 2014 over lunch when we argued about reasons for the prevailing chasm between research and practice in automated debugging, and the surprising lack of user studies in software engineering at large. Of course then, we set out to get our own hands dirty. Rather than evaluating a specific debugging technique, we wanted to investigate the manual debugging process, and more importantly provide a benchmark that can serve as *reality check* for any novel debugging technique. It took our team more than two years of carefully planning, preparing, recruiting, and evaluating until we could finally publish the [DBGBench paper](https://www.comp.nus.edu.sg/~mboehme/paper/FSE17.pdf). Each of the team members was for a large part of the study affiliated with Saarland University, Germany.
 
-* <a href="https://www.comp.nus.edu.sg/~mboehme" target="_blank">Marcel B&ouml;hme</a>, National University of Singapore, Singapore
+* <a href="https://mboehme.github.io/" target="_blank">Marcel B&ouml;hme</a>, Monash University, Australia
 * <a href="https://www.st.cs.uni-saarland.de/~soremekun/" target="_blank">Ezekiel Olamide Soremekun</a>, Saarland University, Germany
 * <a href="https://sudiptac.bitbucket.io" target="_blank">Sudipta Chattopadhyay</a>, Singapore University of Technology and Design, Singapore
 * <a href="https://ng.linkedin.com/in/emamurho-ugherughe-93b97a44" target="_blank">Emamurho Ugherughe</a>, SAP Berlin, Germany
